@@ -3,10 +3,10 @@ name = "hostafrica_sdk_python"
 version = "1.0.0"
 description = "HostAfricaApi"
 authors = [
-  {name = "HostAfrica"},
+  {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
 ]
 readme = "README.md"
-keywords = ["HostAfrica", "VPS", "API", "SDK"]
+keywords = ["OpenAPI", "OpenAPI-Generator", "HostAfricaApi"]
 requires-python = ">=3.9"
 
 dependencies = [
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/hostafrica/sdk-python"
+Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 
 [tool.poetry]
 requires-poetry = ">=2.0"
@@ -25,11 +25,10 @@ requires-poetry = ">=2.0"
 [tool.poetry.group.dev.dependencies]
 pytest = ">= 7.2.1"
 pytest-cov = ">= 2.8.1"
+tox = ">= 3.9.0"
+flake8 = ">= 4.0.0"
 types-python-dateutil = ">= 2.8.19.14"
 mypy = ">= 1.5"
-
-[tool.flake8]
-max-line-length = 99
 
 
 [build-system]

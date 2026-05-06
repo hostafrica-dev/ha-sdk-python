@@ -6,6 +6,10 @@ setup.py
 setup.cfg
 requirements.txt
 
+# Manually maintained - generator must not overwrite
+pyproject.toml
+.gitignore
+
 # Generator helper script - not needed
 git_push.sh
 
