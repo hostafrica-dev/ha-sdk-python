@@ -1,0 +1,20 @@
+# Files to skip during SDK regeneration.
+# This file is respected by openapi-generator and will never be overwritten itself.
+
+# Legacy/redundant packaging files (replaced by pyproject.toml)
+setup.py
+setup.cfg
+requirements.txt
+
+# Generator helper script - not needed
+git_push.sh
+
+# Test tooling - stub tests provide no value
+tox.ini
+test-requirements.txt
+test/
+
+# CI configs - managed separately, not generated
+.github/
+.gitlab-ci.yml
+.travis.yml
