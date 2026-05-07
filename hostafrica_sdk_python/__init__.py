@@ -38,7 +38,6 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    "AllowedFeaturesResponseData",
     "BackupCreateResponseData",
     "BackupCreationInfo",
     "BackupItem",
@@ -121,8 +120,6 @@ __all__ = [
     "GetVpsDetailsResponseContent",
     "InternalServiceErrorResponseContent",
     "InvalidStateErrorResponseContent",
-    "ListAllowedFeaturesRequestContent",
-    "ListAllowedFeaturesResponseContent",
     "ListBackupSchedulesRequestContent",
     "ListBackupSchedulesResponseContent",
     "ListBackupsRequestContent",
@@ -199,8 +196,6 @@ __all__ = [
     "StartVpsResponseContent",
     "StopVpsRequestContent",
     "StopVpsResponseContent",
-    "SuspendVpsRequestContent",
-    "SuspendVpsResponseContent",
     "TerminateVpsRequestContent",
     "TerminateVpsResponseContent",
     "TooManyRequestsErrorResponseContent",
@@ -208,8 +203,6 @@ __all__ = [
     "TriggerReinstallResponseContent",
     "TriggerReinstallResponseData",
     "UnauthorizedErrorResponseContent",
-    "UnsuspendVpsRequestContent",
-    "UnsuspendVpsResponseContent",
     "UpdateFirewallRuleRequestContent",
     "UpdateFirewallRuleResponseContent",
     "UpdateNotificationRequestContent",
@@ -283,7 +276,6 @@ from hostafrica_sdk_python.exceptions import ApiAttributeError as ApiAttributeEr
 from hostafrica_sdk_python.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from hostafrica_sdk_python.models.allowed_features_response_data import AllowedFeaturesResponseData as AllowedFeaturesResponseData
 from hostafrica_sdk_python.models.backup_create_response_data import BackupCreateResponseData as BackupCreateResponseData
 from hostafrica_sdk_python.models.backup_creation_info import BackupCreationInfo as BackupCreationInfo
 from hostafrica_sdk_python.models.backup_item import BackupItem as BackupItem
@@ -366,8 +358,6 @@ from hostafrica_sdk_python.models.get_vps_details_request_content import GetVpsD
 from hostafrica_sdk_python.models.get_vps_details_response_content import GetVpsDetailsResponseContent as GetVpsDetailsResponseContent
 from hostafrica_sdk_python.models.internal_service_error_response_content import InternalServiceErrorResponseContent as InternalServiceErrorResponseContent
 from hostafrica_sdk_python.models.invalid_state_error_response_content import InvalidStateErrorResponseContent as InvalidStateErrorResponseContent
-from hostafrica_sdk_python.models.list_allowed_features_request_content import ListAllowedFeaturesRequestContent as ListAllowedFeaturesRequestContent
-from hostafrica_sdk_python.models.list_allowed_features_response_content import ListAllowedFeaturesResponseContent as ListAllowedFeaturesResponseContent
 from hostafrica_sdk_python.models.list_backup_schedules_request_content import ListBackupSchedulesRequestContent as ListBackupSchedulesRequestContent
 from hostafrica_sdk_python.models.list_backup_schedules_response_content import ListBackupSchedulesResponseContent as ListBackupSchedulesResponseContent
 from hostafrica_sdk_python.models.list_backups_request_content import ListBackupsRequestContent as ListBackupsRequestContent
@@ -444,8 +434,6 @@ from hostafrica_sdk_python.models.start_vps_request_content import StartVpsReque
 from hostafrica_sdk_python.models.start_vps_response_content import StartVpsResponseContent as StartVpsResponseContent
 from hostafrica_sdk_python.models.stop_vps_request_content import StopVpsRequestContent as StopVpsRequestContent
 from hostafrica_sdk_python.models.stop_vps_response_content import StopVpsResponseContent as StopVpsResponseContent
-from hostafrica_sdk_python.models.suspend_vps_request_content import SuspendVpsRequestContent as SuspendVpsRequestContent
-from hostafrica_sdk_python.models.suspend_vps_response_content import SuspendVpsResponseContent as SuspendVpsResponseContent
 from hostafrica_sdk_python.models.terminate_vps_request_content import TerminateVpsRequestContent as TerminateVpsRequestContent
 from hostafrica_sdk_python.models.terminate_vps_response_content import TerminateVpsResponseContent as TerminateVpsResponseContent
 from hostafrica_sdk_python.models.too_many_requests_error_response_content import TooManyRequestsErrorResponseContent as TooManyRequestsErrorResponseContent
@@ -453,8 +441,6 @@ from hostafrica_sdk_python.models.trigger_reinstall_request_content import Trigg
 from hostafrica_sdk_python.models.trigger_reinstall_response_content import TriggerReinstallResponseContent as TriggerReinstallResponseContent
 from hostafrica_sdk_python.models.trigger_reinstall_response_data import TriggerReinstallResponseData as TriggerReinstallResponseData
 from hostafrica_sdk_python.models.unauthorized_error_response_content import UnauthorizedErrorResponseContent as UnauthorizedErrorResponseContent
-from hostafrica_sdk_python.models.unsuspend_vps_request_content import UnsuspendVpsRequestContent as UnsuspendVpsRequestContent
-from hostafrica_sdk_python.models.unsuspend_vps_response_content import UnsuspendVpsResponseContent as UnsuspendVpsResponseContent
 from hostafrica_sdk_python.models.update_firewall_rule_request_content import UpdateFirewallRuleRequestContent as UpdateFirewallRuleRequestContent
 from hostafrica_sdk_python.models.update_firewall_rule_response_content import UpdateFirewallRuleResponseContent as UpdateFirewallRuleResponseContent
 from hostafrica_sdk_python.models.update_notification_request_content import UpdateNotificationRequestContent as UpdateNotificationRequestContent

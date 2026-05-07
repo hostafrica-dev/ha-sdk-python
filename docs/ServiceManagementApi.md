@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_catalogue**](ServiceManagementApi.md#get_catalogue) | **POST** /vps/get-catalogue | 
 [**list_orders**](ServiceManagementApi.md#list_orders) | **POST** /vps/list-orders | 
 [**retry_payment**](ServiceManagementApi.md#retry_payment) | **POST** /vps/retry-payment | 
+[**terminate_vps**](ServiceManagementApi.md#terminate_vps) | **POST** /vps/terminate | 
 [**validate_pricing**](ServiceManagementApi.md#validate_pricing) | **POST** /vps/validate-pricing | 
 
 
@@ -333,6 +334,90 @@ Name | Type | Description  | Notes
 **403** | ForbiddenError 403 response |  -  |
 **404** | ResourceNotFoundError 404 response |  -  |
 **422** | ValidationError 422 response |  -  |
+**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+**500** | InternalServiceError 500 response |  -  |
+**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **terminate_vps**
+> TerminateVpsResponseContent terminate_vps(terminate_vps_request_content)
+
+[Under development] Terminates a VPS service through WHMCS. This action is irreversible
+
+### Example
+
+* Bearer Authentication (smithy.api.httpBearerAuth):
+
+```python
+import hostafrica_sdk_python
+from hostafrica_sdk_python.models.terminate_vps_request_content import TerminateVpsRequestContent
+from hostafrica_sdk_python.models.terminate_vps_response_content import TerminateVpsResponseContent
+from hostafrica_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.hostafrica.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = hostafrica_sdk_python.Configuration(
+    host = "https://api.hostafrica.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: smithy.api.httpBearerAuth
+configuration = hostafrica_sdk_python.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = hostafrica_sdk_python.ServiceManagementApi(api_client)
+    terminate_vps_request_content = hostafrica_sdk_python.TerminateVpsRequestContent() # TerminateVpsRequestContent | 
+
+    try:
+        api_response = api_instance.terminate_vps(terminate_vps_request_content)
+        print("The response of ServiceManagementApi->terminate_vps:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ServiceManagementApi->terminate_vps: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **terminate_vps_request_content** | [**TerminateVpsRequestContent**](TerminateVpsRequestContent.md)|  | 
+
+### Return type
+
+[**TerminateVpsResponseContent**](TerminateVpsResponseContent.md)
+
+### Authorization
+
+[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | TerminateVps 200 response |  -  |
+**400** | BadRequestError 400 response |  -  |
+**401** | UnauthorizedError 401 response |  -  |
+**403** | ForbiddenError 403 response |  -  |
+**404** | ResourceNotFoundError 404 response |  -  |
+**409** | InvalidStateError 409 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |
 **503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |

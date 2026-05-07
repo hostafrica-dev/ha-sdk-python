@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 *ServiceManagementApi* | [**get_catalogue**](docs/ServiceManagementApi.md#get_catalogue) | **POST** /vps/get-catalogue | 
 *ServiceManagementApi* | [**list_orders**](docs/ServiceManagementApi.md#list_orders) | **POST** /vps/list-orders | 
 *ServiceManagementApi* | [**retry_payment**](docs/ServiceManagementApi.md#retry_payment) | **POST** /vps/retry-payment | 
+*ServiceManagementApi* | [**terminate_vps**](docs/ServiceManagementApi.md#terminate_vps) | **POST** /vps/terminate | 
 *ServiceManagementApi* | [**validate_pricing**](docs/ServiceManagementApi.md#validate_pricing) | **POST** /vps/validate-pricing | 
 *SnapshotsApi* | [**create_snapshot**](docs/SnapshotsApi.md#create_snapshot) | **POST** /vps/create-snapshot | 
 *SnapshotsApi* | [**delete_snapshot**](docs/SnapshotsApi.md#delete_snapshot) | **POST** /vps/delete-snapshot | 
@@ -140,22 +141,17 @@ Class | Method | HTTP request | Description
 *VPSManagementApi* | [**get_os_template_details**](docs/VPSManagementApi.md#get_os_template_details) | **POST** /vps/get-os-template-details | 
 *VPSManagementApi* | [**get_vps_config**](docs/VPSManagementApi.md#get_vps_config) | **POST** /vps/get-config | 
 *VPSManagementApi* | [**get_vps_details**](docs/VPSManagementApi.md#get_vps_details) | **POST** /vps/get-details | 
-*VPSManagementApi* | [**list_allowed_features**](docs/VPSManagementApi.md#list_allowed_features) | **POST** /vps/list-allowed-features | 
 *VPSManagementApi* | [**list_isos**](docs/VPSManagementApi.md#list_isos) | **POST** /vps/list-isos | 
 *VPSManagementApi* | [**list_os_templates**](docs/VPSManagementApi.md#list_os_templates) | **POST** /vps/list-os-templates | 
 *VPSManagementApi* | [**list_reinstall_os**](docs/VPSManagementApi.md#list_reinstall_os) | **POST** /vps/list-reinstall-images | 
 *VPSManagementApi* | [**list_vps_services**](docs/VPSManagementApi.md#list_vps_services) | **POST** /vps/list-vps-services | 
 *VPSManagementApi* | [**mount_iso**](docs/VPSManagementApi.md#mount_iso) | **POST** /vps/mount-iso | 
-*VPSManagementApi* | [**suspend_vps**](docs/VPSManagementApi.md#suspend_vps) | **POST** /vps/suspend | 
-*VPSManagementApi* | [**terminate_vps**](docs/VPSManagementApi.md#terminate_vps) | **POST** /vps/terminate | 
 *VPSManagementApi* | [**trigger_reinstall**](docs/VPSManagementApi.md#trigger_reinstall) | **POST** /vps/trigger-reinstall | 
-*VPSManagementApi* | [**unsuspend_vps**](docs/VPSManagementApi.md#unsuspend_vps) | **POST** /vps/unsuspend | 
 *VPSManagementApi* | [**update_vps_config**](docs/VPSManagementApi.md#update_vps_config) | **POST** /vps/update-config | 
 
 
 ## Documentation For Models
 
- - [AllowedFeaturesResponseData](docs/AllowedFeaturesResponseData.md)
  - [BackupCreateResponseData](docs/BackupCreateResponseData.md)
  - [BackupCreationInfo](docs/BackupCreationInfo.md)
  - [BackupItem](docs/BackupItem.md)
@@ -238,8 +234,6 @@ Class | Method | HTTP request | Description
  - [GetVpsDetailsResponseContent](docs/GetVpsDetailsResponseContent.md)
  - [InternalServiceErrorResponseContent](docs/InternalServiceErrorResponseContent.md)
  - [InvalidStateErrorResponseContent](docs/InvalidStateErrorResponseContent.md)
- - [ListAllowedFeaturesRequestContent](docs/ListAllowedFeaturesRequestContent.md)
- - [ListAllowedFeaturesResponseContent](docs/ListAllowedFeaturesResponseContent.md)
  - [ListBackupSchedulesRequestContent](docs/ListBackupSchedulesRequestContent.md)
  - [ListBackupSchedulesResponseContent](docs/ListBackupSchedulesResponseContent.md)
  - [ListBackupsRequestContent](docs/ListBackupsRequestContent.md)
@@ -316,8 +310,6 @@ Class | Method | HTTP request | Description
  - [StartVpsResponseContent](docs/StartVpsResponseContent.md)
  - [StopVpsRequestContent](docs/StopVpsRequestContent.md)
  - [StopVpsResponseContent](docs/StopVpsResponseContent.md)
- - [SuspendVpsRequestContent](docs/SuspendVpsRequestContent.md)
- - [SuspendVpsResponseContent](docs/SuspendVpsResponseContent.md)
  - [TerminateVpsRequestContent](docs/TerminateVpsRequestContent.md)
  - [TerminateVpsResponseContent](docs/TerminateVpsResponseContent.md)
  - [TooManyRequestsErrorResponseContent](docs/TooManyRequestsErrorResponseContent.md)
@@ -325,8 +317,6 @@ Class | Method | HTTP request | Description
  - [TriggerReinstallResponseContent](docs/TriggerReinstallResponseContent.md)
  - [TriggerReinstallResponseData](docs/TriggerReinstallResponseData.md)
  - [UnauthorizedErrorResponseContent](docs/UnauthorizedErrorResponseContent.md)
- - [UnsuspendVpsRequestContent](docs/UnsuspendVpsRequestContent.md)
- - [UnsuspendVpsResponseContent](docs/UnsuspendVpsResponseContent.md)
  - [UpdateFirewallRuleRequestContent](docs/UpdateFirewallRuleRequestContent.md)
  - [UpdateFirewallRuleResponseContent](docs/UpdateFirewallRuleResponseContent.md)
  - [UpdateNotificationRequestContent](docs/UpdateNotificationRequestContent.md)
