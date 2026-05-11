@@ -45,6 +45,8 @@ __all__ = [
     "BackupSchedule",
     "BackupScheduleListResponseData",
     "BadRequestErrorResponseContent",
+    "CancelVpsRequestContent",
+    "CancelVpsResponseContent",
     "CatalogueConfigOption",
     "CatalogueConfigSuboption",
     "CatalogueCurrency",
@@ -196,8 +198,6 @@ __all__ = [
     "StartVpsResponseContent",
     "StopVpsRequestContent",
     "StopVpsResponseContent",
-    "TerminateVpsRequestContent",
-    "TerminateVpsResponseContent",
     "TooManyRequestsErrorResponseContent",
     "TriggerReinstallRequestContent",
     "TriggerReinstallResponseContent",
@@ -283,6 +283,8 @@ from hostafrica_sdk_python.models.backup_mode import BackupMode as BackupMode
 from hostafrica_sdk_python.models.backup_schedule import BackupSchedule as BackupSchedule
 from hostafrica_sdk_python.models.backup_schedule_list_response_data import BackupScheduleListResponseData as BackupScheduleListResponseData
 from hostafrica_sdk_python.models.bad_request_error_response_content import BadRequestErrorResponseContent as BadRequestErrorResponseContent
+from hostafrica_sdk_python.models.cancel_vps_request_content import CancelVpsRequestContent as CancelVpsRequestContent
+from hostafrica_sdk_python.models.cancel_vps_response_content import CancelVpsResponseContent as CancelVpsResponseContent
 from hostafrica_sdk_python.models.catalogue_config_option import CatalogueConfigOption as CatalogueConfigOption
 from hostafrica_sdk_python.models.catalogue_config_suboption import CatalogueConfigSuboption as CatalogueConfigSuboption
 from hostafrica_sdk_python.models.catalogue_currency import CatalogueCurrency as CatalogueCurrency
@@ -434,8 +436,6 @@ from hostafrica_sdk_python.models.start_vps_request_content import StartVpsReque
 from hostafrica_sdk_python.models.start_vps_response_content import StartVpsResponseContent as StartVpsResponseContent
 from hostafrica_sdk_python.models.stop_vps_request_content import StopVpsRequestContent as StopVpsRequestContent
 from hostafrica_sdk_python.models.stop_vps_response_content import StopVpsResponseContent as StopVpsResponseContent
-from hostafrica_sdk_python.models.terminate_vps_request_content import TerminateVpsRequestContent as TerminateVpsRequestContent
-from hostafrica_sdk_python.models.terminate_vps_response_content import TerminateVpsResponseContent as TerminateVpsResponseContent
 from hostafrica_sdk_python.models.too_many_requests_error_response_content import TooManyRequestsErrorResponseContent as TooManyRequestsErrorResponseContent
 from hostafrica_sdk_python.models.trigger_reinstall_request_content import TriggerReinstallRequestContent as TriggerReinstallRequestContent
 from hostafrica_sdk_python.models.trigger_reinstall_response_content import TriggerReinstallResponseContent as TriggerReinstallResponseContent

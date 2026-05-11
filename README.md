@@ -126,11 +126,11 @@ Class | Method | HTTP request | Description
 *SecurityApi* | [**get_private_ssh_key**](docs/SecurityApi.md#get_private_ssh_key) | **POST** /vps/get-private-ssh-keys | 
 *SecurityApi* | [**get_public_ssh_key**](docs/SecurityApi.md#get_public_ssh_key) | **POST** /vps/get-public-ssh-keys | 
 *SecurityApi* | [**update_ssh_keys**](docs/SecurityApi.md#update_ssh_keys) | **POST** /vps/update-ssh-keys | 
+*ServiceManagementApi* | [**cancel_vps**](docs/ServiceManagementApi.md#cancel_vps) | **POST** /vps/cancel | 
 *ServiceManagementApi* | [**create_order**](docs/ServiceManagementApi.md#create_order) | **POST** /vps/create-order | 
 *ServiceManagementApi* | [**get_catalogue**](docs/ServiceManagementApi.md#get_catalogue) | **POST** /vps/get-catalogue | 
 *ServiceManagementApi* | [**list_orders**](docs/ServiceManagementApi.md#list_orders) | **POST** /vps/list-orders | 
 *ServiceManagementApi* | [**retry_payment**](docs/ServiceManagementApi.md#retry_payment) | **POST** /vps/retry-payment | 
-*ServiceManagementApi* | [**terminate_vps**](docs/ServiceManagementApi.md#terminate_vps) | **POST** /vps/terminate | 
 *ServiceManagementApi* | [**validate_pricing**](docs/ServiceManagementApi.md#validate_pricing) | **POST** /vps/validate-pricing | 
 *SnapshotsApi* | [**create_snapshot**](docs/SnapshotsApi.md#create_snapshot) | **POST** /vps/create-snapshot | 
 *SnapshotsApi* | [**delete_snapshot**](docs/SnapshotsApi.md#delete_snapshot) | **POST** /vps/delete-snapshot | 
@@ -159,6 +159,8 @@ Class | Method | HTTP request | Description
  - [BackupSchedule](docs/BackupSchedule.md)
  - [BackupScheduleListResponseData](docs/BackupScheduleListResponseData.md)
  - [BadRequestErrorResponseContent](docs/BadRequestErrorResponseContent.md)
+ - [CancelVpsRequestContent](docs/CancelVpsRequestContent.md)
+ - [CancelVpsResponseContent](docs/CancelVpsResponseContent.md)
  - [CatalogueConfigOption](docs/CatalogueConfigOption.md)
  - [CatalogueConfigSuboption](docs/CatalogueConfigSuboption.md)
  - [CatalogueCurrency](docs/CatalogueCurrency.md)
@@ -310,8 +312,6 @@ Class | Method | HTTP request | Description
  - [StartVpsResponseContent](docs/StartVpsResponseContent.md)
  - [StopVpsRequestContent](docs/StopVpsRequestContent.md)
  - [StopVpsResponseContent](docs/StopVpsResponseContent.md)
- - [TerminateVpsRequestContent](docs/TerminateVpsRequestContent.md)
- - [TerminateVpsResponseContent](docs/TerminateVpsResponseContent.md)
  - [TooManyRequestsErrorResponseContent](docs/TooManyRequestsErrorResponseContent.md)
  - [TriggerReinstallRequestContent](docs/TriggerReinstallRequestContent.md)
  - [TriggerReinstallResponseContent](docs/TriggerReinstallResponseContent.md)
