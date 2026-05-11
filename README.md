@@ -138,11 +138,9 @@ Class | Method | HTTP request | Description
 *SnapshotsApi* | [**rollback_snapshot**](docs/SnapshotsApi.md#rollback_snapshot) | **POST** /vps/rollback-snapshot | 
 *SnapshotsApi* | [**update_snapshot**](docs/SnapshotsApi.md#update_snapshot) | **POST** /vps/update-snapshot | 
 *UserManagementApi* | [**user_change_password**](docs/UserManagementApi.md#user_change_password) | **POST** /user/change-password | 
-*VPSManagementApi* | [**get_os_template_details**](docs/VPSManagementApi.md#get_os_template_details) | **POST** /vps/get-os-template-details | 
 *VPSManagementApi* | [**get_vps_config**](docs/VPSManagementApi.md#get_vps_config) | **POST** /vps/get-config | 
 *VPSManagementApi* | [**get_vps_details**](docs/VPSManagementApi.md#get_vps_details) | **POST** /vps/get-details | 
 *VPSManagementApi* | [**list_isos**](docs/VPSManagementApi.md#list_isos) | **POST** /vps/list-isos | 
-*VPSManagementApi* | [**list_os_templates**](docs/VPSManagementApi.md#list_os_templates) | **POST** /vps/list-os-templates | 
 *VPSManagementApi* | [**list_reinstall_os**](docs/VPSManagementApi.md#list_reinstall_os) | **POST** /vps/list-reinstall-images | 
 *VPSManagementApi* | [**list_vps_services**](docs/VPSManagementApi.md#list_vps_services) | **POST** /vps/list-vps-services | 
 *VPSManagementApi* | [**mount_iso**](docs/VPSManagementApi.md#mount_iso) | **POST** /vps/mount-iso | 
@@ -223,9 +221,6 @@ Class | Method | HTTP request | Description
  - [GetCatalogueResponseContent](docs/GetCatalogueResponseContent.md)
  - [GetNoVncConsoleRequestContent](docs/GetNoVncConsoleRequestContent.md)
  - [GetNoVncConsoleResponseContent](docs/GetNoVncConsoleResponseContent.md)
- - [GetOsTemplateDetailsRequestContent](docs/GetOsTemplateDetailsRequestContent.md)
- - [GetOsTemplateDetailsResponseContent](docs/GetOsTemplateDetailsResponseContent.md)
- - [GetOsTemplateDetailsResponseData](docs/GetOsTemplateDetailsResponseData.md)
  - [GetPrivateSshKeyRequestContent](docs/GetPrivateSshKeyRequestContent.md)
  - [GetPrivateSshKeyResponseContent](docs/GetPrivateSshKeyResponseContent.md)
  - [GetPublicSshKeyRequestContent](docs/GetPublicSshKeyRequestContent.md)
@@ -249,9 +244,6 @@ Class | Method | HTTP request | Description
  - [ListNotificationsResponseContent](docs/ListNotificationsResponseContent.md)
  - [ListOrdersResponseContent](docs/ListOrdersResponseContent.md)
  - [ListOrdersResponseData](docs/ListOrdersResponseData.md)
- - [ListOsTemplatesRequestContent](docs/ListOsTemplatesRequestContent.md)
- - [ListOsTemplatesResponseContent](docs/ListOsTemplatesResponseContent.md)
- - [ListOsTemplatesResponseData](docs/ListOsTemplatesResponseData.md)
  - [ListPowerTasksRequestContent](docs/ListPowerTasksRequestContent.md)
  - [ListPowerTasksResponseContent](docs/ListPowerTasksResponseContent.md)
  - [ListRdnsRecordsResponseContent](docs/ListRdnsRecordsResponseContent.md)
@@ -278,7 +270,6 @@ Class | Method | HTTP request | Description
  - [Order](docs/Order.md)
  - [OrderLastAttempt](docs/OrderLastAttempt.md)
  - [OrderWarning](docs/OrderWarning.md)
- - [OsImage](docs/OsImage.md)
  - [PaymentError](docs/PaymentError.md)
  - [PaymentStatus](docs/PaymentStatus.md)
  - [PowerTask](docs/PowerTask.md)

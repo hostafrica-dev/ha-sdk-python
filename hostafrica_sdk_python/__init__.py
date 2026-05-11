@@ -109,9 +109,6 @@ __all__ = [
     "GetCatalogueResponseContent",
     "GetNoVncConsoleRequestContent",
     "GetNoVncConsoleResponseContent",
-    "GetOsTemplateDetailsRequestContent",
-    "GetOsTemplateDetailsResponseContent",
-    "GetOsTemplateDetailsResponseData",
     "GetPrivateSshKeyRequestContent",
     "GetPrivateSshKeyResponseContent",
     "GetPublicSshKeyRequestContent",
@@ -135,9 +132,6 @@ __all__ = [
     "ListNotificationsResponseContent",
     "ListOrdersResponseContent",
     "ListOrdersResponseData",
-    "ListOsTemplatesRequestContent",
-    "ListOsTemplatesResponseContent",
-    "ListOsTemplatesResponseData",
     "ListPowerTasksRequestContent",
     "ListPowerTasksResponseContent",
     "ListRdnsRecordsResponseContent",
@@ -164,7 +158,6 @@ __all__ = [
     "Order",
     "OrderLastAttempt",
     "OrderWarning",
-    "OsImage",
     "PaymentError",
     "PaymentStatus",
     "PowerTask",
@@ -347,9 +340,6 @@ from hostafrica_sdk_python.models.get_catalogue_request_content import GetCatalo
 from hostafrica_sdk_python.models.get_catalogue_response_content import GetCatalogueResponseContent as GetCatalogueResponseContent
 from hostafrica_sdk_python.models.get_no_vnc_console_request_content import GetNoVncConsoleRequestContent as GetNoVncConsoleRequestContent
 from hostafrica_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent as GetNoVncConsoleResponseContent
-from hostafrica_sdk_python.models.get_os_template_details_request_content import GetOsTemplateDetailsRequestContent as GetOsTemplateDetailsRequestContent
-from hostafrica_sdk_python.models.get_os_template_details_response_content import GetOsTemplateDetailsResponseContent as GetOsTemplateDetailsResponseContent
-from hostafrica_sdk_python.models.get_os_template_details_response_data import GetOsTemplateDetailsResponseData as GetOsTemplateDetailsResponseData
 from hostafrica_sdk_python.models.get_private_ssh_key_request_content import GetPrivateSshKeyRequestContent as GetPrivateSshKeyRequestContent
 from hostafrica_sdk_python.models.get_private_ssh_key_response_content import GetPrivateSshKeyResponseContent as GetPrivateSshKeyResponseContent
 from hostafrica_sdk_python.models.get_public_ssh_key_request_content import GetPublicSshKeyRequestContent as GetPublicSshKeyRequestContent
@@ -373,9 +363,6 @@ from hostafrica_sdk_python.models.list_notifications_request_content import List
 from hostafrica_sdk_python.models.list_notifications_response_content import ListNotificationsResponseContent as ListNotificationsResponseContent
 from hostafrica_sdk_python.models.list_orders_response_content import ListOrdersResponseContent as ListOrdersResponseContent
 from hostafrica_sdk_python.models.list_orders_response_data import ListOrdersResponseData as ListOrdersResponseData
-from hostafrica_sdk_python.models.list_os_templates_request_content import ListOsTemplatesRequestContent as ListOsTemplatesRequestContent
-from hostafrica_sdk_python.models.list_os_templates_response_content import ListOsTemplatesResponseContent as ListOsTemplatesResponseContent
-from hostafrica_sdk_python.models.list_os_templates_response_data import ListOsTemplatesResponseData as ListOsTemplatesResponseData
 from hostafrica_sdk_python.models.list_power_tasks_request_content import ListPowerTasksRequestContent as ListPowerTasksRequestContent
 from hostafrica_sdk_python.models.list_power_tasks_response_content import ListPowerTasksResponseContent as ListPowerTasksResponseContent
 from hostafrica_sdk_python.models.list_rdns_records_response_content import ListRdnsRecordsResponseContent as ListRdnsRecordsResponseContent
@@ -402,7 +389,6 @@ from hostafrica_sdk_python.models.operation_status import OperationStatus as Ope
 from hostafrica_sdk_python.models.order import Order as Order
 from hostafrica_sdk_python.models.order_last_attempt import OrderLastAttempt as OrderLastAttempt
 from hostafrica_sdk_python.models.order_warning import OrderWarning as OrderWarning
-from hostafrica_sdk_python.models.os_image import OsImage as OsImage
 from hostafrica_sdk_python.models.payment_error import PaymentError as PaymentError
 from hostafrica_sdk_python.models.payment_status import PaymentStatus as PaymentStatus
 from hostafrica_sdk_python.models.power_task import PowerTask as PowerTask

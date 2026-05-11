@@ -4,101 +4,15 @@ All URIs are relative to *https://api.hostafrica.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_os_template_details**](VPSManagementApi.md#get_os_template_details) | **POST** /vps/get-os-template-details | 
 [**get_vps_config**](VPSManagementApi.md#get_vps_config) | **POST** /vps/get-config | 
 [**get_vps_details**](VPSManagementApi.md#get_vps_details) | **POST** /vps/get-details | 
 [**list_isos**](VPSManagementApi.md#list_isos) | **POST** /vps/list-isos | 
-[**list_os_templates**](VPSManagementApi.md#list_os_templates) | **POST** /vps/list-os-templates | 
 [**list_reinstall_os**](VPSManagementApi.md#list_reinstall_os) | **POST** /vps/list-reinstall-images | 
 [**list_vps_services**](VPSManagementApi.md#list_vps_services) | **POST** /vps/list-vps-services | 
 [**mount_iso**](VPSManagementApi.md#mount_iso) | **POST** /vps/mount-iso | 
 [**trigger_reinstall**](VPSManagementApi.md#trigger_reinstall) | **POST** /vps/trigger-reinstall | 
 [**update_vps_config**](VPSManagementApi.md#update_vps_config) | **POST** /vps/update-config | 
 
-
-# **get_os_template_details**
-> GetOsTemplateDetailsResponseContent get_os_template_details(get_os_template_details_request_content)
-
-[Under development] Retrieves detailed information about a specific OS template
-
-### Example
-
-* Bearer Authentication (smithy.api.httpBearerAuth):
-
-```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.get_os_template_details_request_content import GetOsTemplateDetailsRequestContent
-from hostafrica_sdk_python.models.get_os_template_details_response_content import GetOsTemplateDetailsResponseContent
-from hostafrica_sdk_python.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.hostafrica.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
-    host = "https://api.hostafrica.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.VPSManagementApi(api_client)
-    get_os_template_details_request_content = hostafrica_sdk_python.GetOsTemplateDetailsRequestContent() # GetOsTemplateDetailsRequestContent | 
-
-    try:
-        api_response = api_instance.get_os_template_details(get_os_template_details_request_content)
-        print("The response of VPSManagementApi->get_os_template_details:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling VPSManagementApi->get_os_template_details: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **get_os_template_details_request_content** | [**GetOsTemplateDetailsRequestContent**](GetOsTemplateDetailsRequestContent.md)|  | 
-
-### Return type
-
-[**GetOsTemplateDetailsResponseContent**](GetOsTemplateDetailsResponseContent.md)
-
-### Authorization
-
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | GetOsTemplateDetails 200 response |  -  |
-**400** | BadRequestError 400 response |  -  |
-**401** | UnauthorizedError 401 response |  -  |
-**403** | ForbiddenError 403 response |  -  |
-**404** | ResourceNotFoundError 404 response |  -  |
-**422** | ValidationError 422 response |  -  |
-**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
-**500** | InternalServiceError 500 response |  -  |
-**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_vps_config**
 > GetVpsConfigResponseContent get_vps_config(get_vps_config_request_content)
@@ -339,89 +253,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | ListIsos 200 response |  -  |
-**400** | BadRequestError 400 response |  -  |
-**401** | UnauthorizedError 401 response |  -  |
-**403** | ForbiddenError 403 response |  -  |
-**404** | ResourceNotFoundError 404 response |  -  |
-**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
-**500** | InternalServiceError 500 response |  -  |
-**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **list_os_templates**
-> ListOsTemplatesResponseContent list_os_templates(list_os_templates_request_content)
-
-[Under development] Retrieves the list of available OS templates
-
-### Example
-
-* Bearer Authentication (smithy.api.httpBearerAuth):
-
-```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_os_templates_request_content import ListOsTemplatesRequestContent
-from hostafrica_sdk_python.models.list_os_templates_response_content import ListOsTemplatesResponseContent
-from hostafrica_sdk_python.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.hostafrica.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
-    host = "https://api.hostafrica.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-# Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.VPSManagementApi(api_client)
-    list_os_templates_request_content = hostafrica_sdk_python.ListOsTemplatesRequestContent() # ListOsTemplatesRequestContent | 
-
-    try:
-        api_response = api_instance.list_os_templates(list_os_templates_request_content)
-        print("The response of VPSManagementApi->list_os_templates:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling VPSManagementApi->list_os_templates: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_os_templates_request_content** | [**ListOsTemplatesRequestContent**](ListOsTemplatesRequestContent.md)|  | 
-
-### Return type
-
-[**ListOsTemplatesResponseContent**](ListOsTemplatesResponseContent.md)
-
-### Authorization
-
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | ListOsTemplates 200 response |  -  |
 **400** | BadRequestError 400 response |  -  |
 **401** | UnauthorizedError 401 response |  -  |
 **403** | ForbiddenError 403 response |  -  |
