@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_id** | **str** | Service ID - must be sent as a string | 
+**type** | [**VpsCancelType**](VpsCancelType.md) |  | [optional] 
 
 ## Example
 

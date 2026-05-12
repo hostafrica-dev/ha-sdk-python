@@ -17,19 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from hostafrica_sdk_python.models.vps_cancel_type import VpsCancelType
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CancelVpsRequestContent(BaseModel):
+class VpsCancelDetails(BaseModel):
     """
-    CancelVpsRequestContent
+    Nested details within a VPS cancellation response
     """ # noqa: E501
-    service_id: StrictStr = Field(description="Service ID - must be sent as a string")
-    type: Optional[VpsCancelType] = None
-    __properties: ClassVar[List[str]] = ["service_id", "type"]
+    service_id: StrictInt = Field(description="ID of the service being cancelled")
+    cancellation_type: StrictStr = Field(description="The cancellation type that was applied - 'Immediate' or 'End of Billing Period'")
+    status: StrictStr = Field(description="Current status of the cancellation request")
+    __properties: ClassVar[List[str]] = ["service_id", "cancellation_type", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +49,7 @@ class CancelVpsRequestContent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CancelVpsRequestContent from a JSON string"""
+        """Create an instance of VpsCancelDetails from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +74,7 @@ class CancelVpsRequestContent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CancelVpsRequestContent from a dict"""
+        """Create an instance of VpsCancelDetails from a dict"""
         if obj is None:
             return None
 
@@ -83,7 +83,8 @@ class CancelVpsRequestContent(BaseModel):
 
         _obj = cls.model_validate({
             "service_id": obj.get("service_id"),
-            "type": obj.get("type")
+            "cancellation_type": obj.get("cancellation_type"),
+            "status": obj.get("status")
         })
         return _obj
 

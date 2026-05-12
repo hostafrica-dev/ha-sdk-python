@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**OperationStatus**](OperationStatus.md) |  | 
-**data** | [**VpsSimpleActionResponseData**](VpsSimpleActionResponseData.md) |  | 
+**data** | [**VpsCancelResponseData**](VpsCancelResponseData.md) |  | 
 
 ## Example
 

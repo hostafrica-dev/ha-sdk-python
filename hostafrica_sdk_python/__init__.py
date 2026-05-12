@@ -231,6 +231,8 @@ __all__ = [
     "ValidationErrorResponseContent",
     "VpsAvailableFeatures",
     "VpsBandwidthInfo",
+    "VpsCancelResponseData",
+    "VpsCancelType",
     "VpsConfigResponseData",
     "VpsCpuInfo",
     "VpsCredentials",
@@ -462,6 +464,8 @@ from hostafrica_sdk_python.models.validate_pricing_summary_recurring import Vali
 from hostafrica_sdk_python.models.validation_error_response_content import ValidationErrorResponseContent as ValidationErrorResponseContent
 from hostafrica_sdk_python.models.vps_available_features import VpsAvailableFeatures as VpsAvailableFeatures
 from hostafrica_sdk_python.models.vps_bandwidth_info import VpsBandwidthInfo as VpsBandwidthInfo
+from hostafrica_sdk_python.models.vps_cancel_response_data import VpsCancelResponseData as VpsCancelResponseData
+from hostafrica_sdk_python.models.vps_cancel_type import VpsCancelType as VpsCancelType
 from hostafrica_sdk_python.models.vps_config_response_data import VpsConfigResponseData as VpsConfigResponseData
 from hostafrica_sdk_python.models.vps_cpu_info import VpsCpuInfo as VpsCpuInfo
 from hostafrica_sdk_python.models.vps_credentials import VpsCredentials as VpsCredentials

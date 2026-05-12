@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from hostafrica_sdk_python.models.operation_status import OperationStatus
-from hostafrica_sdk_python.models.vps_simple_action_response_data import VpsSimpleActionResponseData
+from hostafrica_sdk_python.models.vps_cancel_response_data import VpsCancelResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class CancelVpsResponseContent(BaseModel):
     CancelVpsResponseContent
     """ # noqa: E501
     status: OperationStatus
-    data: VpsSimpleActionResponseData
+    data: VpsCancelResponseData
     __properties: ClassVar[List[str]] = ["status", "data"]
 
     model_config = ConfigDict(
@@ -87,7 +87,7 @@ class CancelVpsResponseContent(BaseModel):
 
         _obj = cls.model_validate({
             "status": obj.get("status"),
-            "data": VpsSimpleActionResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": VpsCancelResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 
