@@ -17,7 +17,6 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install build
-      - run: sed -i "s/^version = .*/version = \"${GITHUB_REF_NAME#v}\"/" pyproject.toml
       - run: python -m build
       - uses: softprops/action-gh-release@v2
         with:
