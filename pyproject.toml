@@ -1,6 +1,6 @@
 [project]
 name = "ha_sdk_python"
-version = "1.0.0"
+version = "1.0.7"
 description = "HostAfricaApi"
 authors = [
   {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
