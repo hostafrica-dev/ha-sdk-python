@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.UserManagementApi
+# ha_sdk_python.UserManagementApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -14,18 +14,18 @@ Changes the authenticated user's password. All active sessions will be revoked a
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.user_change_password_request_content import UserChangePasswordRequestContent
-from hostafrica_sdk_python.models.user_change_password_response_content import UserChangePasswordResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.user_change_password_request_content import UserChangePasswordRequestContent
+from ha_sdk_python.models.user_change_password_response_content import UserChangePasswordResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -34,16 +34,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.UserManagementApi(api_client)
-    user_change_password_request_content = hostafrica_sdk_python.UserChangePasswordRequestContent() # UserChangePasswordRequestContent | 
+    api_instance = ha_sdk_python.UserManagementApi(api_client)
+    user_change_password_request_content = ha_sdk_python.UserChangePasswordRequestContent() # UserChangePasswordRequestContent | 
 
     try:
         api_response = api_instance.user_change_password(user_change_password_request_content)
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

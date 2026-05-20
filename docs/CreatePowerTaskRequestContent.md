@@ -6,22 +6,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_id** | **str** | Service ID - must be sent as a string | 
-**power_task_action** | **str** | Power action to perform (start, stop, restart) | 
+**power_task_action** | [**PowerTaskAction**](PowerTaskAction.md) |  | 
 **start_date** | **str** | Start date in Y-m-d format (e.g., 2026-03-25) | 
 **description** | **str** | Description of the power task | [optional] 
 **start_time** | **str** | Start time in HH:MM or HH:MM:SS format | [optional] 
 **end_date** | **str** | End date in Y-m-d format (e.g., 2026-12-31) | [optional] 
 **end_time** | **str** | End time in HH:MM or HH:MM:SS format | [optional] 
-**job_type** | **str** | Job type: oneTime, daily, or weekly | [optional] 
+**job_type** | [**PowerTaskJobType**](PowerTaskJobType.md) |  | [optional] 
 **job_time** | **str** | Job execution time in HH:MM or HH:MM:SS format | [optional] 
 **job_hour** | **int** | Job hour (alternative to job_time) | [optional] 
 **job_minutes** | **int** | Job minutes (alternative to job_time) | [optional] 
-**days** | **List[str]** | Days of the week for weekly jobs (array of mon, tue, wed, thu, fri, sat, sun) | [optional] 
+**days** | [**List[DayOfWeek]**](DayOfWeek.md) | Days of the week for weekly jobs | [optional] 
 
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.create_power_task_request_content import CreatePowerTaskRequestContent
+from ha_sdk_python.models.create_power_task_request_content import CreatePowerTaskRequestContent
 
 # TODO update the JSON string below
 json = "{}"

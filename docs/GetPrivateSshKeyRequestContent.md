@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.get_private_ssh_key_request_content import GetPrivateSshKeyRequestContent
+from ha_sdk_python.models.get_private_ssh_key_request_content import GetPrivateSshKeyRequestContent
 
 # TODO update the JSON string below
 json = "{}"

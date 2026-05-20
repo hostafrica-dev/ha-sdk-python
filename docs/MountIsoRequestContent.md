@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.mount_iso_request_content import MountIsoRequestContent
+from ha_sdk_python.models.mount_iso_request_content import MountIsoRequestContent
 
 # TODO update the JSON string below
 json = "{}"

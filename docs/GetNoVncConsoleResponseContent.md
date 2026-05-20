@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent
+from ha_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent
 
 # TODO update the JSON string below
 json = "{}"

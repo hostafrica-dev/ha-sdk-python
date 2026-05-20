@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.SnapshotsApi
+# ha_sdk_python.SnapshotsApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -18,18 +18,18 @@ Creates a new snapshot for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_snapshot_request_content import CreateSnapshotRequestContent
-from hostafrica_sdk_python.models.create_snapshot_response_content import CreateSnapshotResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_snapshot_request_content import CreateSnapshotRequestContent
+from ha_sdk_python.models.create_snapshot_response_content import CreateSnapshotResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -38,16 +38,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SnapshotsApi(api_client)
-    create_snapshot_request_content = hostafrica_sdk_python.CreateSnapshotRequestContent() # CreateSnapshotRequestContent | 
+    api_instance = ha_sdk_python.SnapshotsApi(api_client)
+    create_snapshot_request_content = ha_sdk_python.CreateSnapshotRequestContent() # CreateSnapshotRequestContent | 
 
     try:
         api_response = api_instance.create_snapshot(create_snapshot_request_content)
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -102,18 +102,18 @@ Deletes a specific snapshot from a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.delete_snapshot_request_content import DeleteSnapshotRequestContent
-from hostafrica_sdk_python.models.delete_snapshot_response_content import DeleteSnapshotResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.delete_snapshot_request_content import DeleteSnapshotRequestContent
+from ha_sdk_python.models.delete_snapshot_response_content import DeleteSnapshotResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -122,16 +122,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SnapshotsApi(api_client)
-    delete_snapshot_request_content = hostafrica_sdk_python.DeleteSnapshotRequestContent() # DeleteSnapshotRequestContent | 
+    api_instance = ha_sdk_python.SnapshotsApi(api_client)
+    delete_snapshot_request_content = ha_sdk_python.DeleteSnapshotRequestContent() # DeleteSnapshotRequestContent | 
 
     try:
         api_response = api_instance.delete_snapshot(delete_snapshot_request_content)
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -186,18 +186,18 @@ Retrieves the list of snapshots for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_snapshots_request_content import ListSnapshotsRequestContent
-from hostafrica_sdk_python.models.list_snapshots_response_content import ListSnapshotsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_snapshots_request_content import ListSnapshotsRequestContent
+from ha_sdk_python.models.list_snapshots_response_content import ListSnapshotsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -206,16 +206,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SnapshotsApi(api_client)
-    list_snapshots_request_content = hostafrica_sdk_python.ListSnapshotsRequestContent() # ListSnapshotsRequestContent | 
+    api_instance = ha_sdk_python.SnapshotsApi(api_client)
+    list_snapshots_request_content = ha_sdk_python.ListSnapshotsRequestContent() # ListSnapshotsRequestContent | 
 
     try:
         api_response = api_instance.list_snapshots(list_snapshots_request_content)
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -269,18 +269,18 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.rollback_snapshot_request_content import RollbackSnapshotRequestContent
-from hostafrica_sdk_python.models.rollback_snapshot_response_content import RollbackSnapshotResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.rollback_snapshot_request_content import RollbackSnapshotRequestContent
+from ha_sdk_python.models.rollback_snapshot_response_content import RollbackSnapshotResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -289,16 +289,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SnapshotsApi(api_client)
-    rollback_snapshot_request_content = hostafrica_sdk_python.RollbackSnapshotRequestContent() # RollbackSnapshotRequestContent | 
+    api_instance = ha_sdk_python.SnapshotsApi(api_client)
+    rollback_snapshot_request_content = ha_sdk_python.RollbackSnapshotRequestContent() # RollbackSnapshotRequestContent | 
 
     try:
         api_response = api_instance.rollback_snapshot(rollback_snapshot_request_content)
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -353,18 +353,18 @@ Updates a snapshot's metadata
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.update_snapshot_request_content import UpdateSnapshotRequestContent
-from hostafrica_sdk_python.models.update_snapshot_response_content import UpdateSnapshotResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.update_snapshot_request_content import UpdateSnapshotRequestContent
+from ha_sdk_python.models.update_snapshot_response_content import UpdateSnapshotResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -373,16 +373,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SnapshotsApi(api_client)
-    update_snapshot_request_content = hostafrica_sdk_python.UpdateSnapshotRequestContent() # UpdateSnapshotRequestContent | 
+    api_instance = ha_sdk_python.SnapshotsApi(api_client)
+    update_snapshot_request_content = ha_sdk_python.UpdateSnapshotRequestContent() # UpdateSnapshotRequestContent | 
 
     try:
         api_response = api_instance.update_snapshot(update_snapshot_request_content)
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

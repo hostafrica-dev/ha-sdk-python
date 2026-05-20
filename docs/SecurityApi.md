@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.SecurityApi
+# ha_sdk_python.SecurityApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -17,18 +17,18 @@ Change the root password for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.change_password_request_content import ChangePasswordRequestContent
-from hostafrica_sdk_python.models.change_password_response_content import ChangePasswordResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.change_password_request_content import ChangePasswordRequestContent
+from ha_sdk_python.models.change_password_response_content import ChangePasswordResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -37,16 +37,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SecurityApi(api_client)
-    change_password_request_content = hostafrica_sdk_python.ChangePasswordRequestContent() # ChangePasswordRequestContent | 
+    api_instance = ha_sdk_python.SecurityApi(api_client)
+    change_password_request_content = ha_sdk_python.ChangePasswordRequestContent() # ChangePasswordRequestContent | 
 
     try:
         api_response = api_instance.change_password(change_password_request_content)
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -101,18 +101,18 @@ Retrieves the private SSH key configured for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.get_private_ssh_key_request_content import GetPrivateSshKeyRequestContent
-from hostafrica_sdk_python.models.get_private_ssh_key_response_content import GetPrivateSshKeyResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.get_private_ssh_key_request_content import GetPrivateSshKeyRequestContent
+from ha_sdk_python.models.get_private_ssh_key_response_content import GetPrivateSshKeyResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -121,16 +121,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SecurityApi(api_client)
-    get_private_ssh_key_request_content = hostafrica_sdk_python.GetPrivateSshKeyRequestContent() # GetPrivateSshKeyRequestContent | 
+    api_instance = ha_sdk_python.SecurityApi(api_client)
+    get_private_ssh_key_request_content = ha_sdk_python.GetPrivateSshKeyRequestContent() # GetPrivateSshKeyRequestContent | 
 
     try:
         api_response = api_instance.get_private_ssh_key(get_private_ssh_key_request_content)
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -185,18 +185,18 @@ Retrieves the public SSH key configured for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.get_public_ssh_key_request_content import GetPublicSshKeyRequestContent
-from hostafrica_sdk_python.models.get_public_ssh_key_response_content import GetPublicSshKeyResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.get_public_ssh_key_request_content import GetPublicSshKeyRequestContent
+from ha_sdk_python.models.get_public_ssh_key_response_content import GetPublicSshKeyResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -205,16 +205,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SecurityApi(api_client)
-    get_public_ssh_key_request_content = hostafrica_sdk_python.GetPublicSshKeyRequestContent() # GetPublicSshKeyRequestContent | 
+    api_instance = ha_sdk_python.SecurityApi(api_client)
+    get_public_ssh_key_request_content = ha_sdk_python.GetPublicSshKeyRequestContent() # GetPublicSshKeyRequestContent | 
 
     try:
         api_response = api_instance.get_public_ssh_key(get_public_ssh_key_request_content)
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -269,18 +269,18 @@ Updates SSH public keys for a VPS service for root access.
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.update_ssh_keys_request_content import UpdateSshKeysRequestContent
-from hostafrica_sdk_python.models.update_ssh_keys_response_content import UpdateSshKeysResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.update_ssh_keys_request_content import UpdateSshKeysRequestContent
+from ha_sdk_python.models.update_ssh_keys_response_content import UpdateSshKeysResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -289,16 +289,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.SecurityApi(api_client)
-    update_ssh_keys_request_content = hostafrica_sdk_python.UpdateSshKeysRequestContent() # UpdateSshKeysRequestContent | 
+    api_instance = ha_sdk_python.SecurityApi(api_client)
+    update_ssh_keys_request_content = ha_sdk_python.UpdateSshKeysRequestContent() # UpdateSshKeysRequestContent | 
 
     try:
         api_response = api_instance.update_ssh_keys(update_ssh_keys_request_content)
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.ssh_key_details import SshKeyDetails
+from ha_sdk_python.models.ssh_key_details import SshKeyDetails
 
 # TODO update the JSON string below
 json = "{}"

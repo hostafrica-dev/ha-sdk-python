@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.create_order_total import CreateOrderTotal
+from ha_sdk_python.models.create_order_total import CreateOrderTotal
 
 # TODO update the JSON string below
 json = "{}"

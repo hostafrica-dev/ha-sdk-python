@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.rdns_available_item import RdnsAvailableItem
+from ha_sdk_python.models.rdns_available_item import RdnsAvailableItem
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.get_catalogue_request_content import GetCatalogueRequestContent
+from ha_sdk_python.models.get_catalogue_request_content import GetCatalogueRequestContent
 
 # TODO update the JSON string below
 json = "{}"

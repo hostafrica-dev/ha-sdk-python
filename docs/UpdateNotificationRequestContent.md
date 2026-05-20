@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.update_notification_request_content import UpdateNotificationRequestContent
+from ha_sdk_python.models.update_notification_request_content import UpdateNotificationRequestContent
 
 # TODO update the JSON string below
 json = "{}"

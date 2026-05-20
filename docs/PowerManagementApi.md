@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.PowerManagementApi
+# ha_sdk_python.PowerManagementApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -21,18 +21,18 @@ Creates a new power task (scheduled start/stop/restart operation) for a VPS serv
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_power_task_request_content import CreatePowerTaskRequestContent
-from hostafrica_sdk_python.models.create_power_task_response_content import CreatePowerTaskResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_power_task_request_content import CreatePowerTaskRequestContent
+from ha_sdk_python.models.create_power_task_response_content import CreatePowerTaskResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -41,16 +41,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    create_power_task_request_content = hostafrica_sdk_python.CreatePowerTaskRequestContent() # CreatePowerTaskRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    create_power_task_request_content = ha_sdk_python.CreatePowerTaskRequestContent() # CreatePowerTaskRequestContent | 
 
     try:
         api_response = api_instance.create_power_task(create_power_task_request_content)
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -105,18 +105,18 @@ Deletes a power task from a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.delete_power_task_request_content import DeletePowerTaskRequestContent
-from hostafrica_sdk_python.models.delete_power_task_response_content import DeletePowerTaskResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.delete_power_task_request_content import DeletePowerTaskRequestContent
+from ha_sdk_python.models.delete_power_task_response_content import DeletePowerTaskResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -125,16 +125,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    delete_power_task_request_content = hostafrica_sdk_python.DeletePowerTaskRequestContent() # DeletePowerTaskRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    delete_power_task_request_content = ha_sdk_python.DeletePowerTaskRequestContent() # DeletePowerTaskRequestContent | 
 
     try:
         api_response = api_instance.delete_power_task(delete_power_task_request_content)
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -189,18 +189,18 @@ Retrieves the list of power tasks (scheduled start/stop/restart operations) for 
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_power_tasks_request_content import ListPowerTasksRequestContent
-from hostafrica_sdk_python.models.list_power_tasks_response_content import ListPowerTasksResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_power_tasks_request_content import ListPowerTasksRequestContent
+from ha_sdk_python.models.list_power_tasks_response_content import ListPowerTasksResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -209,16 +209,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    list_power_tasks_request_content = hostafrica_sdk_python.ListPowerTasksRequestContent() # ListPowerTasksRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    list_power_tasks_request_content = ha_sdk_python.ListPowerTasksRequestContent() # ListPowerTasksRequestContent | 
 
     try:
         api_response = api_instance.list_power_tasks(list_power_tasks_request_content)
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -272,18 +272,18 @@ Gracefully reboot a VPS service. Sends ACPI reboot signal to guest OS
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.reboot_vps_request_content import RebootVpsRequestContent
-from hostafrica_sdk_python.models.reboot_vps_response_content import RebootVpsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.reboot_vps_request_content import RebootVpsRequestContent
+from ha_sdk_python.models.reboot_vps_response_content import RebootVpsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -292,16 +292,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    reboot_vps_request_content = hostafrica_sdk_python.RebootVpsRequestContent() # RebootVpsRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    reboot_vps_request_content = ha_sdk_python.RebootVpsRequestContent() # RebootVpsRequestContent | 
 
     try:
         api_response = api_instance.reboot_vps(reboot_vps_request_content)
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -356,18 +356,18 @@ Gracefully shutdown a VPS service. Sends ACPI shutdown signal to guest OS
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.shutdown_vps_request_content import ShutdownVpsRequestContent
-from hostafrica_sdk_python.models.shutdown_vps_response_content import ShutdownVpsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.shutdown_vps_request_content import ShutdownVpsRequestContent
+from ha_sdk_python.models.shutdown_vps_response_content import ShutdownVpsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -376,16 +376,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    shutdown_vps_request_content = hostafrica_sdk_python.ShutdownVpsRequestContent() # ShutdownVpsRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    shutdown_vps_request_content = ha_sdk_python.ShutdownVpsRequestContent() # ShutdownVpsRequestContent | 
 
     try:
         api_response = api_instance.shutdown_vps(shutdown_vps_request_content)
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -440,18 +440,18 @@ Starts a stopped VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.start_vps_request_content import StartVpsRequestContent
-from hostafrica_sdk_python.models.start_vps_response_content import StartVpsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.start_vps_request_content import StartVpsRequestContent
+from ha_sdk_python.models.start_vps_response_content import StartVpsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -460,16 +460,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    start_vps_request_content = hostafrica_sdk_python.StartVpsRequestContent() # StartVpsRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    start_vps_request_content = ha_sdk_python.StartVpsRequestContent() # StartVpsRequestContent | 
 
     try:
         api_response = api_instance.start_vps(start_vps_request_content)
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -524,18 +524,18 @@ Hard stops a running VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.stop_vps_request_content import StopVpsRequestContent
-from hostafrica_sdk_python.models.stop_vps_response_content import StopVpsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.stop_vps_request_content import StopVpsRequestContent
+from ha_sdk_python.models.stop_vps_response_content import StopVpsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -544,16 +544,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    stop_vps_request_content = hostafrica_sdk_python.StopVpsRequestContent() # StopVpsRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    stop_vps_request_content = ha_sdk_python.StopVpsRequestContent() # StopVpsRequestContent | 
 
     try:
         api_response = api_instance.stop_vps(stop_vps_request_content)
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -608,18 +608,18 @@ Updates an existing power task (scheduled start/stop/restart operation) for a VP
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.update_power_task_request_content import UpdatePowerTaskRequestContent
-from hostafrica_sdk_python.models.update_power_task_response_content import UpdatePowerTaskResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.update_power_task_request_content import UpdatePowerTaskRequestContent
+from ha_sdk_python.models.update_power_task_response_content import UpdatePowerTaskResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -628,16 +628,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.PowerManagementApi(api_client)
-    update_power_task_request_content = hostafrica_sdk_python.UpdatePowerTaskRequestContent() # UpdatePowerTaskRequestContent | 
+    api_instance = ha_sdk_python.PowerManagementApi(api_client)
+    update_power_task_request_content = ha_sdk_python.UpdatePowerTaskRequestContent() # UpdatePowerTaskRequestContent | 
 
     try:
         api_response = api_instance.update_power_task(update_power_task_request_content)
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

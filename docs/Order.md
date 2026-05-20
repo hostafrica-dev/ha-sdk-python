@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.order import Order
+from ha_sdk_python.models.order import Order
 
 # TODO update the JSON string below
 json = "{}"

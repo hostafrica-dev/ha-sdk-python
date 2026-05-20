@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.DNSApi
+# ha_sdk_python.DNSApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -16,18 +16,18 @@ Creates (or upserts) a PTR record for the authenticated client. If the client al
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_rdns_record_request_content import CreateRdnsRecordRequestContent
-from hostafrica_sdk_python.models.create_rdns_record_response_content import CreateRdnsRecordResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_rdns_record_request_content import CreateRdnsRecordRequestContent
+from ha_sdk_python.models.create_rdns_record_response_content import CreateRdnsRecordResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -36,16 +36,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.DNSApi(api_client)
-    create_rdns_record_request_content = hostafrica_sdk_python.CreateRdnsRecordRequestContent() # CreateRdnsRecordRequestContent | 
+    api_instance = ha_sdk_python.DNSApi(api_client)
+    create_rdns_record_request_content = ha_sdk_python.CreateRdnsRecordRequestContent() # CreateRdnsRecordRequestContent | 
 
     try:
         api_response = api_instance.create_rdns_record(create_rdns_record_request_content)
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -99,18 +99,18 @@ Deletes a PTR (rDNS) record owned by the authenticated client
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.delete_rdns_record_request_content import DeleteRdnsRecordRequestContent
-from hostafrica_sdk_python.models.delete_rdns_record_response_content import DeleteRdnsRecordResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.delete_rdns_record_request_content import DeleteRdnsRecordRequestContent
+from ha_sdk_python.models.delete_rdns_record_response_content import DeleteRdnsRecordResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -119,16 +119,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.DNSApi(api_client)
-    delete_rdns_record_request_content = hostafrica_sdk_python.DeleteRdnsRecordRequestContent() # DeleteRdnsRecordRequestContent | 
+    api_instance = ha_sdk_python.DNSApi(api_client)
+    delete_rdns_record_request_content = ha_sdk_python.DeleteRdnsRecordRequestContent() # DeleteRdnsRecordRequestContent | 
 
     try:
         api_response = api_instance.delete_rdns_record(delete_rdns_record_request_content)
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -183,17 +183,17 @@ Lists all rDNS (PTR) records and available services for the authenticated client
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_rdns_records_response_content import ListRdnsRecordsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_rdns_records_response_content import ListRdnsRecordsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -202,15 +202,15 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.DNSApi(api_client)
+    api_instance = ha_sdk_python.DNSApi(api_client)
 
     try:
         api_response = api_instance.list_rdns_records()
@@ -232,7 +232,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

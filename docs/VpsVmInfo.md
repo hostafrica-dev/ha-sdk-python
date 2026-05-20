@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.vps_vm_info import VpsVmInfo
+from ha_sdk_python.models.vps_vm_info import VpsVmInfo
 
 # TODO update the JSON string below
 json = "{}"

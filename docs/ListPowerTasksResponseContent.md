@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.list_power_tasks_response_content import ListPowerTasksResponseContent
+from ha_sdk_python.models.list_power_tasks_response_content import ListPowerTasksResponseContent
 
 # TODO update the JSON string below
 json = "{}"

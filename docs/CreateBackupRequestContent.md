@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_id** | **str** | Service ID - must be sent as a string | 
 **compress** | [**CompressionType**](CompressionType.md) |  | [optional] 
-**mode** | **str** | Backup mode (e.g., snapshot, suspend, stop) | [optional] 
+**mode** | [**BackupModeType**](BackupModeType.md) |  | [optional] 
 
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.create_backup_request_content import CreateBackupRequestContent
+from ha_sdk_python.models.create_backup_request_content import CreateBackupRequestContent
 
 # TODO update the JSON string below
 json = "{}"

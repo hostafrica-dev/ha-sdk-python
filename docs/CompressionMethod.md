@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.compression_method import CompressionMethod
+from ha_sdk_python.models.compression_method import CompressionMethod
 
 # TODO update the JSON string below
 json = "{}"

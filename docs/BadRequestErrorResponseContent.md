@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.bad_request_error_response_content import BadRequestErrorResponseContent
+from ha_sdk_python.models.bad_request_error_response_content import BadRequestErrorResponseContent
 
 # TODO update the JSON string below
 json = "{}"

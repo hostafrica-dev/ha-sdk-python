@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.internal_service_error_response_content import InternalServiceErrorResponseContent
+from ha_sdk_python.models.internal_service_error_response_content import InternalServiceErrorResponseContent
 
 # TODO update the JSON string below
 json = "{}"

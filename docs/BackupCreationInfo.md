@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.backup_creation_info import BackupCreationInfo
+from ha_sdk_python.models.backup_creation_info import BackupCreationInfo
 
 # TODO update the JSON string below
 json = "{}"

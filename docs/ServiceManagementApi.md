@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.ServiceManagementApi
+# ha_sdk_python.ServiceManagementApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -19,18 +19,18 @@ Cancels a VPS service through WHMCS. This action is irreversible
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.cancel_vps_request_content import CancelVpsRequestContent
-from hostafrica_sdk_python.models.cancel_vps_response_content import CancelVpsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.cancel_vps_request_content import CancelVpsRequestContent
+from ha_sdk_python.models.cancel_vps_response_content import CancelVpsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -39,16 +39,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.ServiceManagementApi(api_client)
-    cancel_vps_request_content = hostafrica_sdk_python.CancelVpsRequestContent() # CancelVpsRequestContent | 
+    api_instance = ha_sdk_python.ServiceManagementApi(api_client)
+    cancel_vps_request_content = ha_sdk_python.CancelVpsRequestContent() # CancelVpsRequestContent | 
 
     try:
         api_response = api_instance.cancel_vps(cancel_vps_request_content)
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -103,18 +103,18 @@ Creates an order through checkout. Returns payment status; on failure also inclu
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_order_request_content import CreateOrderRequestContent
-from hostafrica_sdk_python.models.create_order_response_content import CreateOrderResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_order_request_content import CreateOrderRequestContent
+from ha_sdk_python.models.create_order_response_content import CreateOrderResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -123,16 +123,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.ServiceManagementApi(api_client)
-    create_order_request_content = hostafrica_sdk_python.CreateOrderRequestContent() # CreateOrderRequestContent | 
+    api_instance = ha_sdk_python.ServiceManagementApi(api_client)
+    create_order_request_content = ha_sdk_python.CreateOrderRequestContent() # CreateOrderRequestContent | 
 
     try:
         api_response = api_instance.create_order(create_order_request_content)
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -186,18 +186,18 @@ Retrieves the product catalogue, optionally filtered by group or product
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.get_catalogue_request_content import GetCatalogueRequestContent
-from hostafrica_sdk_python.models.get_catalogue_response_content import GetCatalogueResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.get_catalogue_request_content import GetCatalogueRequestContent
+from ha_sdk_python.models.get_catalogue_response_content import GetCatalogueResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -206,16 +206,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.ServiceManagementApi(api_client)
-    get_catalogue_request_content = hostafrica_sdk_python.GetCatalogueRequestContent() # GetCatalogueRequestContent |  (optional)
+    api_instance = ha_sdk_python.ServiceManagementApi(api_client)
+    get_catalogue_request_content = ha_sdk_python.GetCatalogueRequestContent() # GetCatalogueRequestContent |  (optional)
 
     try:
         api_response = api_instance.get_catalogue(get_catalogue_request_content=get_catalogue_request_content)
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -269,17 +269,17 @@ Lists all orders for the authenticated user, including payment and invoice statu
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_orders_response_content import ListOrdersResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_orders_response_content import ListOrdersResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -288,15 +288,15 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.ServiceManagementApi(api_client)
+    api_instance = ha_sdk_python.ServiceManagementApi(api_client)
 
     try:
         api_response = api_instance.list_orders()
@@ -318,7 +318,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -347,18 +347,18 @@ Retries a failed or pending payment for an existing order
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.retry_payment_request_content import RetryPaymentRequestContent
-from hostafrica_sdk_python.models.retry_payment_response_content import RetryPaymentResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.retry_payment_request_content import RetryPaymentRequestContent
+from ha_sdk_python.models.retry_payment_response_content import RetryPaymentResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -367,16 +367,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.ServiceManagementApi(api_client)
-    retry_payment_request_content = hostafrica_sdk_python.RetryPaymentRequestContent() # RetryPaymentRequestContent | 
+    api_instance = ha_sdk_python.ServiceManagementApi(api_client)
+    retry_payment_request_content = ha_sdk_python.RetryPaymentRequestContent() # RetryPaymentRequestContent | 
 
     try:
         api_response = api_instance.retry_payment(retry_payment_request_content)
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -431,18 +431,18 @@ Validates pricing for one or more products, returning per-product breakdown and 
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.validate_pricing_request_content import ValidatePricingRequestContent
-from hostafrica_sdk_python.models.validate_pricing_response_content import ValidatePricingResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.validate_pricing_request_content import ValidatePricingRequestContent
+from ha_sdk_python.models.validate_pricing_response_content import ValidatePricingResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -451,16 +451,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.ServiceManagementApi(api_client)
-    validate_pricing_request_content = hostafrica_sdk_python.ValidatePricingRequestContent() # ValidatePricingRequestContent | 
+    api_instance = ha_sdk_python.ServiceManagementApi(api_client)
+    validate_pricing_request_content = ha_sdk_python.ValidatePricingRequestContent() # ValidatePricingRequestContent | 
 
     try:
         api_response = api_instance.validate_pricing(validate_pricing_request_content)
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

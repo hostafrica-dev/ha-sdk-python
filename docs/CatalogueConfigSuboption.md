@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.catalogue_config_suboption import CatalogueConfigSuboption
+from ha_sdk_python.models.catalogue_config_suboption import CatalogueConfigSuboption
 
 # TODO update the JSON string below
 json = "{}"

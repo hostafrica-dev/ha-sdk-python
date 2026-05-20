@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.invalid_state_error_response_content import InvalidStateErrorResponseContent
+from ha_sdk_python.models.invalid_state_error_response_content import InvalidStateErrorResponseContent
 
 # TODO update the JSON string below
 json = "{}"

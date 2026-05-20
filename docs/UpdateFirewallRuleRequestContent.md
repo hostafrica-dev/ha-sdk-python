@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.update_firewall_rule_request_content import UpdateFirewallRuleRequestContent
+from ha_sdk_python.models.update_firewall_rule_request_content import UpdateFirewallRuleRequestContent
 
 # TODO update the JSON string below
 json = "{}"

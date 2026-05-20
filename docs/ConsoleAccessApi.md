@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.ConsoleAccessApi
+# ha_sdk_python.ConsoleAccessApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -14,18 +14,18 @@ Retrieves noVNC console access credentials and connection details for a VPS
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.get_no_vnc_console_request_content import GetNoVncConsoleRequestContent
-from hostafrica_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.get_no_vnc_console_request_content import GetNoVncConsoleRequestContent
+from ha_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -34,16 +34,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.ConsoleAccessApi(api_client)
-    get_no_vnc_console_request_content = hostafrica_sdk_python.GetNoVncConsoleRequestContent() # GetNoVncConsoleRequestContent | 
+    api_instance = ha_sdk_python.ConsoleAccessApi(api_client)
+    get_no_vnc_console_request_content = ha_sdk_python.GetNoVncConsoleRequestContent() # GetNoVncConsoleRequestContent | 
 
     try:
         api_response = api_instance.get_no_vnc_console(get_no_vnc_console_request_content)
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

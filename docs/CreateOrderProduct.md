@@ -7,7 +7,7 @@ A single product line item in a create order request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pid** | **int** | WHMCS product ID | 
-**billing_cycle** | **str** | Billing cycle (e.g. monthly, annually) | 
+**billing_cycle** | [**BillingCycle**](BillingCycle.md) |  | 
 **plan_id** | **int** | Plan ID for the selected product configuration | 
 **hostname** | **str** | Hostname to assign to the service | 
 **config_options** | **object** | Configuration options as a free-form map | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.create_order_product import CreateOrderProduct
+from ha_sdk_python.models.create_order_product import CreateOrderProduct
 
 # TODO update the JSON string below
 json = "{}"

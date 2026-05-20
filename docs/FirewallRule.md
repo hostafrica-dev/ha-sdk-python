@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.firewall_rule import FirewallRule
+from ha_sdk_python.models.firewall_rule import FirewallRule
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.mount_iso_response_content import MountIsoResponseContent
+from ha_sdk_python.models.mount_iso_response_content import MountIsoResponseContent
 
 # TODO update the JSON string below
 json = "{}"

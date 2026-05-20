@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.shutdown_vps_request_content import ShutdownVpsRequestContent
+from ha_sdk_python.models.shutdown_vps_request_content import ShutdownVpsRequestContent
 
 # TODO update the JSON string below
 json = "{}"

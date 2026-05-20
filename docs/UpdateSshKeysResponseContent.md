@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.update_ssh_keys_response_content import UpdateSshKeysResponseContent
+from ha_sdk_python.models.update_ssh_keys_response_content import UpdateSshKeysResponseContent
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,6 +1,6 @@
 [project]
-name = "hostafrica_sdk_python"
-version = "1.0.5"
+name = "ha_sdk_python"
+version = "1.0.0"
 description = "HostAfricaApi"
 authors = [
   {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+Repository = "https://github.com/hostafrica/ha-sdk-python"
 
 [tool.poetry]
 requires-poetry = ">=2.0"
@@ -40,7 +40,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "hostafrica_sdk_python",
+  "ha_sdk_python",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -78,7 +78,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "hostafrica_sdk_python.configuration",
+  "ha_sdk_python.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

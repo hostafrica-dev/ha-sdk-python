@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.list_reinstall_os_request_content import ListReinstallOsRequestContent
+from ha_sdk_python.models.list_reinstall_os_request_content import ListReinstallOsRequestContent
 
 # TODO update the JSON string below
 json = "{}"

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.rdns_record import RdnsRecord
+from ha_sdk_python.models.rdns_record import RdnsRecord
 
 # TODO update the JSON string below
 json = "{}"

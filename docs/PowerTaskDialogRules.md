@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.power_task_dialog_rules import PowerTaskDialogRules
+from ha_sdk_python.models.power_task_dialog_rules import PowerTaskDialogRules
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.FirewallApi
+# ha_sdk_python.FirewallApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -18,18 +18,18 @@ Creates a new firewall rule for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_firewall_rule_request_content import CreateFirewallRuleRequestContent
-from hostafrica_sdk_python.models.create_firewall_rule_response_content import CreateFirewallRuleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_firewall_rule_request_content import CreateFirewallRuleRequestContent
+from ha_sdk_python.models.create_firewall_rule_response_content import CreateFirewallRuleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -38,16 +38,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.FirewallApi(api_client)
-    create_firewall_rule_request_content = hostafrica_sdk_python.CreateFirewallRuleRequestContent() # CreateFirewallRuleRequestContent | 
+    api_instance = ha_sdk_python.FirewallApi(api_client)
+    create_firewall_rule_request_content = ha_sdk_python.CreateFirewallRuleRequestContent() # CreateFirewallRuleRequestContent | 
 
     try:
         api_response = api_instance.create_firewall_rule(create_firewall_rule_request_content)
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -102,18 +102,18 @@ Deletes a firewall rule from a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.delete_firewall_rule_request_content import DeleteFirewallRuleRequestContent
-from hostafrica_sdk_python.models.delete_firewall_rule_response_content import DeleteFirewallRuleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.delete_firewall_rule_request_content import DeleteFirewallRuleRequestContent
+from ha_sdk_python.models.delete_firewall_rule_response_content import DeleteFirewallRuleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -122,16 +122,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.FirewallApi(api_client)
-    delete_firewall_rule_request_content = hostafrica_sdk_python.DeleteFirewallRuleRequestContent() # DeleteFirewallRuleRequestContent | 
+    api_instance = ha_sdk_python.FirewallApi(api_client)
+    delete_firewall_rule_request_content = ha_sdk_python.DeleteFirewallRuleRequestContent() # DeleteFirewallRuleRequestContent | 
 
     try:
         api_response = api_instance.delete_firewall_rule(delete_firewall_rule_request_content)
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -186,18 +186,18 @@ Retrieves the list of firewall rules and available options for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_firewall_rules_request_content import ListFirewallRulesRequestContent
-from hostafrica_sdk_python.models.list_firewall_rules_response_content import ListFirewallRulesResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_firewall_rules_request_content import ListFirewallRulesRequestContent
+from ha_sdk_python.models.list_firewall_rules_response_content import ListFirewallRulesResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -206,16 +206,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.FirewallApi(api_client)
-    list_firewall_rules_request_content = hostafrica_sdk_python.ListFirewallRulesRequestContent() # ListFirewallRulesRequestContent | 
+    api_instance = ha_sdk_python.FirewallApi(api_client)
+    list_firewall_rules_request_content = ha_sdk_python.ListFirewallRulesRequestContent() # ListFirewallRulesRequestContent | 
 
     try:
         api_response = api_instance.list_firewall_rules(list_firewall_rules_request_content)
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -269,18 +269,18 @@ Moves a firewall rule to a different position in the rule list. Supports both ab
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.move_firewall_rule_request_content import MoveFirewallRuleRequestContent
-from hostafrica_sdk_python.models.move_firewall_rule_response_content import MoveFirewallRuleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.move_firewall_rule_request_content import MoveFirewallRuleRequestContent
+from ha_sdk_python.models.move_firewall_rule_response_content import MoveFirewallRuleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -289,16 +289,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.FirewallApi(api_client)
-    move_firewall_rule_request_content = hostafrica_sdk_python.MoveFirewallRuleRequestContent() # MoveFirewallRuleRequestContent | 
+    api_instance = ha_sdk_python.FirewallApi(api_client)
+    move_firewall_rule_request_content = ha_sdk_python.MoveFirewallRuleRequestContent() # MoveFirewallRuleRequestContent | 
 
     try:
         api_response = api_instance.move_firewall_rule(move_firewall_rule_request_content)
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -353,18 +353,18 @@ Updates an existing firewall rule for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.update_firewall_rule_request_content import UpdateFirewallRuleRequestContent
-from hostafrica_sdk_python.models.update_firewall_rule_response_content import UpdateFirewallRuleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.update_firewall_rule_request_content import UpdateFirewallRuleRequestContent
+from ha_sdk_python.models.update_firewall_rule_response_content import UpdateFirewallRuleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -373,16 +373,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.FirewallApi(api_client)
-    update_firewall_rule_request_content = hostafrica_sdk_python.UpdateFirewallRuleRequestContent() # UpdateFirewallRuleRequestContent | 
+    api_instance = ha_sdk_python.FirewallApi(api_client)
+    update_firewall_rule_request_content = ha_sdk_python.UpdateFirewallRuleRequestContent() # UpdateFirewallRuleRequestContent | 
 
     try:
         api_response = api_instance.update_firewall_rule(update_firewall_rule_request_content)
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

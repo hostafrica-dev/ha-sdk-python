@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.backup_schedule_list_response_data import BackupScheduleListResponseData
+from ha_sdk_python.models.backup_schedule_list_response_data import BackupScheduleListResponseData
 
 # TODO update the JSON string below
 json = "{}"

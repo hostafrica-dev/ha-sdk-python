@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.notification_create_response_data import NotificationCreateResponseData
+from ha_sdk_python.models.notification_create_response_data import NotificationCreateResponseData
 
 # TODO update the JSON string below
 json = "{}"

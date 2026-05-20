@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.list_firewall_rules_request_content import ListFirewallRulesRequestContent
+from ha_sdk_python.models.list_firewall_rules_request_content import ListFirewallRulesRequestContent
 
 # TODO update the JSON string below
 json = "{}"

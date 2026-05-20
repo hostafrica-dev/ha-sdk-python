@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.trigger_reinstall_response_content import TriggerReinstallResponseContent
+from ha_sdk_python.models.trigger_reinstall_response_content import TriggerReinstallResponseContent
 
 # TODO update the JSON string below
 json = "{}"

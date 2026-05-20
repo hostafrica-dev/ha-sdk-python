@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.change_password_request_content import ChangePasswordRequestContent
+from ha_sdk_python.models.change_password_request_content import ChangePasswordRequestContent
 
 # TODO update the JSON string below
 json = "{}"

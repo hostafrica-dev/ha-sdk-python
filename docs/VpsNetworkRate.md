@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.vps_network_rate import VpsNetworkRate
+from ha_sdk_python.models.vps_network_rate import VpsNetworkRate
 
 # TODO update the JSON string below
 json = "{}"

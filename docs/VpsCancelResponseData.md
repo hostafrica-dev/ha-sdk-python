@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.vps_cancel_response_data import VpsCancelResponseData
+from ha_sdk_python.models.vps_cancel_response_data import VpsCancelResponseData
 
 # TODO update the JSON string below
 json = "{}"

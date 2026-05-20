@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.payment_error import PaymentError
+from ha_sdk_python.models.payment_error import PaymentError
 
 # TODO update the JSON string below
 json = "{}"

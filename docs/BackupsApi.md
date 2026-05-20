@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.BackupsApi
+# ha_sdk_python.BackupsApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -21,18 +21,18 @@ Creates a new backup for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_backup_request_content import CreateBackupRequestContent
-from hostafrica_sdk_python.models.create_backup_response_content import CreateBackupResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_backup_request_content import CreateBackupRequestContent
+from ha_sdk_python.models.create_backup_response_content import CreateBackupResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -41,16 +41,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    create_backup_request_content = hostafrica_sdk_python.CreateBackupRequestContent() # CreateBackupRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    create_backup_request_content = ha_sdk_python.CreateBackupRequestContent() # CreateBackupRequestContent | 
 
     try:
         api_response = api_instance.create_backup(create_backup_request_content)
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -105,18 +105,18 @@ Creates a new backup schedule for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_backup_schedule_request_content import CreateBackupScheduleRequestContent
-from hostafrica_sdk_python.models.create_backup_schedule_response_content import CreateBackupScheduleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_backup_schedule_request_content import CreateBackupScheduleRequestContent
+from ha_sdk_python.models.create_backup_schedule_response_content import CreateBackupScheduleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -125,16 +125,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    create_backup_schedule_request_content = hostafrica_sdk_python.CreateBackupScheduleRequestContent() # CreateBackupScheduleRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    create_backup_schedule_request_content = ha_sdk_python.CreateBackupScheduleRequestContent() # CreateBackupScheduleRequestContent | 
 
     try:
         api_response = api_instance.create_backup_schedule(create_backup_schedule_request_content)
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -189,18 +189,18 @@ Deletes a specific backup from a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.delete_backup_request_content import DeleteBackupRequestContent
-from hostafrica_sdk_python.models.delete_backup_response_content import DeleteBackupResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.delete_backup_request_content import DeleteBackupRequestContent
+from ha_sdk_python.models.delete_backup_response_content import DeleteBackupResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -209,16 +209,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    delete_backup_request_content = hostafrica_sdk_python.DeleteBackupRequestContent() # DeleteBackupRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    delete_backup_request_content = ha_sdk_python.DeleteBackupRequestContent() # DeleteBackupRequestContent | 
 
     try:
         api_response = api_instance.delete_backup(delete_backup_request_content)
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -273,18 +273,18 @@ Deletes a backup schedule from a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.delete_backup_schedule_request_content import DeleteBackupScheduleRequestContent
-from hostafrica_sdk_python.models.delete_backup_schedule_response_content import DeleteBackupScheduleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.delete_backup_schedule_request_content import DeleteBackupScheduleRequestContent
+from ha_sdk_python.models.delete_backup_schedule_response_content import DeleteBackupScheduleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -293,16 +293,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    delete_backup_schedule_request_content = hostafrica_sdk_python.DeleteBackupScheduleRequestContent() # DeleteBackupScheduleRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    delete_backup_schedule_request_content = ha_sdk_python.DeleteBackupScheduleRequestContent() # DeleteBackupScheduleRequestContent | 
 
     try:
         api_response = api_instance.delete_backup_schedule(delete_backup_schedule_request_content)
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -357,18 +357,18 @@ Edits an existing backup schedule for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.edit_backup_schedule_request_content import EditBackupScheduleRequestContent
-from hostafrica_sdk_python.models.edit_backup_schedule_response_content import EditBackupScheduleResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.edit_backup_schedule_request_content import EditBackupScheduleRequestContent
+from ha_sdk_python.models.edit_backup_schedule_response_content import EditBackupScheduleResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -377,16 +377,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    edit_backup_schedule_request_content = hostafrica_sdk_python.EditBackupScheduleRequestContent() # EditBackupScheduleRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    edit_backup_schedule_request_content = ha_sdk_python.EditBackupScheduleRequestContent() # EditBackupScheduleRequestContent | 
 
     try:
         api_response = api_instance.edit_backup_schedule(edit_backup_schedule_request_content)
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -441,18 +441,18 @@ Retrieves the list of backup schedules for a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_backup_schedules_request_content import ListBackupSchedulesRequestContent
-from hostafrica_sdk_python.models.list_backup_schedules_response_content import ListBackupSchedulesResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_backup_schedules_request_content import ListBackupSchedulesRequestContent
+from ha_sdk_python.models.list_backup_schedules_response_content import ListBackupSchedulesResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -461,16 +461,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    list_backup_schedules_request_content = hostafrica_sdk_python.ListBackupSchedulesRequestContent() # ListBackupSchedulesRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    list_backup_schedules_request_content = ha_sdk_python.ListBackupSchedulesRequestContent() # ListBackupSchedulesRequestContent | 
 
     try:
         api_response = api_instance.list_backup_schedules(list_backup_schedules_request_content)
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -524,18 +524,18 @@ Retrieves the list of backups for a VPS service including quota information and 
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_backups_request_content import ListBackupsRequestContent
-from hostafrica_sdk_python.models.list_backups_response_content import ListBackupsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_backups_request_content import ListBackupsRequestContent
+from ha_sdk_python.models.list_backups_response_content import ListBackupsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -544,16 +544,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    list_backups_request_content = hostafrica_sdk_python.ListBackupsRequestContent() # ListBackupsRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    list_backups_request_content = ha_sdk_python.ListBackupsRequestContent() # ListBackupsRequestContent | 
 
     try:
         api_response = api_instance.list_backups(list_backups_request_content)
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -607,18 +607,18 @@ Restores a VPS from a backup with the specified backup identifier
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.restore_backup_request_content import RestoreBackupRequestContent
-from hostafrica_sdk_python.models.restore_backup_response_content import RestoreBackupResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.restore_backup_request_content import RestoreBackupRequestContent
+from ha_sdk_python.models.restore_backup_response_content import RestoreBackupResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -627,16 +627,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.BackupsApi(api_client)
-    restore_backup_request_content = hostafrica_sdk_python.RestoreBackupRequestContent() # RestoreBackupRequestContent | 
+    api_instance = ha_sdk_python.BackupsApi(api_client)
+    restore_backup_request_content = ha_sdk_python.RestoreBackupRequestContent() # RestoreBackupRequestContent | 
 
     try:
         api_response = api_instance.restore_backup(restore_backup_request_content)
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

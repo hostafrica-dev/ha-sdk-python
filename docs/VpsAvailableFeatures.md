@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.vps_available_features import VpsAvailableFeatures
+from ha_sdk_python.models.vps_available_features import VpsAvailableFeatures
 
 # TODO update the JSON string below
 json = "{}"

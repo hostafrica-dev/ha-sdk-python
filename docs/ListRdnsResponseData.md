@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.list_rdns_response_data import ListRdnsResponseData
+from ha_sdk_python.models.list_rdns_response_data import ListRdnsResponseData
 
 # TODO update the JSON string below
 json = "{}"

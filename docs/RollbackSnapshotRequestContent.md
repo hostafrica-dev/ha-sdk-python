@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.rollback_snapshot_request_content import RollbackSnapshotRequestContent
+from ha_sdk_python.models.rollback_snapshot_request_content import RollbackSnapshotRequestContent
 
 # TODO update the JSON string below
 json = "{}"

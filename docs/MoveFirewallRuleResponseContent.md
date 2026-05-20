@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.move_firewall_rule_response_content import MoveFirewallRuleResponseContent
+from ha_sdk_python.models.move_firewall_rule_response_content import MoveFirewallRuleResponseContent
 
 # TODO update the JSON string below
 json = "{}"

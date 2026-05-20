@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.validation_error_response_content import ValidationErrorResponseContent
+from ha_sdk_python.models.validation_error_response_content import ValidationErrorResponseContent
 
 # TODO update the JSON string below
 json = "{}"

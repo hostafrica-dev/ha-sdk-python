@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.delete_rdns_record_response_content import DeleteRdnsRecordResponseContent
+from ha_sdk_python.models.delete_rdns_record_response_content import DeleteRdnsRecordResponseContent
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.resource_not_found_error_response_content import ResourceNotFoundErrorResponseContent
+from ha_sdk_python.models.resource_not_found_error_response_content import ResourceNotFoundErrorResponseContent
 
 # TODO update the JSON string below
 json = "{}"

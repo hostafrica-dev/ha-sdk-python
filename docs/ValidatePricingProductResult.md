@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.validate_pricing_product_result import ValidatePricingProductResult
+from ha_sdk_python.models.validate_pricing_product_result import ValidatePricingProductResult
 
 # TODO update the JSON string below
 json = "{}"

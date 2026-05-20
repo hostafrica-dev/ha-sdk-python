@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.unauthorized_error_response_content import UnauthorizedErrorResponseContent
+from ha_sdk_python.models.unauthorized_error_response_content import UnauthorizedErrorResponseContent
 
 # TODO update the JSON string below
 json = "{}"

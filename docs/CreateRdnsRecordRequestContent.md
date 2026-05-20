@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from hostafrica_sdk_python.models.create_rdns_record_request_content import CreateRdnsRecordRequestContent
+from ha_sdk_python.models.create_rdns_record_request_content import CreateRdnsRecordRequestContent
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# hostafrica_sdk_python.MonitoringApi
+# ha_sdk_python.MonitoringApi
 
 All URIs are relative to *https://api.hostafrica.com*
 
@@ -17,18 +17,18 @@ Creates a new notification for a VPS service with customizable thresholds for CP
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.create_notification_request_content import CreateNotificationRequestContent
-from hostafrica_sdk_python.models.create_notification_response_content import CreateNotificationResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.create_notification_request_content import CreateNotificationRequestContent
+from ha_sdk_python.models.create_notification_response_content import CreateNotificationResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -37,16 +37,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.MonitoringApi(api_client)
-    create_notification_request_content = hostafrica_sdk_python.CreateNotificationRequestContent() # CreateNotificationRequestContent | 
+    api_instance = ha_sdk_python.MonitoringApi(api_client)
+    create_notification_request_content = ha_sdk_python.CreateNotificationRequestContent() # CreateNotificationRequestContent | 
 
     try:
         api_response = api_instance.create_notification(create_notification_request_content)
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -101,18 +101,18 @@ Deletes a notification from a VPS service
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.delete_notification_request_content import DeleteNotificationRequestContent
-from hostafrica_sdk_python.models.delete_notification_response_content import DeleteNotificationResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.delete_notification_request_content import DeleteNotificationRequestContent
+from ha_sdk_python.models.delete_notification_response_content import DeleteNotificationResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -121,16 +121,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.MonitoringApi(api_client)
-    delete_notification_request_content = hostafrica_sdk_python.DeleteNotificationRequestContent() # DeleteNotificationRequestContent | 
+    api_instance = ha_sdk_python.MonitoringApi(api_client)
+    delete_notification_request_content = ha_sdk_python.DeleteNotificationRequestContent() # DeleteNotificationRequestContent | 
 
     try:
         api_response = api_instance.delete_notification(delete_notification_request_content)
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -185,18 +185,18 @@ Retrieves the list of notifications for a VPS service along with dialog rules fo
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.list_notifications_request_content import ListNotificationsRequestContent
-from hostafrica_sdk_python.models.list_notifications_response_content import ListNotificationsResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.list_notifications_request_content import ListNotificationsRequestContent
+from ha_sdk_python.models.list_notifications_response_content import ListNotificationsResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -205,16 +205,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.MonitoringApi(api_client)
-    list_notifications_request_content = hostafrica_sdk_python.ListNotificationsRequestContent() # ListNotificationsRequestContent | 
+    api_instance = ha_sdk_python.MonitoringApi(api_client)
+    list_notifications_request_content = ha_sdk_python.ListNotificationsRequestContent() # ListNotificationsRequestContent | 
 
     try:
         api_response = api_instance.list_notifications(list_notifications_request_content)
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -268,18 +268,18 @@ Updates an existing notification for a VPS service with customizable thresholds 
 
 ### Example
 
-* Bearer Authentication (smithy.api.httpBearerAuth):
+* Bearer Authentication (BearerAuth):
 
 ```python
-import hostafrica_sdk_python
-from hostafrica_sdk_python.models.update_notification_request_content import UpdateNotificationRequestContent
-from hostafrica_sdk_python.models.update_notification_response_content import UpdateNotificationResponseContent
-from hostafrica_sdk_python.rest import ApiException
+import ha_sdk_python
+from ha_sdk_python.models.update_notification_request_content import UpdateNotificationRequestContent
+from ha_sdk_python.models.update_notification_response_content import UpdateNotificationResponseContent
+from ha_sdk_python.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.hostafrica.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = hostafrica_sdk_python.Configuration(
+configuration = ha_sdk_python.Configuration(
     host = "https://api.hostafrica.com"
 )
 
@@ -288,16 +288,16 @@ configuration = hostafrica_sdk_python.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: smithy.api.httpBearerAuth
-configuration = hostafrica_sdk_python.Configuration(
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with hostafrica_sdk_python.ApiClient(configuration) as api_client:
+with ha_sdk_python.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = hostafrica_sdk_python.MonitoringApi(api_client)
-    update_notification_request_content = hostafrica_sdk_python.UpdateNotificationRequestContent() # UpdateNotificationRequestContent | 
+    api_instance = ha_sdk_python.MonitoringApi(api_client)
+    update_notification_request_content = ha_sdk_python.UpdateNotificationRequestContent() # UpdateNotificationRequestContent | 
 
     try:
         api_response = api_instance.update_notification(update_notification_request_content)
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[smithy.api.httpBearerAuth](../README.md#smithy.api.httpBearerAuth)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
