@@ -8,6 +8,7 @@ requirements.txt
 
 # Manually maintained - generator must not overwrite
 .gitignore
+README.md
 
 # Generator helper script - not needed
 git_push.sh
