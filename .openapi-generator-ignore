@@ -9,6 +9,7 @@ requirements.txt
 # Manually maintained - generator must not overwrite
 .gitignore
 README.md
+pyproject.toml
 
 # Generator helper script - not needed
 git_push.sh
