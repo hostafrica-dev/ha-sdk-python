@@ -6,11 +6,7 @@ noVNC console connection details
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**port** | **str** | VNC port number | 
-**upid** | **str** | Proxmox Unique Process ID for the VNC proxy | 
-**user** | **str** | Proxmox user for authentication | 
-**ticket** | **str** | Authentication ticket for VNC connection | 
-**cert** | **str** | Certificate for secure connection | 
+**novnc_redirect_url** | **str** | Redirect URL for the noVNC console | 
 
 ## Example
 

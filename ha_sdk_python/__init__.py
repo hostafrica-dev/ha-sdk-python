@@ -24,10 +24,8 @@ __all__ = [
     "FirewallApi",
     "MonitoringApi",
     "PowerManagementApi",
-    "SecurityApi",
     "ServiceManagementApi",
     "SnapshotsApi",
-    "UserManagementApi",
     "VPSManagementApi",
     "ApiResponse",
     "ApiClient",
@@ -56,8 +54,6 @@ __all__ = [
     "CatalogueGroup",
     "CataloguePlan",
     "CatalogueProduct",
-    "ChangePasswordRequestContent",
-    "ChangePasswordResponseContent",
     "CompressionMethod",
     "CompressionType",
     "CreateBackupRequestContent",
@@ -112,10 +108,6 @@ __all__ = [
     "GetCatalogueResponseContent",
     "GetNoVncConsoleRequestContent",
     "GetNoVncConsoleResponseContent",
-    "GetPrivateSshKeyRequestContent",
-    "GetPrivateSshKeyResponseContent",
-    "GetPublicSshKeyRequestContent",
-    "GetPublicSshKeyResponseContent",
     "GetVpsConfigRequestContent",
     "GetVpsConfigResponseContent",
     "GetVpsDetailsRequestContent",
@@ -169,7 +161,6 @@ __all__ = [
     "PowerTaskDialogRules",
     "PowerTaskJobType",
     "PowerTaskListResponseData",
-    "PublicSshKeyResponseData",
     "RdnsAvailableItem",
     "RdnsPool",
     "RdnsRecord",
@@ -191,7 +182,6 @@ __all__ = [
     "ShutdownVpsResponseContent",
     "SnapshotCreateResponseData",
     "SnapshotItem",
-    "SshKeyDetails",
     "StartVpsRequestContent",
     "StartVpsResponseContent",
     "StopVpsRequestContent",
@@ -209,14 +199,8 @@ __all__ = [
     "UpdatePowerTaskResponseContent",
     "UpdateSnapshotRequestContent",
     "UpdateSnapshotResponseContent",
-    "UpdateSshKeysRequestContent",
-    "UpdateSshKeysResponseContent",
     "UpdateVpsConfigRequestContent",
     "UpdateVpsConfigResponseContent",
-    "UserChangePasswordDetails",
-    "UserChangePasswordRequestContent",
-    "UserChangePasswordResponseContent",
-    "UserChangePasswordResponseData",
     "ValidatePricingBase",
     "ValidatePricingBreakdown",
     "ValidatePricingConfigItem",
@@ -235,7 +219,6 @@ __all__ = [
     "ValidatePricingSummaryRecurring",
     "ValidationErrorResponseContent",
     "VpsAvailableFeatures",
-    "VpsBandwidthInfo",
     "VpsCancelResponseData",
     "VpsCancelType",
     "VpsConfigResponseData",
@@ -258,10 +241,8 @@ from ha_sdk_python.api.dns_api import DNSApi as DNSApi
 from ha_sdk_python.api.firewall_api import FirewallApi as FirewallApi
 from ha_sdk_python.api.monitoring_api import MonitoringApi as MonitoringApi
 from ha_sdk_python.api.power_management_api import PowerManagementApi as PowerManagementApi
-from ha_sdk_python.api.security_api import SecurityApi as SecurityApi
 from ha_sdk_python.api.service_management_api import ServiceManagementApi as ServiceManagementApi
 from ha_sdk_python.api.snapshots_api import SnapshotsApi as SnapshotsApi
-from ha_sdk_python.api.user_management_api import UserManagementApi as UserManagementApi
 from ha_sdk_python.api.vps_management_api import VPSManagementApi as VPSManagementApi
 
 # import ApiClient
@@ -294,8 +275,6 @@ from ha_sdk_python.models.catalogue_data import CatalogueData as CatalogueData
 from ha_sdk_python.models.catalogue_group import CatalogueGroup as CatalogueGroup
 from ha_sdk_python.models.catalogue_plan import CataloguePlan as CataloguePlan
 from ha_sdk_python.models.catalogue_product import CatalogueProduct as CatalogueProduct
-from ha_sdk_python.models.change_password_request_content import ChangePasswordRequestContent as ChangePasswordRequestContent
-from ha_sdk_python.models.change_password_response_content import ChangePasswordResponseContent as ChangePasswordResponseContent
 from ha_sdk_python.models.compression_method import CompressionMethod as CompressionMethod
 from ha_sdk_python.models.compression_type import CompressionType as CompressionType
 from ha_sdk_python.models.create_backup_request_content import CreateBackupRequestContent as CreateBackupRequestContent
@@ -350,10 +329,6 @@ from ha_sdk_python.models.get_catalogue_request_content import GetCatalogueReque
 from ha_sdk_python.models.get_catalogue_response_content import GetCatalogueResponseContent as GetCatalogueResponseContent
 from ha_sdk_python.models.get_no_vnc_console_request_content import GetNoVncConsoleRequestContent as GetNoVncConsoleRequestContent
 from ha_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent as GetNoVncConsoleResponseContent
-from ha_sdk_python.models.get_private_ssh_key_request_content import GetPrivateSshKeyRequestContent as GetPrivateSshKeyRequestContent
-from ha_sdk_python.models.get_private_ssh_key_response_content import GetPrivateSshKeyResponseContent as GetPrivateSshKeyResponseContent
-from ha_sdk_python.models.get_public_ssh_key_request_content import GetPublicSshKeyRequestContent as GetPublicSshKeyRequestContent
-from ha_sdk_python.models.get_public_ssh_key_response_content import GetPublicSshKeyResponseContent as GetPublicSshKeyResponseContent
 from ha_sdk_python.models.get_vps_config_request_content import GetVpsConfigRequestContent as GetVpsConfigRequestContent
 from ha_sdk_python.models.get_vps_config_response_content import GetVpsConfigResponseContent as GetVpsConfigResponseContent
 from ha_sdk_python.models.get_vps_details_request_content import GetVpsDetailsRequestContent as GetVpsDetailsRequestContent
@@ -407,7 +382,6 @@ from ha_sdk_python.models.power_task_create_response_data import PowerTaskCreate
 from ha_sdk_python.models.power_task_dialog_rules import PowerTaskDialogRules as PowerTaskDialogRules
 from ha_sdk_python.models.power_task_job_type import PowerTaskJobType as PowerTaskJobType
 from ha_sdk_python.models.power_task_list_response_data import PowerTaskListResponseData as PowerTaskListResponseData
-from ha_sdk_python.models.public_ssh_key_response_data import PublicSshKeyResponseData as PublicSshKeyResponseData
 from ha_sdk_python.models.rdns_available_item import RdnsAvailableItem as RdnsAvailableItem
 from ha_sdk_python.models.rdns_pool import RdnsPool as RdnsPool
 from ha_sdk_python.models.rdns_record import RdnsRecord as RdnsRecord
@@ -429,7 +403,6 @@ from ha_sdk_python.models.shutdown_vps_request_content import ShutdownVpsRequest
 from ha_sdk_python.models.shutdown_vps_response_content import ShutdownVpsResponseContent as ShutdownVpsResponseContent
 from ha_sdk_python.models.snapshot_create_response_data import SnapshotCreateResponseData as SnapshotCreateResponseData
 from ha_sdk_python.models.snapshot_item import SnapshotItem as SnapshotItem
-from ha_sdk_python.models.ssh_key_details import SshKeyDetails as SshKeyDetails
 from ha_sdk_python.models.start_vps_request_content import StartVpsRequestContent as StartVpsRequestContent
 from ha_sdk_python.models.start_vps_response_content import StartVpsResponseContent as StartVpsResponseContent
 from ha_sdk_python.models.stop_vps_request_content import StopVpsRequestContent as StopVpsRequestContent
@@ -447,14 +420,8 @@ from ha_sdk_python.models.update_power_task_request_content import UpdatePowerTa
 from ha_sdk_python.models.update_power_task_response_content import UpdatePowerTaskResponseContent as UpdatePowerTaskResponseContent
 from ha_sdk_python.models.update_snapshot_request_content import UpdateSnapshotRequestContent as UpdateSnapshotRequestContent
 from ha_sdk_python.models.update_snapshot_response_content import UpdateSnapshotResponseContent as UpdateSnapshotResponseContent
-from ha_sdk_python.models.update_ssh_keys_request_content import UpdateSshKeysRequestContent as UpdateSshKeysRequestContent
-from ha_sdk_python.models.update_ssh_keys_response_content import UpdateSshKeysResponseContent as UpdateSshKeysResponseContent
 from ha_sdk_python.models.update_vps_config_request_content import UpdateVpsConfigRequestContent as UpdateVpsConfigRequestContent
 from ha_sdk_python.models.update_vps_config_response_content import UpdateVpsConfigResponseContent as UpdateVpsConfigResponseContent
-from ha_sdk_python.models.user_change_password_details import UserChangePasswordDetails as UserChangePasswordDetails
-from ha_sdk_python.models.user_change_password_request_content import UserChangePasswordRequestContent as UserChangePasswordRequestContent
-from ha_sdk_python.models.user_change_password_response_content import UserChangePasswordResponseContent as UserChangePasswordResponseContent
-from ha_sdk_python.models.user_change_password_response_data import UserChangePasswordResponseData as UserChangePasswordResponseData
 from ha_sdk_python.models.validate_pricing_base import ValidatePricingBase as ValidatePricingBase
 from ha_sdk_python.models.validate_pricing_breakdown import ValidatePricingBreakdown as ValidatePricingBreakdown
 from ha_sdk_python.models.validate_pricing_config_item import ValidatePricingConfigItem as ValidatePricingConfigItem
@@ -473,7 +440,6 @@ from ha_sdk_python.models.validate_pricing_summary import ValidatePricingSummary
 from ha_sdk_python.models.validate_pricing_summary_recurring import ValidatePricingSummaryRecurring as ValidatePricingSummaryRecurring
 from ha_sdk_python.models.validation_error_response_content import ValidationErrorResponseContent as ValidationErrorResponseContent
 from ha_sdk_python.models.vps_available_features import VpsAvailableFeatures as VpsAvailableFeatures
-from ha_sdk_python.models.vps_bandwidth_info import VpsBandwidthInfo as VpsBandwidthInfo
 from ha_sdk_python.models.vps_cancel_response_data import VpsCancelResponseData as VpsCancelResponseData
 from ha_sdk_python.models.vps_cancel_type import VpsCancelType as VpsCancelType
 from ha_sdk_python.models.vps_config_response_data import VpsConfigResponseData as VpsConfigResponseData

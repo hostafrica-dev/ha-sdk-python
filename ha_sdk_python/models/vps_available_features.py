@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -40,8 +40,7 @@ class VpsAvailableFeatures(BaseModel):
     change_iso_image: StrictBool = Field(description="Can change ISO image")
     network_stats: StrictBool = Field(description="Has network statistics feature")
     graphs: StrictBool = Field(description="Has graphs feature")
-    os_templates: List[StrictStr] = Field(description="List of available OS templates")
-    __properties: ClassVar[List[str]] = ["power_start", "power_stop", "power_reboot", "power_shutdown", "novnc_console", "backups", "backup_jobs", "backup_schedule", "firewall", "reinstall", "change_hostname", "change_iso_image", "network_stats", "graphs", "os_templates"]
+    __properties: ClassVar[List[str]] = ["power_start", "power_stop", "power_reboot", "power_shutdown", "novnc_console", "backups", "backup_jobs", "backup_schedule", "firewall", "reinstall", "change_hostname", "change_iso_image", "network_stats", "graphs"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,8 +106,7 @@ class VpsAvailableFeatures(BaseModel):
             "change_hostname": obj.get("change_hostname"),
             "change_iso_image": obj.get("change_iso_image"),
             "network_stats": obj.get("network_stats"),
-            "graphs": obj.get("graphs"),
-            "os_templates": obj.get("os_templates")
+            "graphs": obj.get("graphs")
         })
         return _obj
 

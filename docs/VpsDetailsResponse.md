@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **cpu** | [**VpsCpuInfo**](VpsCpuInfo.md) |  | 
 **memory** | [**VpsMemoryInfo**](VpsMemoryInfo.md) |  | 
 **disk** | [**VpsDiskInfo**](VpsDiskInfo.md) |  | 
-**bandwidth** | [**VpsBandwidthInfo**](VpsBandwidthInfo.md) |  | 
 **network_rate** | [**VpsNetworkRate**](VpsNetworkRate.md) |  | [optional] 
 **ip_addresses** | **List[str]** | List of IP addresses assigned to the VPS | 
 **credentials** | [**VpsCredentials**](VpsCredentials.md) |  | 

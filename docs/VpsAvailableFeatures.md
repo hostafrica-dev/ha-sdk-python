@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **change_iso_image** | **bool** | Can change ISO image | 
 **network_stats** | **bool** | Has network statistics feature | 
 **graphs** | **bool** | Has graphs feature | 
-**os_templates** | **List[str]** | List of available OS templates | 
 
 ## Example
 

@@ -26,12 +26,8 @@ class NoVncConsoleDetails(BaseModel):
     """
     noVNC console connection details
     """ # noqa: E501
-    port: StrictStr = Field(description="VNC port number")
-    upid: StrictStr = Field(description="Proxmox Unique Process ID for the VNC proxy")
-    user: StrictStr = Field(description="Proxmox user for authentication")
-    ticket: StrictStr = Field(description="Authentication ticket for VNC connection")
-    cert: StrictStr = Field(description="Certificate for secure connection")
-    __properties: ClassVar[List[str]] = ["port", "upid", "user", "ticket", "cert"]
+    novnc_redirect_url: StrictStr = Field(description="Redirect URL for the noVNC console")
+    __properties: ClassVar[List[str]] = ["novnc_redirect_url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,11 +80,7 @@ class NoVncConsoleDetails(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "port": obj.get("port"),
-            "upid": obj.get("upid"),
-            "user": obj.get("user"),
-            "ticket": obj.get("ticket"),
-            "cert": obj.get("cert")
+            "novnc_redirect_url": obj.get("novnc_redirect_url")
         })
         return _obj
 
