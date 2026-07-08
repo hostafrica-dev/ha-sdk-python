@@ -6,8 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_id** | **str** | Service ID - must be sent as a string | 
-**snapname** | **str** | Name for the snapshot | [optional] 
+**name** | **str** | Name for the snapshot | 
 **description** | **str** | Description for the snapshot | [optional] 
+**include_ram** | **bool** | Whether to include RAM state in the snapshot. Defaults to false when omitted. | [optional] 
 
 ## Example
 

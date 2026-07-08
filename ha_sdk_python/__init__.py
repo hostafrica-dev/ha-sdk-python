@@ -77,6 +77,8 @@ __all__ = [
     "CreateRdnsRecordRequestContent",
     "CreateRdnsRecordResponseContent",
     "CreateRdnsRecordResponseData",
+    "CreateSnapshotJobRequestContent",
+    "CreateSnapshotJobResponseContent",
     "CreateSnapshotRequestContent",
     "CreateSnapshotResponseContent",
     "DayOfWeek",
@@ -92,6 +94,8 @@ __all__ = [
     "DeletePowerTaskResponseContent",
     "DeleteRdnsRecordRequestContent",
     "DeleteRdnsRecordResponseContent",
+    "DeleteSnapshotJobRequestContent",
+    "DeleteSnapshotJobResponseContent",
     "DeleteSnapshotRequestContent",
     "DeleteSnapshotResponseContent",
     "EditBackupScheduleRequestContent",
@@ -134,6 +138,8 @@ __all__ = [
     "ListReinstallOsRequestContent",
     "ListReinstallOsResponseContent",
     "ListReinstallOsResponseData",
+    "ListSnapshotJobsRequestContent",
+    "ListSnapshotJobsResponseContent",
     "ListSnapshotsRequestContent",
     "ListSnapshotsResponseContent",
     "ListVpsServicesData",
@@ -182,6 +188,13 @@ __all__ = [
     "ShutdownVpsResponseContent",
     "SnapshotCreateResponseData",
     "SnapshotItem",
+    "SnapshotJob",
+    "SnapshotJobDeleteResponseData",
+    "SnapshotJobLimits",
+    "SnapshotJobListResponseData",
+    "SnapshotJobMutationResponseData",
+    "SnapshotJobPeriod",
+    "SnapshotJobUpdateResponseData",
     "StartVpsRequestContent",
     "StartVpsResponseContent",
     "StopVpsRequestContent",
@@ -197,6 +210,8 @@ __all__ = [
     "UpdateNotificationResponseContent",
     "UpdatePowerTaskRequestContent",
     "UpdatePowerTaskResponseContent",
+    "UpdateSnapshotJobRequestContent",
+    "UpdateSnapshotJobResponseContent",
     "UpdateSnapshotRequestContent",
     "UpdateSnapshotResponseContent",
     "UpdateVpsConfigRequestContent",
@@ -298,6 +313,8 @@ from ha_sdk_python.models.create_power_task_response_content import CreatePowerT
 from ha_sdk_python.models.create_rdns_record_request_content import CreateRdnsRecordRequestContent as CreateRdnsRecordRequestContent
 from ha_sdk_python.models.create_rdns_record_response_content import CreateRdnsRecordResponseContent as CreateRdnsRecordResponseContent
 from ha_sdk_python.models.create_rdns_record_response_data import CreateRdnsRecordResponseData as CreateRdnsRecordResponseData
+from ha_sdk_python.models.create_snapshot_job_request_content import CreateSnapshotJobRequestContent as CreateSnapshotJobRequestContent
+from ha_sdk_python.models.create_snapshot_job_response_content import CreateSnapshotJobResponseContent as CreateSnapshotJobResponseContent
 from ha_sdk_python.models.create_snapshot_request_content import CreateSnapshotRequestContent as CreateSnapshotRequestContent
 from ha_sdk_python.models.create_snapshot_response_content import CreateSnapshotResponseContent as CreateSnapshotResponseContent
 from ha_sdk_python.models.day_of_week import DayOfWeek as DayOfWeek
@@ -313,6 +330,8 @@ from ha_sdk_python.models.delete_power_task_request_content import DeletePowerTa
 from ha_sdk_python.models.delete_power_task_response_content import DeletePowerTaskResponseContent as DeletePowerTaskResponseContent
 from ha_sdk_python.models.delete_rdns_record_request_content import DeleteRdnsRecordRequestContent as DeleteRdnsRecordRequestContent
 from ha_sdk_python.models.delete_rdns_record_response_content import DeleteRdnsRecordResponseContent as DeleteRdnsRecordResponseContent
+from ha_sdk_python.models.delete_snapshot_job_request_content import DeleteSnapshotJobRequestContent as DeleteSnapshotJobRequestContent
+from ha_sdk_python.models.delete_snapshot_job_response_content import DeleteSnapshotJobResponseContent as DeleteSnapshotJobResponseContent
 from ha_sdk_python.models.delete_snapshot_request_content import DeleteSnapshotRequestContent as DeleteSnapshotRequestContent
 from ha_sdk_python.models.delete_snapshot_response_content import DeleteSnapshotResponseContent as DeleteSnapshotResponseContent
 from ha_sdk_python.models.edit_backup_schedule_request_content import EditBackupScheduleRequestContent as EditBackupScheduleRequestContent
@@ -355,6 +374,8 @@ from ha_sdk_python.models.list_rdns_response_data import ListRdnsResponseData as
 from ha_sdk_python.models.list_reinstall_os_request_content import ListReinstallOsRequestContent as ListReinstallOsRequestContent
 from ha_sdk_python.models.list_reinstall_os_response_content import ListReinstallOsResponseContent as ListReinstallOsResponseContent
 from ha_sdk_python.models.list_reinstall_os_response_data import ListReinstallOsResponseData as ListReinstallOsResponseData
+from ha_sdk_python.models.list_snapshot_jobs_request_content import ListSnapshotJobsRequestContent as ListSnapshotJobsRequestContent
+from ha_sdk_python.models.list_snapshot_jobs_response_content import ListSnapshotJobsResponseContent as ListSnapshotJobsResponseContent
 from ha_sdk_python.models.list_snapshots_request_content import ListSnapshotsRequestContent as ListSnapshotsRequestContent
 from ha_sdk_python.models.list_snapshots_response_content import ListSnapshotsResponseContent as ListSnapshotsResponseContent
 from ha_sdk_python.models.list_vps_services_data import ListVpsServicesData as ListVpsServicesData
@@ -403,6 +424,13 @@ from ha_sdk_python.models.shutdown_vps_request_content import ShutdownVpsRequest
 from ha_sdk_python.models.shutdown_vps_response_content import ShutdownVpsResponseContent as ShutdownVpsResponseContent
 from ha_sdk_python.models.snapshot_create_response_data import SnapshotCreateResponseData as SnapshotCreateResponseData
 from ha_sdk_python.models.snapshot_item import SnapshotItem as SnapshotItem
+from ha_sdk_python.models.snapshot_job import SnapshotJob as SnapshotJob
+from ha_sdk_python.models.snapshot_job_delete_response_data import SnapshotJobDeleteResponseData as SnapshotJobDeleteResponseData
+from ha_sdk_python.models.snapshot_job_limits import SnapshotJobLimits as SnapshotJobLimits
+from ha_sdk_python.models.snapshot_job_list_response_data import SnapshotJobListResponseData as SnapshotJobListResponseData
+from ha_sdk_python.models.snapshot_job_mutation_response_data import SnapshotJobMutationResponseData as SnapshotJobMutationResponseData
+from ha_sdk_python.models.snapshot_job_period import SnapshotJobPeriod as SnapshotJobPeriod
+from ha_sdk_python.models.snapshot_job_update_response_data import SnapshotJobUpdateResponseData as SnapshotJobUpdateResponseData
 from ha_sdk_python.models.start_vps_request_content import StartVpsRequestContent as StartVpsRequestContent
 from ha_sdk_python.models.start_vps_response_content import StartVpsResponseContent as StartVpsResponseContent
 from ha_sdk_python.models.stop_vps_request_content import StopVpsRequestContent as StopVpsRequestContent
@@ -418,6 +446,8 @@ from ha_sdk_python.models.update_notification_request_content import UpdateNotif
 from ha_sdk_python.models.update_notification_response_content import UpdateNotificationResponseContent as UpdateNotificationResponseContent
 from ha_sdk_python.models.update_power_task_request_content import UpdatePowerTaskRequestContent as UpdatePowerTaskRequestContent
 from ha_sdk_python.models.update_power_task_response_content import UpdatePowerTaskResponseContent as UpdatePowerTaskResponseContent
+from ha_sdk_python.models.update_snapshot_job_request_content import UpdateSnapshotJobRequestContent as UpdateSnapshotJobRequestContent
+from ha_sdk_python.models.update_snapshot_job_response_content import UpdateSnapshotJobResponseContent as UpdateSnapshotJobResponseContent
 from ha_sdk_python.models.update_snapshot_request_content import UpdateSnapshotRequestContent as UpdateSnapshotRequestContent
 from ha_sdk_python.models.update_snapshot_response_content import UpdateSnapshotResponseContent as UpdateSnapshotResponseContent
 from ha_sdk_python.models.update_vps_config_request_content import UpdateVpsConfigRequestContent as UpdateVpsConfigRequestContent

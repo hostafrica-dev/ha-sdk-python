@@ -17,20 +17,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from ha_sdk_python.models.day_of_week import DayOfWeek
+from ha_sdk_python.models.snapshot_job_period import SnapshotJobPeriod
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateSnapshotRequestContent(BaseModel):
+class SnapshotJob(BaseModel):
     """
-    CreateSnapshotRequestContent
+    Individual snapshot job item
     """ # noqa: E501
-    service_id: StrictStr = Field(description="Service ID - must be sent as a string")
-    name: StrictStr = Field(description="Name for the snapshot")
-    description: Optional[StrictStr] = Field(default=None, description="Description for the snapshot")
-    include_ram: Optional[StrictBool] = Field(default=None, description="Whether to include RAM state in the snapshot. Defaults to false when omitted.")
-    __properties: ClassVar[List[str]] = ["service_id", "name", "description", "include_ram"]
+    id: StrictInt = Field(description="Snapshot job ID")
+    hosting_id: Optional[StrictInt] = Field(default=None, description="Hosting account ID")
+    vm_id: Optional[StrictInt] = Field(default=None, description="VM ID (null if not yet assigned)")
+    name: StrictStr = Field(description="Name of the snapshot job")
+    description: Optional[StrictStr] = Field(default=None, description="Description of the snapshot job")
+    vmstate: Optional[StrictBool] = Field(default=None, description="Whether VM state is included in the snapshot")
+    period: SnapshotJobPeriod
+    run_every: Optional[StrictInt] = Field(default=None, description="For hourly jobs: run every N hours")
+    days: Optional[List[DayOfWeek]] = Field(default=None, description="For daily jobs: days of week")
+    start_time: Optional[StrictStr] = Field(default=None, description="For daily jobs: start time in HH:MM format")
+    __properties: ClassVar[List[str]] = ["id", "hosting_id", "vm_id", "name", "description", "vmstate", "period", "run_every", "days", "start_time"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +58,7 @@ class CreateSnapshotRequestContent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a JSON string"""
+        """Create an instance of SnapshotJob from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +83,7 @@ class CreateSnapshotRequestContent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a dict"""
+        """Create an instance of SnapshotJob from a dict"""
         if obj is None:
             return None
 
@@ -83,10 +91,16 @@ class CreateSnapshotRequestContent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "service_id": obj.get("service_id"),
+            "id": obj.get("id"),
+            "hosting_id": obj.get("hosting_id"),
+            "vm_id": obj.get("vm_id"),
             "name": obj.get("name"),
             "description": obj.get("description"),
-            "include_ram": obj.get("include_ram")
+            "vmstate": obj.get("vmstate"),
+            "period": obj.get("period"),
+            "run_every": obj.get("run_every"),
+            "days": obj.get("days"),
+            "start_time": obj.get("start_time")
         })
         return _obj
 

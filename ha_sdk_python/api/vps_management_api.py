@@ -959,7 +959,7 @@ class VPSManagementApi:
     ) -> ListReinstallOsResponseContent:
         """list_reinstall_os
 
-        [Under development] Retrieves the list of available OS images for VPS reinstallation
+        Retrieves the list of available OS images for VPS reinstallation
 
         :param list_reinstall_os_request_content: (required)
         :type list_reinstall_os_request_content: ListReinstallOsRequestContent
@@ -1034,7 +1034,7 @@ class VPSManagementApi:
     ) -> ApiResponse[ListReinstallOsResponseContent]:
         """list_reinstall_os
 
-        [Under development] Retrieves the list of available OS images for VPS reinstallation
+        Retrieves the list of available OS images for VPS reinstallation
 
         :param list_reinstall_os_request_content: (required)
         :type list_reinstall_os_request_content: ListReinstallOsRequestContent
@@ -1109,7 +1109,7 @@ class VPSManagementApi:
     ) -> RESTResponseType:
         """list_reinstall_os
 
-        [Under development] Retrieves the list of available OS images for VPS reinstallation
+        Retrieves the list of available OS images for VPS reinstallation
 
         :param list_reinstall_os_request_content: (required)
         :type list_reinstall_os_request_content: ListReinstallOsRequestContent

@@ -17,20 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateSnapshotRequestContent(BaseModel):
+class SnapshotJobLimits(BaseModel):
     """
-    CreateSnapshotRequestContent
+    Limits and quota information for snapshot jobs
     """ # noqa: E501
-    service_id: StrictStr = Field(description="Service ID - must be sent as a string")
-    name: StrictStr = Field(description="Name for the snapshot")
-    description: Optional[StrictStr] = Field(default=None, description="Description for the snapshot")
-    include_ram: Optional[StrictBool] = Field(default=None, description="Whether to include RAM state in the snapshot. Defaults to false when omitted.")
-    __properties: ClassVar[List[str]] = ["service_id", "name", "description", "include_ram"]
+    max_jobs: StrictInt = Field(description="Maximum number of snapshot jobs allowed")
+    job_count: StrictInt = Field(description="Current number of snapshot jobs")
+    can_add_more: StrictBool = Field(description="Whether more jobs can be added")
+    __properties: ClassVar[List[str]] = ["max_jobs", "job_count", "can_add_more"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class CreateSnapshotRequestContent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a JSON string"""
+        """Create an instance of SnapshotJobLimits from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +74,7 @@ class CreateSnapshotRequestContent(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a dict"""
+        """Create an instance of SnapshotJobLimits from a dict"""
         if obj is None:
             return None
 
@@ -83,10 +82,9 @@ class CreateSnapshotRequestContent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "service_id": obj.get("service_id"),
-            "name": obj.get("name"),
-            "description": obj.get("description"),
-            "include_ram": obj.get("include_ram")
+            "max_jobs": obj.get("max_jobs"),
+            "job_count": obj.get("job_count"),
+            "can_add_more": obj.get("can_add_more")
         })
         return _obj
 

@@ -17,20 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from ha_sdk_python.models.snapshot_job import SnapshotJob
+from ha_sdk_python.models.snapshot_job_limits import SnapshotJobLimits
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateSnapshotRequestContent(BaseModel):
+class SnapshotJobListResponseData(BaseModel):
     """
-    CreateSnapshotRequestContent
+    Response data for snapshot job list operation
     """ # noqa: E501
-    service_id: StrictStr = Field(description="Service ID - must be sent as a string")
-    name: StrictStr = Field(description="Name for the snapshot")
-    description: Optional[StrictStr] = Field(default=None, description="Description for the snapshot")
-    include_ram: Optional[StrictBool] = Field(default=None, description="Whether to include RAM state in the snapshot. Defaults to false when omitted.")
-    __properties: ClassVar[List[str]] = ["service_id", "name", "description", "include_ram"]
+    message: StrictStr = Field(description="Status message indicating the result")
+    jobs: List[SnapshotJob] = Field(description="List of snapshot jobs")
+    limits: SnapshotJobLimits
+    allowed_periods: Optional[List[StrictStr]] = Field(default=None, description="Allowed schedule periods for snapshot jobs")
+    __properties: ClassVar[List[str]] = ["message", "jobs", "limits", "allowed_periods"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +52,7 @@ class CreateSnapshotRequestContent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a JSON string"""
+        """Create an instance of SnapshotJobListResponseData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,11 +73,21 @@ class CreateSnapshotRequestContent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in jobs (list)
+        _items = []
+        if self.jobs:
+            for _item_jobs in self.jobs:
+                if _item_jobs:
+                    _items.append(_item_jobs.to_dict())
+            _dict['jobs'] = _items
+        # override the default output from pydantic by calling `to_dict()` of limits
+        if self.limits:
+            _dict['limits'] = self.limits.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a dict"""
+        """Create an instance of SnapshotJobListResponseData from a dict"""
         if obj is None:
             return None
 
@@ -83,10 +95,10 @@ class CreateSnapshotRequestContent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "service_id": obj.get("service_id"),
-            "name": obj.get("name"),
-            "description": obj.get("description"),
-            "include_ram": obj.get("include_ram")
+            "message": obj.get("message"),
+            "jobs": [SnapshotJob.from_dict(_item) for _item in obj["jobs"]] if obj.get("jobs") is not None else None,
+            "limits": SnapshotJobLimits.from_dict(obj["limits"]) if obj.get("limits") is not None else None,
+            "allowed_periods": obj.get("allowed_periods")
         })
         return _obj
 

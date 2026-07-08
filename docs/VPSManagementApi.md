@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 # **list_reinstall_os**
 > ListReinstallOsResponseContent list_reinstall_os(list_reinstall_os_request_content)
 
-[Under development] Retrieves the list of available OS images for VPS reinstallation
+Retrieves the list of available OS images for VPS reinstallation
 
 ### Example
 

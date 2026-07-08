@@ -15,14 +15,22 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
+from ha_sdk_python.models.create_snapshot_job_request_content import CreateSnapshotJobRequestContent
+from ha_sdk_python.models.create_snapshot_job_response_content import CreateSnapshotJobResponseContent
 from ha_sdk_python.models.create_snapshot_request_content import CreateSnapshotRequestContent
 from ha_sdk_python.models.create_snapshot_response_content import CreateSnapshotResponseContent
+from ha_sdk_python.models.delete_snapshot_job_request_content import DeleteSnapshotJobRequestContent
+from ha_sdk_python.models.delete_snapshot_job_response_content import DeleteSnapshotJobResponseContent
 from ha_sdk_python.models.delete_snapshot_request_content import DeleteSnapshotRequestContent
 from ha_sdk_python.models.delete_snapshot_response_content import DeleteSnapshotResponseContent
+from ha_sdk_python.models.list_snapshot_jobs_request_content import ListSnapshotJobsRequestContent
+from ha_sdk_python.models.list_snapshot_jobs_response_content import ListSnapshotJobsResponseContent
 from ha_sdk_python.models.list_snapshots_request_content import ListSnapshotsRequestContent
 from ha_sdk_python.models.list_snapshots_response_content import ListSnapshotsResponseContent
 from ha_sdk_python.models.rollback_snapshot_request_content import RollbackSnapshotRequestContent
 from ha_sdk_python.models.rollback_snapshot_response_content import RollbackSnapshotResponseContent
+from ha_sdk_python.models.update_snapshot_job_request_content import UpdateSnapshotJobRequestContent
+from ha_sdk_python.models.update_snapshot_job_response_content import UpdateSnapshotJobResponseContent
 from ha_sdk_python.models.update_snapshot_request_content import UpdateSnapshotRequestContent
 from ha_sdk_python.models.update_snapshot_response_content import UpdateSnapshotResponseContent
 
@@ -343,6 +351,304 @@ class SnapshotsApi:
 
 
     @validate_call
+    def create_snapshot_job(
+        self,
+        create_snapshot_job_request_content: CreateSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateSnapshotJobResponseContent:
+        """create_snapshot_job
+
+        [Under development] Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
+
+        :param create_snapshot_job_request_content: (required)
+        :type create_snapshot_job_request_content: CreateSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_snapshot_job_serialize(
+            create_snapshot_job_request_content=create_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def create_snapshot_job_with_http_info(
+        self,
+        create_snapshot_job_request_content: CreateSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateSnapshotJobResponseContent]:
+        """create_snapshot_job
+
+        [Under development] Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
+
+        :param create_snapshot_job_request_content: (required)
+        :type create_snapshot_job_request_content: CreateSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_snapshot_job_serialize(
+            create_snapshot_job_request_content=create_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_snapshot_job_without_preload_content(
+        self,
+        create_snapshot_job_request_content: CreateSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """create_snapshot_job
+
+        [Under development] Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
+
+        :param create_snapshot_job_request_content: (required)
+        :type create_snapshot_job_request_content: CreateSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_snapshot_job_serialize(
+            create_snapshot_job_request_content=create_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_snapshot_job_serialize(
+        self,
+        create_snapshot_job_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if create_snapshot_job_request_content is not None:
+            _body_params = create_snapshot_job_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/vps/create-snapshot-job',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def delete_snapshot(
         self,
         delete_snapshot_request_content: DeleteSnapshotRequestContent,
@@ -625,6 +931,602 @@ class SnapshotsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/vps/delete-snapshot',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_snapshot_job(
+        self,
+        delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> DeleteSnapshotJobResponseContent:
+        """delete_snapshot_job
+
+        [Under development]Deletes a snapshot job from a VPS service
+
+        :param delete_snapshot_job_request_content: (required)
+        :type delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_snapshot_job_serialize(
+            delete_snapshot_job_request_content=delete_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_snapshot_job_with_http_info(
+        self,
+        delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteSnapshotJobResponseContent]:
+        """delete_snapshot_job
+
+        [Under development]Deletes a snapshot job from a VPS service
+
+        :param delete_snapshot_job_request_content: (required)
+        :type delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_snapshot_job_serialize(
+            delete_snapshot_job_request_content=delete_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_snapshot_job_without_preload_content(
+        self,
+        delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_snapshot_job
+
+        [Under development]Deletes a snapshot job from a VPS service
+
+        :param delete_snapshot_job_request_content: (required)
+        :type delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_snapshot_job_serialize(
+            delete_snapshot_job_request_content=delete_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_snapshot_job_serialize(
+        self,
+        delete_snapshot_job_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if delete_snapshot_job_request_content is not None:
+            _body_params = delete_snapshot_job_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/vps/delete-snapshot-job',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def list_snapshot_jobs(
+        self,
+        list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ListSnapshotJobsResponseContent:
+        """list_snapshot_jobs
+
+        [Under development]Retrieves the list of snapshot jobs for a VPS service
+
+        :param list_snapshot_jobs_request_content: (required)
+        :type list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_snapshot_jobs_serialize(
+            list_snapshot_jobs_request_content=list_snapshot_jobs_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListSnapshotJobsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_snapshot_jobs_with_http_info(
+        self,
+        list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ListSnapshotJobsResponseContent]:
+        """list_snapshot_jobs
+
+        [Under development]Retrieves the list of snapshot jobs for a VPS service
+
+        :param list_snapshot_jobs_request_content: (required)
+        :type list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_snapshot_jobs_serialize(
+            list_snapshot_jobs_request_content=list_snapshot_jobs_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListSnapshotJobsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_snapshot_jobs_without_preload_content(
+        self,
+        list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """list_snapshot_jobs
+
+        [Under development]Retrieves the list of snapshot jobs for a VPS service
+
+        :param list_snapshot_jobs_request_content: (required)
+        :type list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_snapshot_jobs_serialize(
+            list_snapshot_jobs_request_content=list_snapshot_jobs_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListSnapshotJobsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _list_snapshot_jobs_serialize(
+        self,
+        list_snapshot_jobs_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if list_snapshot_jobs_request_content is not None:
+            _body_params = list_snapshot_jobs_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/vps/list-snapshot-jobs',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -957,7 +1859,7 @@ class SnapshotsApi:
     ) -> RollbackSnapshotResponseContent:
         """rollback_snapshot
 
-        [Under development] Rolls back a VPS to a previous snapshot state
+        Rolls back a VPS to a previous snapshot state
 
         :param rollback_snapshot_request_content: (required)
         :type rollback_snapshot_request_content: RollbackSnapshotRequestContent
@@ -1032,7 +1934,7 @@ class SnapshotsApi:
     ) -> ApiResponse[RollbackSnapshotResponseContent]:
         """rollback_snapshot
 
-        [Under development] Rolls back a VPS to a previous snapshot state
+        Rolls back a VPS to a previous snapshot state
 
         :param rollback_snapshot_request_content: (required)
         :type rollback_snapshot_request_content: RollbackSnapshotRequestContent
@@ -1107,7 +2009,7 @@ class SnapshotsApi:
     ) -> RESTResponseType:
         """rollback_snapshot
 
-        [Under development] Rolls back a VPS to a previous snapshot state
+        Rolls back a VPS to a previous snapshot state
 
         :param rollback_snapshot_request_content: (required)
         :type rollback_snapshot_request_content: RollbackSnapshotRequestContent
@@ -1519,6 +2421,304 @@ class SnapshotsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/vps/update-snapshot',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_snapshot_job(
+        self,
+        update_snapshot_job_request_content: UpdateSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateSnapshotJobResponseContent:
+        """update_snapshot_job
+
+        [Under development] Updates an existing snapshot job. Only provide fields you want to change.
+
+        :param update_snapshot_job_request_content: (required)
+        :type update_snapshot_job_request_content: UpdateSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_snapshot_job_serialize(
+            update_snapshot_job_request_content=update_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_snapshot_job_with_http_info(
+        self,
+        update_snapshot_job_request_content: UpdateSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateSnapshotJobResponseContent]:
+        """update_snapshot_job
+
+        [Under development] Updates an existing snapshot job. Only provide fields you want to change.
+
+        :param update_snapshot_job_request_content: (required)
+        :type update_snapshot_job_request_content: UpdateSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_snapshot_job_serialize(
+            update_snapshot_job_request_content=update_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_snapshot_job_without_preload_content(
+        self,
+        update_snapshot_job_request_content: UpdateSnapshotJobRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """update_snapshot_job
+
+        [Under development] Updates an existing snapshot job. Only provide fields you want to change.
+
+        :param update_snapshot_job_request_content: (required)
+        :type update_snapshot_job_request_content: UpdateSnapshotJobRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_snapshot_job_serialize(
+            update_snapshot_job_request_content=update_snapshot_job_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateSnapshotJobResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_snapshot_job_serialize(
+        self,
+        update_snapshot_job_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if update_snapshot_job_request_content is not None:
+            _body_params = update_snapshot_job_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/vps/update-snapshot-job',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

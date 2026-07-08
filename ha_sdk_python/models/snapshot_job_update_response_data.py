@@ -17,20 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from ha_sdk_python.models.snapshot_job import SnapshotJob
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateSnapshotRequestContent(BaseModel):
+class SnapshotJobUpdateResponseData(BaseModel):
     """
-    CreateSnapshotRequestContent
+    Response data for snapshot job update operation
     """ # noqa: E501
-    service_id: StrictStr = Field(description="Service ID - must be sent as a string")
-    name: StrictStr = Field(description="Name for the snapshot")
-    description: Optional[StrictStr] = Field(default=None, description="Description for the snapshot")
-    include_ram: Optional[StrictBool] = Field(default=None, description="Whether to include RAM state in the snapshot. Defaults to false when omitted.")
-    __properties: ClassVar[List[str]] = ["service_id", "name", "description", "include_ram"]
+    message: StrictStr = Field(description="Status message indicating the result")
+    job: SnapshotJob
+    __properties: ClassVar[List[str]] = ["message", "job"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class CreateSnapshotRequestContent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a JSON string"""
+        """Create an instance of SnapshotJobUpdateResponseData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,11 +70,14 @@ class CreateSnapshotRequestContent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of job
+        if self.job:
+            _dict['job'] = self.job.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequestContent from a dict"""
+        """Create an instance of SnapshotJobUpdateResponseData from a dict"""
         if obj is None:
             return None
 
@@ -83,10 +85,8 @@ class CreateSnapshotRequestContent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "service_id": obj.get("service_id"),
-            "name": obj.get("name"),
-            "description": obj.get("description"),
-            "include_ram": obj.get("include_ram")
+            "message": obj.get("message"),
+            "job": SnapshotJob.from_dict(obj["job"]) if obj.get("job") is not None else None
         })
         return _obj
 
