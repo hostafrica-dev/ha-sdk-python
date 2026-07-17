@@ -7,7 +7,7 @@ A domain line item returned in the order response
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **line_id** | **int** | Line item identifier | 
-**domain_id** | **int** | Domain identifier | 
+**domain_id** | **str** | Domain identifier | 
 **domain** | **str** | Domain name | 
 **type** | **str** | Domain operation type (e.g. register, transfer) | 
 **period** | **int** | Registration period in years | 

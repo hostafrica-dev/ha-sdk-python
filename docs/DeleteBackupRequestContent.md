@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_id** | **str** | Service ID - must be sent as a string | 
-**backup_id** | **int** | Backup ID to delete | 
+**backup_id** | **str** | Backup ID to delete | 
 
 ## Example
 

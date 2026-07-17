@@ -91,6 +91,7 @@ Name | Type | Description  | Notes
 **401** | UnauthorizedError 401 response |  -  |
 **403** | ForbiddenError 403 response |  -  |
 **404** | ResourceNotFoundError 404 response |  -  |
+**422** | ValidationError 422 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |
 **503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
@@ -420,6 +421,7 @@ This endpoint does not need any parameter.
 **400** | BadRequestError 400 response |  -  |
 **401** | UnauthorizedError 401 response |  -  |
 **403** | ForbiddenError 403 response |  -  |
+**422** | ValidationError 422 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |
 **503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |

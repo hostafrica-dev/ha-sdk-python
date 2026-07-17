@@ -6,7 +6,7 @@ A single product line item in a create order request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pid** | **int** | WHMCS product ID | 
+**pid** | **int** | Product ID | 
 **billing_cycle** | [**BillingCycle**](BillingCycle.md) |  | 
 **plan_id** | **int** | Plan ID for the selected product configuration | 
 **hostname** | **str** | Hostname to assign to the service | 

@@ -344,6 +344,7 @@ Name | Type | Description  | Notes
 **403** | ForbiddenError 403 response |  -  |
 **404** | ResourceNotFoundError 404 response |  -  |
 **409** | InvalidStateError 409 response |  -  |
+**422** | ValidationError 422 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |
 **503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
@@ -428,6 +429,7 @@ Name | Type | Description  | Notes
 **403** | ForbiddenError 403 response |  -  |
 **404** | ResourceNotFoundError 404 response |  -  |
 **409** | InvalidStateError 409 response |  -  |
+**422** | ValidationError 422 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |
 **503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
@@ -512,6 +514,7 @@ Name | Type | Description  | Notes
 **403** | ForbiddenError 403 response |  -  |
 **404** | ResourceNotFoundError 404 response |  -  |
 **409** | InvalidStateError 409 response |  -  |
+**422** | ValidationError 422 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |
 **503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
@@ -596,6 +599,7 @@ Name | Type | Description  | Notes
 **403** | ForbiddenError 403 response |  -  |
 **404** | ResourceNotFoundError 404 response |  -  |
 **409** | InvalidStateError 409 response |  -  |
+**422** | ValidationError 422 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |
 **503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |

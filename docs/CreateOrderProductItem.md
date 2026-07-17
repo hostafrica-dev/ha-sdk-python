@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **line_id** | **int** | Line item identifier | 
 **service_id** | **int** | Provisioned service identifier | 
-**pid** | **int** | WHMCS product ID | 
+**pid** | **int** | Product ID | 
 **name** | **str** | Product name | 
 **billing_cycle** | **str** | Billing cycle (e.g. monthly, annually) | 
 **domain** | **str** | Domain associated with this service | [optional] 

@@ -6,7 +6,7 @@ A product entry within a catalogue group
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | WHMCS product identifier | 
+**id** | **int** | Product identifier | 
 **name** | **str** | Product display name | 
 **type** | **str** | Product type (e.g. server) | 
 **requires_hostname** | **bool** | Whether the product requires a hostname at order time | 
