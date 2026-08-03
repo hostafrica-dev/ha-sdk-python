@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from ha_sdk_python.models.domain_info import DomainInfo
+from ha_sdk_python.models.domain_detail import DomainDetail
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetDomainData(BaseModel):
     Response data for get-domain
     """ # noqa: E501
     message: StrictStr = Field(description="Status message indicating the result")
-    domain: DomainInfo
+    domain: DomainDetail
     __properties: ClassVar[List[str]] = ["message", "domain"]
 
     model_config = ConfigDict(
@@ -86,7 +86,7 @@ class GetDomainData(BaseModel):
 
         _obj = cls.model_validate({
             "message": obj.get("message"),
-            "domain": DomainInfo.from_dict(obj["domain"]) if obj.get("domain") is not None else None
+            "domain": DomainDetail.from_dict(obj["domain"]) if obj.get("domain") is not None else None
         })
         return _obj
 

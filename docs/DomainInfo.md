@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **has_hosting** | [**DomainHostingLink**](DomainHostingLink.md) |  | [optional] 
 **has_dns_manager_zone** | **bool** | Whether a DNS Manager zone exists for this domain name | 
 **evaluation** | **object** | Domain evaluator result when enabled; null when unavailable | [optional] 
+**no_epp** | **bool** | True when EPP/auth code retrieval is disabled for this domain | [optional] 
 
 ## Example
 

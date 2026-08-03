@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 # **create_order**
 > CreateOrderResponseContent create_order(create_order_request_content)
 
-Creates an order through checkout. Returns payment status; on failure also includes payment_error with code and message.
+Creates an order for a VPS service. Returns payment status; on failure also includes payment_error with code and message.
 
 ### Example
 
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 # **validate_pricing**
 > ValidatePricingResponseContent validate_pricing(validate_pricing_request_content)
 
-Validates pricing for one or more products, returning per-product breakdown and order summary
+Validates pricing for one or more VPC service products, returning per-product breakdown and order summary
 
 ### Example
 

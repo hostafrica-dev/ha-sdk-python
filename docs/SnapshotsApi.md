@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 # **create_snapshot_job**
 > CreateSnapshotJobResponseContent create_snapshot_job(create_snapshot_job_request_content)
 
-[Under development] Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
+Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
 
 ### Example
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 # **delete_snapshot_job**
 > DeleteSnapshotJobResponseContent delete_snapshot_job(delete_snapshot_job_request_content)
 
-[Under development]Deletes a snapshot job from a VPS service
+Deletes a snapshot job from a VPS service
 
 ### Example
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 # **list_snapshot_jobs**
 > ListSnapshotJobsResponseContent list_snapshot_jobs(list_snapshot_jobs_request_content)
 
-[Under development]Retrieves the list of snapshot jobs for a VPS service
+Retrieves the list of snapshot jobs for a VPS service
 
 ### Example
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 # **update_snapshot_job**
 > UpdateSnapshotJobResponseContent update_snapshot_job(update_snapshot_job_request_content)
 
-[Under development] Updates an existing snapshot job. Only provide fields you want to change.
+Updates an existing snapshot job. Only provide fields you want to change.
 
 ### Example
 

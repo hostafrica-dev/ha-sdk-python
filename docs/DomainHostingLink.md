@@ -6,8 +6,8 @@ Linked hosting service for a domain
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hosting_id** | **int** | Linked hosting service id | 
-**module** | **str** | Hosting module name (e.g. cpanel) | 
+**hosting_id** | **int** | Linked hosting service id; omitted when no hosting is linked | [optional] 
+**module** | **str** | Hosting module name (e.g. cpanel); omitted when no hosting is linked | [optional] 
 
 ## Example
 

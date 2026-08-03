@@ -369,7 +369,7 @@ class SnapshotsApi:
     ) -> CreateSnapshotJobResponseContent:
         """create_snapshot_job
 
-        [Under development] Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
+        Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
 
         :param create_snapshot_job_request_content: (required)
         :type create_snapshot_job_request_content: CreateSnapshotJobRequestContent
@@ -444,7 +444,7 @@ class SnapshotsApi:
     ) -> ApiResponse[CreateSnapshotJobResponseContent]:
         """create_snapshot_job
 
-        [Under development] Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
+        Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
 
         :param create_snapshot_job_request_content: (required)
         :type create_snapshot_job_request_content: CreateSnapshotJobRequestContent
@@ -519,7 +519,7 @@ class SnapshotsApi:
     ) -> RESTResponseType:
         """create_snapshot_job
 
-        [Under development] Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
+        Creates a new snapshot job for a VPS service. Use period='hourly' with run_every, or period='daily' with days and start_time.
 
         :param create_snapshot_job_request_content: (required)
         :type create_snapshot_job_request_content: CreateSnapshotJobRequestContent
@@ -965,7 +965,7 @@ class SnapshotsApi:
     ) -> DeleteSnapshotJobResponseContent:
         """delete_snapshot_job
 
-        [Under development]Deletes a snapshot job from a VPS service
+        Deletes a snapshot job from a VPS service
 
         :param delete_snapshot_job_request_content: (required)
         :type delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent
@@ -1040,7 +1040,7 @@ class SnapshotsApi:
     ) -> ApiResponse[DeleteSnapshotJobResponseContent]:
         """delete_snapshot_job
 
-        [Under development]Deletes a snapshot job from a VPS service
+        Deletes a snapshot job from a VPS service
 
         :param delete_snapshot_job_request_content: (required)
         :type delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent
@@ -1115,7 +1115,7 @@ class SnapshotsApi:
     ) -> RESTResponseType:
         """delete_snapshot_job
 
-        [Under development]Deletes a snapshot job from a VPS service
+        Deletes a snapshot job from a VPS service
 
         :param delete_snapshot_job_request_content: (required)
         :type delete_snapshot_job_request_content: DeleteSnapshotJobRequestContent
@@ -1263,7 +1263,7 @@ class SnapshotsApi:
     ) -> ListSnapshotJobsResponseContent:
         """list_snapshot_jobs
 
-        [Under development]Retrieves the list of snapshot jobs for a VPS service
+        Retrieves the list of snapshot jobs for a VPS service
 
         :param list_snapshot_jobs_request_content: (required)
         :type list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent
@@ -1338,7 +1338,7 @@ class SnapshotsApi:
     ) -> ApiResponse[ListSnapshotJobsResponseContent]:
         """list_snapshot_jobs
 
-        [Under development]Retrieves the list of snapshot jobs for a VPS service
+        Retrieves the list of snapshot jobs for a VPS service
 
         :param list_snapshot_jobs_request_content: (required)
         :type list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent
@@ -1413,7 +1413,7 @@ class SnapshotsApi:
     ) -> RESTResponseType:
         """list_snapshot_jobs
 
-        [Under development]Retrieves the list of snapshot jobs for a VPS service
+        Retrieves the list of snapshot jobs for a VPS service
 
         :param list_snapshot_jobs_request_content: (required)
         :type list_snapshot_jobs_request_content: ListSnapshotJobsRequestContent
@@ -2455,7 +2455,7 @@ class SnapshotsApi:
     ) -> UpdateSnapshotJobResponseContent:
         """update_snapshot_job
 
-        [Under development] Updates an existing snapshot job. Only provide fields you want to change.
+        Updates an existing snapshot job. Only provide fields you want to change.
 
         :param update_snapshot_job_request_content: (required)
         :type update_snapshot_job_request_content: UpdateSnapshotJobRequestContent
@@ -2530,7 +2530,7 @@ class SnapshotsApi:
     ) -> ApiResponse[UpdateSnapshotJobResponseContent]:
         """update_snapshot_job
 
-        [Under development] Updates an existing snapshot job. Only provide fields you want to change.
+        Updates an existing snapshot job. Only provide fields you want to change.
 
         :param update_snapshot_job_request_content: (required)
         :type update_snapshot_job_request_content: UpdateSnapshotJobRequestContent
@@ -2605,7 +2605,7 @@ class SnapshotsApi:
     ) -> RESTResponseType:
         """update_snapshot_job
 
-        [Under development] Updates an existing snapshot job. Only provide fields you want to change.
+        Updates an existing snapshot job. Only provide fields you want to change.
 
         :param update_snapshot_job_request_content: (required)
         :type update_snapshot_job_request_content: UpdateSnapshotJobRequestContent

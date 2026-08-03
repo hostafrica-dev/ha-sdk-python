@@ -43,7 +43,8 @@ class DomainInfo(BaseModel):
     has_hosting: Optional[DomainHostingLink] = None
     has_dns_manager_zone: StrictBool = Field(description="Whether a DNS Manager zone exists for this domain name")
     evaluation: Optional[Any] = Field(default=None, description="Domain evaluator result when enabled; null when unavailable")
-    __properties: ClassVar[List[str]] = ["domain_id", "type", "domain", "status", "period", "donotrenew", "id_protection", "id_protection_supported", "recurringamount", "expirydate", "nextinvoicedate", "nextduedate", "has_hosting", "has_dns_manager_zone", "evaluation"]
+    no_epp: Optional[StrictBool] = Field(default=None, description="True when EPP/auth code retrieval is disabled for this domain")
+    __properties: ClassVar[List[str]] = ["domain_id", "type", "domain", "status", "period", "donotrenew", "id_protection", "id_protection_supported", "recurringamount", "expirydate", "nextinvoicedate", "nextduedate", "has_hosting", "has_dns_manager_zone", "evaluation", "no_epp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -118,7 +119,8 @@ class DomainInfo(BaseModel):
             "nextduedate": obj.get("nextduedate"),
             "has_hosting": DomainHostingLink.from_dict(obj["has_hosting"]) if obj.get("has_hosting") is not None else None,
             "has_dns_manager_zone": obj.get("has_dns_manager_zone"),
-            "evaluation": obj.get("evaluation")
+            "evaluation": obj.get("evaluation"),
+            "no_epp": obj.get("no_epp")
         })
         return _obj
 

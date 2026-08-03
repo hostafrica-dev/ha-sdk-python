@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +26,8 @@ class DomainHostingLink(BaseModel):
     """
     Linked hosting service for a domain
     """ # noqa: E501
-    hosting_id: StrictInt = Field(description="Linked hosting service id")
-    module: StrictStr = Field(description="Hosting module name (e.g. cpanel)")
+    hosting_id: Optional[StrictInt] = Field(default=None, description="Linked hosting service id; omitted when no hosting is linked")
+    module: Optional[StrictStr] = Field(default=None, description="Hosting module name (e.g. cpanel); omitted when no hosting is linked")
     __properties: ClassVar[List[str]] = ["hosting_id", "module"]
 
     model_config = ConfigDict(

@@ -7,7 +7,7 @@ Response data for get-domain
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **str** | Status message indicating the result | 
-**domain** | [**DomainInfo**](DomainInfo.md) |  | 
+**domain** | [**DomainDetail**](DomainDetail.md) |  | 
 
 ## Example
 

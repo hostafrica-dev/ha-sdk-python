@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **message** | **str** | Status message indicating the result | 
 **domain_id** | **str** | Domain service id | 
 **domain** | **str** | Fully qualified domain name | 
-**contacts** | **object** | Contact roles keyed by Registrant, Admin, Tech, and Billing, or an array of contact records. Inner field names and values vary by TLD/registrar. | 
+**contacts** | [**DomainContacts**](DomainContacts.md) |  | 
 
 ## Example
 

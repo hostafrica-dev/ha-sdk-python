@@ -7,10 +7,13 @@ Method | HTTP request | Description
 [**check_domain_availability**](DomainsApi.md#check_domain_availability) | **POST** /domain/check-availability | 
 [**get_domain**](DomainsApi.md#get_domain) | **POST** /domain/get-domain | 
 [**get_domain_contacts**](DomainsApi.md#get_domain_contacts) | **POST** /domain/get-domain-contacts | 
+[**list_dnssec_records**](DomainsApi.md#list_dnssec_records) | **POST** /domain/list-dnssec-records | 
 [**list_domains**](DomainsApi.md#list_domains) | **POST** /domain/list-domains | 
 [**list_domains_requiring_data**](DomainsApi.md#list_domains_requiring_data) | **POST** /domain/list-domains-requiring-data | 
 [**save_domain_required_data**](DomainsApi.md#save_domain_required_data) | **POST** /domain/save-domain-required-data | 
 [**suggest_domains**](DomainsApi.md#suggest_domains) | **POST** /domain/suggest | 
+[**update_domain_contacts**](DomainsApi.md#update_domain_contacts) | **POST** /domain/update-domain-contacts | 
+[**update_domain_nameservers**](DomainsApi.md#update_domain_nameservers) | **POST** /domain/update-nameservers | 
 [**update_domain_settings**](DomainsApi.md#update_domain_settings) | **POST** /domain/update-domain-settings | 
 
 
@@ -254,6 +257,90 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | GetDomainContacts 200 response |  -  |
+**400** | BadRequestError 400 response |  -  |
+**401** | UnauthorizedError 401 response |  -  |
+**403** | ForbiddenError 403 response |  -  |
+**404** | ResourceNotFoundError 404 response |  -  |
+**422** | ValidationError 422 response |  -  |
+**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+**500** | InternalServiceError 500 response |  -  |
+**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_dnssec_records**
+> ListDnssecRecordsResponseContent list_dnssec_records(list_dnssec_records_request_content)
+
+Lists DNSSEC DS records configured for an owned domain.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import ha_sdk_python
+from ha_sdk_python.models.list_dnssec_records_request_content import ListDnssecRecordsRequestContent
+from ha_sdk_python.models.list_dnssec_records_response_content import ListDnssecRecordsResponseContent
+from ha_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.hostafrica.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ha_sdk_python.Configuration(
+    host = "https://api.hostafrica.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with ha_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ha_sdk_python.DomainsApi(api_client)
+    list_dnssec_records_request_content = ha_sdk_python.ListDnssecRecordsRequestContent() # ListDnssecRecordsRequestContent | 
+
+    try:
+        api_response = api_instance.list_dnssec_records(list_dnssec_records_request_content)
+        print("The response of DomainsApi->list_dnssec_records:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DomainsApi->list_dnssec_records: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_dnssec_records_request_content** | [**ListDnssecRecordsRequestContent**](ListDnssecRecordsRequestContent.md)|  | 
+
+### Return type
+
+[**ListDnssecRecordsResponseContent**](ListDnssecRecordsResponseContent.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | ListDnssecRecords 200 response |  -  |
 **400** | BadRequestError 400 response |  -  |
 **401** | UnauthorizedError 401 response |  -  |
 **403** | ForbiddenError 403 response |  -  |
@@ -581,6 +668,174 @@ Name | Type | Description  | Notes
 **400** | BadRequestError 400 response |  -  |
 **401** | UnauthorizedError 401 response |  -  |
 **403** | ForbiddenError 403 response |  -  |
+**422** | ValidationError 422 response |  -  |
+**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+**500** | InternalServiceError 500 response |  -  |
+**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_domain_contacts**
+> UpdateDomainContactsResponseContent update_domain_contacts(update_domain_contacts_request_content)
+
+Updates WHOIS contact information for an owned domain. Each role (Registrant, Admin, Tech, Billing) uses a source type: owner (client profile), contact (saved WHMCS contact id), or custom (inline WHOIS fields). WHOIS values must be nested under fields; for owner and contact they are flattened upstream when present.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import ha_sdk_python
+from ha_sdk_python.models.update_domain_contacts_request_content import UpdateDomainContactsRequestContent
+from ha_sdk_python.models.update_domain_contacts_response_content import UpdateDomainContactsResponseContent
+from ha_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.hostafrica.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ha_sdk_python.Configuration(
+    host = "https://api.hostafrica.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with ha_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ha_sdk_python.DomainsApi(api_client)
+    update_domain_contacts_request_content = ha_sdk_python.UpdateDomainContactsRequestContent() # UpdateDomainContactsRequestContent | 
+
+    try:
+        api_response = api_instance.update_domain_contacts(update_domain_contacts_request_content)
+        print("The response of DomainsApi->update_domain_contacts:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DomainsApi->update_domain_contacts: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_domain_contacts_request_content** | [**UpdateDomainContactsRequestContent**](UpdateDomainContactsRequestContent.md)|  | 
+
+### Return type
+
+[**UpdateDomainContactsResponseContent**](UpdateDomainContactsResponseContent.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | UpdateDomainContacts 200 response |  -  |
+**400** | BadRequestError 400 response |  -  |
+**401** | UnauthorizedError 401 response |  -  |
+**403** | ForbiddenError 403 response |  -  |
+**404** | ResourceNotFoundError 404 response |  -  |
+**422** | ValidationError 422 response |  -  |
+**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+**500** | InternalServiceError 500 response |  -  |
+**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_domain_nameservers**
+> UpdateDomainNameserversResponseContent update_domain_nameservers(update_domain_nameservers_request_content)
+
+Updates nameservers for an owned domain. ns1 and ns2 are required; ns3 through ns5 are optional.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import ha_sdk_python
+from ha_sdk_python.models.update_domain_nameservers_request_content import UpdateDomainNameserversRequestContent
+from ha_sdk_python.models.update_domain_nameservers_response_content import UpdateDomainNameserversResponseContent
+from ha_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.hostafrica.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ha_sdk_python.Configuration(
+    host = "https://api.hostafrica.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with ha_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ha_sdk_python.DomainsApi(api_client)
+    update_domain_nameservers_request_content = ha_sdk_python.UpdateDomainNameserversRequestContent() # UpdateDomainNameserversRequestContent | 
+
+    try:
+        api_response = api_instance.update_domain_nameservers(update_domain_nameservers_request_content)
+        print("The response of DomainsApi->update_domain_nameservers:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DomainsApi->update_domain_nameservers: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_domain_nameservers_request_content** | [**UpdateDomainNameserversRequestContent**](UpdateDomainNameserversRequestContent.md)|  | 
+
+### Return type
+
+[**UpdateDomainNameserversResponseContent**](UpdateDomainNameserversResponseContent.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | UpdateDomainNameservers 200 response |  -  |
+**400** | BadRequestError 400 response |  -  |
+**401** | UnauthorizedError 401 response |  -  |
+**403** | ForbiddenError 403 response |  -  |
+**404** | ResourceNotFoundError 404 response |  -  |
 **422** | ValidationError 422 response |  -  |
 **429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
 **500** | InternalServiceError 500 response |  -  |

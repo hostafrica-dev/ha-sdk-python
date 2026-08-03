@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
+from ha_sdk_python.models.domain_contacts import DomainContacts
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class GetDomainContactsData(BaseModel):
     message: StrictStr = Field(description="Status message indicating the result")
     domain_id: StrictStr = Field(description="Domain service id")
     domain: StrictStr = Field(description="Fully qualified domain name")
-    contacts: Optional[Any] = Field(description="Contact roles keyed by Registrant, Admin, Tech, and Billing, or an array of contact records. Inner field names and values vary by TLD/registrar.")
+    contacts: DomainContacts
     __properties: ClassVar[List[str]] = ["message", "domain_id", "domain", "contacts"]
 
     model_config = ConfigDict(
@@ -71,11 +72,9 @@ class GetDomainContactsData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if contacts (nullable) is None
-        # and model_fields_set contains the field
-        if self.contacts is None and "contacts" in self.model_fields_set:
-            _dict['contacts'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of contacts
+        if self.contacts:
+            _dict['contacts'] = self.contacts.to_dict()
         return _dict
 
     @classmethod
@@ -91,7 +90,7 @@ class GetDomainContactsData(BaseModel):
             "message": obj.get("message"),
             "domain_id": obj.get("domain_id"),
             "domain": obj.get("domain"),
-            "contacts": obj.get("contacts")
+            "contacts": DomainContacts.from_dict(obj["contacts"]) if obj.get("contacts") is not None else None
         })
         return _obj
 

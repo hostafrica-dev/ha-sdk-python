@@ -366,7 +366,7 @@ class ServiceManagementApi:
     ) -> CreateOrderResponseContent:
         """create_order
 
-        Creates an order through checkout. Returns payment status; on failure also includes payment_error with code and message.
+        Creates an order for a VPS service. Returns payment status; on failure also includes payment_error with code and message.
 
         :param create_order_request_content: (required)
         :type create_order_request_content: CreateOrderRequestContent
@@ -440,7 +440,7 @@ class ServiceManagementApi:
     ) -> ApiResponse[CreateOrderResponseContent]:
         """create_order
 
-        Creates an order through checkout. Returns payment status; on failure also includes payment_error with code and message.
+        Creates an order for a VPS service. Returns payment status; on failure also includes payment_error with code and message.
 
         :param create_order_request_content: (required)
         :type create_order_request_content: CreateOrderRequestContent
@@ -514,7 +514,7 @@ class ServiceManagementApi:
     ) -> RESTResponseType:
         """create_order
 
-        Creates an order through checkout. Returns payment status; on failure also includes payment_error with code and message.
+        Creates an order for a VPS service. Returns payment status; on failure also includes payment_error with code and message.
 
         :param create_order_request_content: (required)
         :type create_order_request_content: CreateOrderRequestContent
@@ -1527,7 +1527,7 @@ class ServiceManagementApi:
     ) -> ValidatePricingResponseContent:
         """validate_pricing
 
-        Validates pricing for one or more products, returning per-product breakdown and order summary
+        Validates pricing for one or more VPC service products, returning per-product breakdown and order summary
 
         :param validate_pricing_request_content: (required)
         :type validate_pricing_request_content: ValidatePricingRequestContent
@@ -1601,7 +1601,7 @@ class ServiceManagementApi:
     ) -> ApiResponse[ValidatePricingResponseContent]:
         """validate_pricing
 
-        Validates pricing for one or more products, returning per-product breakdown and order summary
+        Validates pricing for one or more VPC service products, returning per-product breakdown and order summary
 
         :param validate_pricing_request_content: (required)
         :type validate_pricing_request_content: ValidatePricingRequestContent
@@ -1675,7 +1675,7 @@ class ServiceManagementApi:
     ) -> RESTResponseType:
         """validate_pricing
 
-        Validates pricing for one or more products, returning per-product breakdown and order summary
+        Validates pricing for one or more VPC service products, returning per-product breakdown and order summary
 
         :param validate_pricing_request_content: (required)
         :type validate_pricing_request_content: ValidatePricingRequestContent

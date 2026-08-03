@@ -37,6 +37,8 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "AddDnsRecordRequestContent",
+    "AddDnsRecordResponseContent",
     "BackupCreateResponseData",
     "BackupCreationInfo",
     "BackupItem",
@@ -89,6 +91,8 @@ __all__ = [
     "DeleteBackupResponseContent",
     "DeleteBackupScheduleRequestContent",
     "DeleteBackupScheduleResponseContent",
+    "DeleteDnsRecordRequestContent",
+    "DeleteDnsRecordResponseContent",
     "DeleteFirewallRuleRequestContent",
     "DeleteFirewallRuleResponseContent",
     "DeleteNotificationRequestContent",
@@ -101,10 +105,25 @@ __all__ = [
     "DeleteSnapshotJobResponseContent",
     "DeleteSnapshotRequestContent",
     "DeleteSnapshotResponseContent",
+    "DnsCreateCandidateInfo",
+    "DnsRecordInfo",
+    "DnsRecordMutationData",
+    "DnsRecordMutationRecord",
+    "DnsZoneInfo",
+    "DnssecRecordInfo",
+    "DomainAddonFeature",
     "DomainAddons",
     "DomainAvailabilityResult",
+    "DomainAvailableFeatures",
+    "DomainContactSourceType",
+    "DomainContactUpdate",
+    "DomainContactUpdates",
+    "DomainContacts",
+    "DomainDetail",
+    "DomainExpiryCountdown",
     "DomainHostingLink",
     "DomainInfo",
+    "DomainNameservers",
     "DomainPricing",
     "DomainPricingEntry",
     "DomainRequiringDataAdditionalField",
@@ -113,6 +132,8 @@ __all__ = [
     "DomainSettingKey",
     "EditBackupScheduleRequestContent",
     "EditBackupScheduleResponseContent",
+    "EditDnsRecordRequestContent",
+    "EditDnsRecordResponseContent",
     "FirewallListResponseData",
     "FirewallMoveDirection",
     "FirewallMoveResponseData",
@@ -123,6 +144,9 @@ __all__ = [
     "ForbiddenErrorResponseContent",
     "GetCatalogueRequestContent",
     "GetCatalogueResponseContent",
+    "GetDnsZoneDetailsData",
+    "GetDnsZoneDetailsRequestContent",
+    "GetDnsZoneDetailsResponseContent",
     "GetDomainContactsData",
     "GetDomainContactsRequestContent",
     "GetDomainContactsResponseContent",
@@ -141,6 +165,13 @@ __all__ = [
     "ListBackupSchedulesResponseContent",
     "ListBackupsRequestContent",
     "ListBackupsResponseContent",
+    "ListDnsCreateCandidatesData",
+    "ListDnsCreateCandidatesResponseContent",
+    "ListDnsZonesData",
+    "ListDnsZonesResponseContent",
+    "ListDnssecRecordsData",
+    "ListDnssecRecordsRequestContent",
+    "ListDnssecRecordsResponseContent",
     "ListDomainsData",
     "ListDomainsRequiringDataData",
     "ListDomainsRequiringDataResponseContent",
@@ -232,6 +263,12 @@ __all__ = [
     "TriggerReinstallResponseContent",
     "TriggerReinstallResponseData",
     "UnauthorizedErrorResponseContent",
+    "UpdateDomainContactsData",
+    "UpdateDomainContactsRequestContent",
+    "UpdateDomainContactsResponseContent",
+    "UpdateDomainNameserversData",
+    "UpdateDomainNameserversRequestContent",
+    "UpdateDomainNameserversResponseContent",
     "UpdateDomainSettingsData",
     "UpdateDomainSettingsRequestContent",
     "UpdateDomainSettingsResponseContent",
@@ -304,6 +341,8 @@ from ha_sdk_python.exceptions import ApiAttributeError as ApiAttributeError
 from ha_sdk_python.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from ha_sdk_python.models.add_dns_record_request_content import AddDnsRecordRequestContent as AddDnsRecordRequestContent
+from ha_sdk_python.models.add_dns_record_response_content import AddDnsRecordResponseContent as AddDnsRecordResponseContent
 from ha_sdk_python.models.backup_create_response_data import BackupCreateResponseData as BackupCreateResponseData
 from ha_sdk_python.models.backup_creation_info import BackupCreationInfo as BackupCreationInfo
 from ha_sdk_python.models.backup_item import BackupItem as BackupItem
@@ -356,6 +395,8 @@ from ha_sdk_python.models.delete_backup_request_content import DeleteBackupReque
 from ha_sdk_python.models.delete_backup_response_content import DeleteBackupResponseContent as DeleteBackupResponseContent
 from ha_sdk_python.models.delete_backup_schedule_request_content import DeleteBackupScheduleRequestContent as DeleteBackupScheduleRequestContent
 from ha_sdk_python.models.delete_backup_schedule_response_content import DeleteBackupScheduleResponseContent as DeleteBackupScheduleResponseContent
+from ha_sdk_python.models.delete_dns_record_request_content import DeleteDnsRecordRequestContent as DeleteDnsRecordRequestContent
+from ha_sdk_python.models.delete_dns_record_response_content import DeleteDnsRecordResponseContent as DeleteDnsRecordResponseContent
 from ha_sdk_python.models.delete_firewall_rule_request_content import DeleteFirewallRuleRequestContent as DeleteFirewallRuleRequestContent
 from ha_sdk_python.models.delete_firewall_rule_response_content import DeleteFirewallRuleResponseContent as DeleteFirewallRuleResponseContent
 from ha_sdk_python.models.delete_notification_request_content import DeleteNotificationRequestContent as DeleteNotificationRequestContent
@@ -368,10 +409,25 @@ from ha_sdk_python.models.delete_snapshot_job_request_content import DeleteSnaps
 from ha_sdk_python.models.delete_snapshot_job_response_content import DeleteSnapshotJobResponseContent as DeleteSnapshotJobResponseContent
 from ha_sdk_python.models.delete_snapshot_request_content import DeleteSnapshotRequestContent as DeleteSnapshotRequestContent
 from ha_sdk_python.models.delete_snapshot_response_content import DeleteSnapshotResponseContent as DeleteSnapshotResponseContent
+from ha_sdk_python.models.dns_create_candidate_info import DnsCreateCandidateInfo as DnsCreateCandidateInfo
+from ha_sdk_python.models.dns_record_info import DnsRecordInfo as DnsRecordInfo
+from ha_sdk_python.models.dns_record_mutation_data import DnsRecordMutationData as DnsRecordMutationData
+from ha_sdk_python.models.dns_record_mutation_record import DnsRecordMutationRecord as DnsRecordMutationRecord
+from ha_sdk_python.models.dns_zone_info import DnsZoneInfo as DnsZoneInfo
+from ha_sdk_python.models.dnssec_record_info import DnssecRecordInfo as DnssecRecordInfo
+from ha_sdk_python.models.domain_addon_feature import DomainAddonFeature as DomainAddonFeature
 from ha_sdk_python.models.domain_addons import DomainAddons as DomainAddons
 from ha_sdk_python.models.domain_availability_result import DomainAvailabilityResult as DomainAvailabilityResult
+from ha_sdk_python.models.domain_available_features import DomainAvailableFeatures as DomainAvailableFeatures
+from ha_sdk_python.models.domain_contact_source_type import DomainContactSourceType as DomainContactSourceType
+from ha_sdk_python.models.domain_contact_update import DomainContactUpdate as DomainContactUpdate
+from ha_sdk_python.models.domain_contact_updates import DomainContactUpdates as DomainContactUpdates
+from ha_sdk_python.models.domain_contacts import DomainContacts as DomainContacts
+from ha_sdk_python.models.domain_detail import DomainDetail as DomainDetail
+from ha_sdk_python.models.domain_expiry_countdown import DomainExpiryCountdown as DomainExpiryCountdown
 from ha_sdk_python.models.domain_hosting_link import DomainHostingLink as DomainHostingLink
 from ha_sdk_python.models.domain_info import DomainInfo as DomainInfo
+from ha_sdk_python.models.domain_nameservers import DomainNameservers as DomainNameservers
 from ha_sdk_python.models.domain_pricing import DomainPricing as DomainPricing
 from ha_sdk_python.models.domain_pricing_entry import DomainPricingEntry as DomainPricingEntry
 from ha_sdk_python.models.domain_requiring_data_additional_field import DomainRequiringDataAdditionalField as DomainRequiringDataAdditionalField
@@ -380,6 +436,8 @@ from ha_sdk_python.models.domain_search_response_data import DomainSearchRespons
 from ha_sdk_python.models.domain_setting_key import DomainSettingKey as DomainSettingKey
 from ha_sdk_python.models.edit_backup_schedule_request_content import EditBackupScheduleRequestContent as EditBackupScheduleRequestContent
 from ha_sdk_python.models.edit_backup_schedule_response_content import EditBackupScheduleResponseContent as EditBackupScheduleResponseContent
+from ha_sdk_python.models.edit_dns_record_request_content import EditDnsRecordRequestContent as EditDnsRecordRequestContent
+from ha_sdk_python.models.edit_dns_record_response_content import EditDnsRecordResponseContent as EditDnsRecordResponseContent
 from ha_sdk_python.models.firewall_list_response_data import FirewallListResponseData as FirewallListResponseData
 from ha_sdk_python.models.firewall_move_direction import FirewallMoveDirection as FirewallMoveDirection
 from ha_sdk_python.models.firewall_move_response_data import FirewallMoveResponseData as FirewallMoveResponseData
@@ -390,6 +448,9 @@ from ha_sdk_python.models.firewall_rule_type import FirewallRuleType as Firewall
 from ha_sdk_python.models.forbidden_error_response_content import ForbiddenErrorResponseContent as ForbiddenErrorResponseContent
 from ha_sdk_python.models.get_catalogue_request_content import GetCatalogueRequestContent as GetCatalogueRequestContent
 from ha_sdk_python.models.get_catalogue_response_content import GetCatalogueResponseContent as GetCatalogueResponseContent
+from ha_sdk_python.models.get_dns_zone_details_data import GetDnsZoneDetailsData as GetDnsZoneDetailsData
+from ha_sdk_python.models.get_dns_zone_details_request_content import GetDnsZoneDetailsRequestContent as GetDnsZoneDetailsRequestContent
+from ha_sdk_python.models.get_dns_zone_details_response_content import GetDnsZoneDetailsResponseContent as GetDnsZoneDetailsResponseContent
 from ha_sdk_python.models.get_domain_contacts_data import GetDomainContactsData as GetDomainContactsData
 from ha_sdk_python.models.get_domain_contacts_request_content import GetDomainContactsRequestContent as GetDomainContactsRequestContent
 from ha_sdk_python.models.get_domain_contacts_response_content import GetDomainContactsResponseContent as GetDomainContactsResponseContent
@@ -408,6 +469,13 @@ from ha_sdk_python.models.list_backup_schedules_request_content import ListBacku
 from ha_sdk_python.models.list_backup_schedules_response_content import ListBackupSchedulesResponseContent as ListBackupSchedulesResponseContent
 from ha_sdk_python.models.list_backups_request_content import ListBackupsRequestContent as ListBackupsRequestContent
 from ha_sdk_python.models.list_backups_response_content import ListBackupsResponseContent as ListBackupsResponseContent
+from ha_sdk_python.models.list_dns_create_candidates_data import ListDnsCreateCandidatesData as ListDnsCreateCandidatesData
+from ha_sdk_python.models.list_dns_create_candidates_response_content import ListDnsCreateCandidatesResponseContent as ListDnsCreateCandidatesResponseContent
+from ha_sdk_python.models.list_dns_zones_data import ListDnsZonesData as ListDnsZonesData
+from ha_sdk_python.models.list_dns_zones_response_content import ListDnsZonesResponseContent as ListDnsZonesResponseContent
+from ha_sdk_python.models.list_dnssec_records_data import ListDnssecRecordsData as ListDnssecRecordsData
+from ha_sdk_python.models.list_dnssec_records_request_content import ListDnssecRecordsRequestContent as ListDnssecRecordsRequestContent
+from ha_sdk_python.models.list_dnssec_records_response_content import ListDnssecRecordsResponseContent as ListDnssecRecordsResponseContent
 from ha_sdk_python.models.list_domains_data import ListDomainsData as ListDomainsData
 from ha_sdk_python.models.list_domains_requiring_data_data import ListDomainsRequiringDataData as ListDomainsRequiringDataData
 from ha_sdk_python.models.list_domains_requiring_data_response_content import ListDomainsRequiringDataResponseContent as ListDomainsRequiringDataResponseContent
@@ -499,6 +567,12 @@ from ha_sdk_python.models.trigger_reinstall_request_content import TriggerReinst
 from ha_sdk_python.models.trigger_reinstall_response_content import TriggerReinstallResponseContent as TriggerReinstallResponseContent
 from ha_sdk_python.models.trigger_reinstall_response_data import TriggerReinstallResponseData as TriggerReinstallResponseData
 from ha_sdk_python.models.unauthorized_error_response_content import UnauthorizedErrorResponseContent as UnauthorizedErrorResponseContent
+from ha_sdk_python.models.update_domain_contacts_data import UpdateDomainContactsData as UpdateDomainContactsData
+from ha_sdk_python.models.update_domain_contacts_request_content import UpdateDomainContactsRequestContent as UpdateDomainContactsRequestContent
+from ha_sdk_python.models.update_domain_contacts_response_content import UpdateDomainContactsResponseContent as UpdateDomainContactsResponseContent
+from ha_sdk_python.models.update_domain_nameservers_data import UpdateDomainNameserversData as UpdateDomainNameserversData
+from ha_sdk_python.models.update_domain_nameservers_request_content import UpdateDomainNameserversRequestContent as UpdateDomainNameserversRequestContent
+from ha_sdk_python.models.update_domain_nameservers_response_content import UpdateDomainNameserversResponseContent as UpdateDomainNameserversResponseContent
 from ha_sdk_python.models.update_domain_settings_data import UpdateDomainSettingsData as UpdateDomainSettingsData
 from ha_sdk_python.models.update_domain_settings_request_content import UpdateDomainSettingsRequestContent as UpdateDomainSettingsRequestContent
 from ha_sdk_python.models.update_domain_settings_response_content import UpdateDomainSettingsResponseContent as UpdateDomainSettingsResponseContent
