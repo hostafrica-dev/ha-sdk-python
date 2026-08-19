@@ -19,23 +19,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VpsVmInfo(BaseModel):
+class VpsIpAddressDetail(BaseModel):
     """
-    VM information
+    Detailed IP address assignment for a VPS
     """ # noqa: E501
-    status: StrictStr = Field(description="VM status (e.g., running, stopped)")
-    uptime: Optional[StrictStr] = Field(default=None, description="Uptime in human-readable format")
-    uptime_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Uptime in seconds")
-    hostname: Optional[StrictStr] = Field(default=None, description="Hostname of the VM")
-    boot_devices: Optional[List[StrictStr]] = Field(default=None, description="Boot devices configuration (e.g., scsi0, scsi1)")
-    vmid: StrictStr = Field(description="Proxmox VM ID")
-    node: StrictStr = Field(description="Proxmox node name")
-    virtualization: StrictStr = Field(description="Virtualization type (qemu or lxc)")
-    __properties: ClassVar[List[str]] = ["status", "uptime", "uptime_seconds", "hostname", "boot_devices", "vmid", "node", "virtualization"]
+    ip: StrictStr = Field(description="Primary IP address")
+    address: Optional[StrictStr] = Field(default=None, description="IP address (may mirror ip)")
+    subnet: Optional[StrictStr] = Field(default=None, description="Subnet mask")
+    gateway: Optional[StrictStr] = Field(default=None, description="Gateway address")
+    mac: Optional[StrictStr] = Field(default=None, description="MAC address when available")
+    __properties: ClassVar[List[str]] = ["ip", "address", "subnet", "gateway", "mac"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +51,7 @@ class VpsVmInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VpsVmInfo from a JSON string"""
+        """Create an instance of VpsIpAddressDetail from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,7 +76,7 @@ class VpsVmInfo(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VpsVmInfo from a dict"""
+        """Create an instance of VpsIpAddressDetail from a dict"""
         if obj is None:
             return None
 
@@ -88,14 +84,11 @@ class VpsVmInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": obj.get("status"),
-            "uptime": obj.get("uptime"),
-            "uptime_seconds": obj.get("uptime_seconds"),
-            "hostname": obj.get("hostname"),
-            "boot_devices": obj.get("boot_devices"),
-            "vmid": obj.get("vmid"),
-            "node": obj.get("node"),
-            "virtualization": obj.get("virtualization")
+            "ip": obj.get("ip"),
+            "address": obj.get("address"),
+            "subnet": obj.get("subnet"),
+            "gateway": obj.get("gateway"),
+            "mac": obj.get("mac")
         })
         return _obj
 

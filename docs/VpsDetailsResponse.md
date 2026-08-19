@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **memory** | [**VpsMemoryInfo**](VpsMemoryInfo.md) |  | 
 **disk** | [**VpsDiskInfo**](VpsDiskInfo.md) |  | 
 **network_rate** | [**VpsNetworkRate**](VpsNetworkRate.md) |  | [optional] 
-**ip_addresses** | **List[str]** | List of IP addresses assigned to the VPS | 
+**ip_addresses** | [**List[VpsIpAddressDetail]**](VpsIpAddressDetail.md) | List of IP addresses assigned to the VPS, including subnet, gateway, and MAC | 
 **credentials** | [**VpsCredentials**](VpsCredentials.md) |  | 
 **available_features** | [**VpsAvailableFeatures**](VpsAvailableFeatures.md) |  | 
 **os_info** | [**VpsOsInfo**](VpsOsInfo.md) |  | [optional] 

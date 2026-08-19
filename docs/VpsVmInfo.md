@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **uptime** | **str** | Uptime in human-readable format | [optional] 
 **uptime_seconds** | **int** | Uptime in seconds | [optional] 
 **hostname** | **str** | Hostname of the VM | [optional] 
-**boot_devices** | **str** | Boot devices configuration | [optional] 
+**boot_devices** | **List[str]** | Boot devices configuration (e.g., scsi0, scsi1) | [optional] 
 **vmid** | **str** | Proxmox VM ID | 
 **node** | **str** | Proxmox node name | 
 **virtualization** | **str** | Virtualization type (qemu or lxc) | 

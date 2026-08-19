@@ -7,6 +7,7 @@ from typing import FrozenSet
 RETRYABLE_PATHS: FrozenSet[str] = frozenset({
     "/vps/list-vps-services",
     "/vps/get-details",
+    "/vps/get-encrypted-password",
     "/vps/get-config",
     "/vps/novnc-console",
     "/vps/list-backups",

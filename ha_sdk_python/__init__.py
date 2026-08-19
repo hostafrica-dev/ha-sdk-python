@@ -134,6 +134,7 @@ __all__ = [
     "EditBackupScheduleResponseContent",
     "EditDnsRecordRequestContent",
     "EditDnsRecordResponseContent",
+    "EncryptedPasswordResponseData",
     "FirewallListResponseData",
     "FirewallMoveDirection",
     "FirewallMoveResponseData",
@@ -153,6 +154,8 @@ __all__ = [
     "GetDomainData",
     "GetDomainRequestContent",
     "GetDomainResponseContent",
+    "GetEncryptedPasswordRequestContent",
+    "GetEncryptedPasswordResponseContent",
     "GetNoVncConsoleRequestContent",
     "GetNoVncConsoleResponseContent",
     "GetVpsConfigRequestContent",
@@ -213,6 +216,7 @@ __all__ = [
     "Order",
     "OrderLastAttempt",
     "OrderWarning",
+    "PasswordEncryptionInfo",
     "PaymentError",
     "PaymentStatus",
     "PowerTask",
@@ -309,6 +313,7 @@ __all__ = [
     "VpsCredentials",
     "VpsDetailsResponse",
     "VpsDiskInfo",
+    "VpsIpAddressDetail",
     "VpsMemoryInfo",
     "VpsNetworkRate",
     "VpsOsInfo",
@@ -438,6 +443,7 @@ from ha_sdk_python.models.edit_backup_schedule_request_content import EditBackup
 from ha_sdk_python.models.edit_backup_schedule_response_content import EditBackupScheduleResponseContent as EditBackupScheduleResponseContent
 from ha_sdk_python.models.edit_dns_record_request_content import EditDnsRecordRequestContent as EditDnsRecordRequestContent
 from ha_sdk_python.models.edit_dns_record_response_content import EditDnsRecordResponseContent as EditDnsRecordResponseContent
+from ha_sdk_python.models.encrypted_password_response_data import EncryptedPasswordResponseData as EncryptedPasswordResponseData
 from ha_sdk_python.models.firewall_list_response_data import FirewallListResponseData as FirewallListResponseData
 from ha_sdk_python.models.firewall_move_direction import FirewallMoveDirection as FirewallMoveDirection
 from ha_sdk_python.models.firewall_move_response_data import FirewallMoveResponseData as FirewallMoveResponseData
@@ -457,6 +463,8 @@ from ha_sdk_python.models.get_domain_contacts_response_content import GetDomainC
 from ha_sdk_python.models.get_domain_data import GetDomainData as GetDomainData
 from ha_sdk_python.models.get_domain_request_content import GetDomainRequestContent as GetDomainRequestContent
 from ha_sdk_python.models.get_domain_response_content import GetDomainResponseContent as GetDomainResponseContent
+from ha_sdk_python.models.get_encrypted_password_request_content import GetEncryptedPasswordRequestContent as GetEncryptedPasswordRequestContent
+from ha_sdk_python.models.get_encrypted_password_response_content import GetEncryptedPasswordResponseContent as GetEncryptedPasswordResponseContent
 from ha_sdk_python.models.get_no_vnc_console_request_content import GetNoVncConsoleRequestContent as GetNoVncConsoleRequestContent
 from ha_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent as GetNoVncConsoleResponseContent
 from ha_sdk_python.models.get_vps_config_request_content import GetVpsConfigRequestContent as GetVpsConfigRequestContent
@@ -517,6 +525,7 @@ from ha_sdk_python.models.operation_status import OperationStatus as OperationSt
 from ha_sdk_python.models.order import Order as Order
 from ha_sdk_python.models.order_last_attempt import OrderLastAttempt as OrderLastAttempt
 from ha_sdk_python.models.order_warning import OrderWarning as OrderWarning
+from ha_sdk_python.models.password_encryption_info import PasswordEncryptionInfo as PasswordEncryptionInfo
 from ha_sdk_python.models.payment_error import PaymentError as PaymentError
 from ha_sdk_python.models.payment_status import PaymentStatus as PaymentStatus
 from ha_sdk_python.models.power_task import PowerTask as PowerTask
@@ -613,6 +622,7 @@ from ha_sdk_python.models.vps_cpu_info import VpsCpuInfo as VpsCpuInfo
 from ha_sdk_python.models.vps_credentials import VpsCredentials as VpsCredentials
 from ha_sdk_python.models.vps_details_response import VpsDetailsResponse as VpsDetailsResponse
 from ha_sdk_python.models.vps_disk_info import VpsDiskInfo as VpsDiskInfo
+from ha_sdk_python.models.vps_ip_address_detail import VpsIpAddressDetail as VpsIpAddressDetail
 from ha_sdk_python.models.vps_memory_info import VpsMemoryInfo as VpsMemoryInfo
 from ha_sdk_python.models.vps_network_rate import VpsNetworkRate as VpsNetworkRate
 from ha_sdk_python.models.vps_os_info import VpsOsInfo as VpsOsInfo

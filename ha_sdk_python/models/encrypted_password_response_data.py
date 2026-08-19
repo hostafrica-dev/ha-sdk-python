@@ -18,24 +18,19 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import Any, ClassVar, Dict, List
+from ha_sdk_python.models.password_encryption_info import PasswordEncryptionInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VpsVmInfo(BaseModel):
+class EncryptedPasswordResponseData(BaseModel):
     """
-    VM information
+    Response data for get-encrypted-password
     """ # noqa: E501
-    status: StrictStr = Field(description="VM status (e.g., running, stopped)")
-    uptime: Optional[StrictStr] = Field(default=None, description="Uptime in human-readable format")
-    uptime_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Uptime in seconds")
-    hostname: Optional[StrictStr] = Field(default=None, description="Hostname of the VM")
-    boot_devices: Optional[List[StrictStr]] = Field(default=None, description="Boot devices configuration (e.g., scsi0, scsi1)")
-    vmid: StrictStr = Field(description="Proxmox VM ID")
-    node: StrictStr = Field(description="Proxmox node name")
-    virtualization: StrictStr = Field(description="Virtualization type (qemu or lxc)")
-    __properties: ClassVar[List[str]] = ["status", "uptime", "uptime_seconds", "hostname", "boot_devices", "vmid", "node", "virtualization"]
+    username: StrictStr = Field(description="Username for VPS access (plaintext)")
+    password: StrictStr = Field(description="Base64-encoded ciphertext of the VPS password. Produced with RSA-OAEP (SHA-256) and the request public_key. Decode from base64, then decrypt with the matching private key via openssl pkeyutl -decrypt -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256.")
+    encryption: PasswordEncryptionInfo
+    __properties: ClassVar[List[str]] = ["username", "password", "encryption"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +50,7 @@ class VpsVmInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VpsVmInfo from a JSON string"""
+        """Create an instance of EncryptedPasswordResponseData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,11 +71,14 @@ class VpsVmInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of encryption
+        if self.encryption:
+            _dict['encryption'] = self.encryption.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VpsVmInfo from a dict"""
+        """Create an instance of EncryptedPasswordResponseData from a dict"""
         if obj is None:
             return None
 
@@ -88,14 +86,9 @@ class VpsVmInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": obj.get("status"),
-            "uptime": obj.get("uptime"),
-            "uptime_seconds": obj.get("uptime_seconds"),
-            "hostname": obj.get("hostname"),
-            "boot_devices": obj.get("boot_devices"),
-            "vmid": obj.get("vmid"),
-            "node": obj.get("node"),
-            "virtualization": obj.get("virtualization")
+            "username": obj.get("username"),
+            "password": obj.get("password"),
+            "encryption": PasswordEncryptionInfo.from_dict(obj["encryption"]) if obj.get("encryption") is not None else None
         })
         return _obj
 

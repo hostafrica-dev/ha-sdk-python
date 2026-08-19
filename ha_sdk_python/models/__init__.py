@@ -110,6 +110,7 @@ from ha_sdk_python.models.edit_backup_schedule_request_content import EditBackup
 from ha_sdk_python.models.edit_backup_schedule_response_content import EditBackupScheduleResponseContent
 from ha_sdk_python.models.edit_dns_record_request_content import EditDnsRecordRequestContent
 from ha_sdk_python.models.edit_dns_record_response_content import EditDnsRecordResponseContent
+from ha_sdk_python.models.encrypted_password_response_data import EncryptedPasswordResponseData
 from ha_sdk_python.models.firewall_list_response_data import FirewallListResponseData
 from ha_sdk_python.models.firewall_move_direction import FirewallMoveDirection
 from ha_sdk_python.models.firewall_move_response_data import FirewallMoveResponseData
@@ -129,6 +130,8 @@ from ha_sdk_python.models.get_domain_contacts_response_content import GetDomainC
 from ha_sdk_python.models.get_domain_data import GetDomainData
 from ha_sdk_python.models.get_domain_request_content import GetDomainRequestContent
 from ha_sdk_python.models.get_domain_response_content import GetDomainResponseContent
+from ha_sdk_python.models.get_encrypted_password_request_content import GetEncryptedPasswordRequestContent
+from ha_sdk_python.models.get_encrypted_password_response_content import GetEncryptedPasswordResponseContent
 from ha_sdk_python.models.get_no_vnc_console_request_content import GetNoVncConsoleRequestContent
 from ha_sdk_python.models.get_no_vnc_console_response_content import GetNoVncConsoleResponseContent
 from ha_sdk_python.models.get_vps_config_request_content import GetVpsConfigRequestContent
@@ -189,6 +192,7 @@ from ha_sdk_python.models.operation_status import OperationStatus
 from ha_sdk_python.models.order import Order
 from ha_sdk_python.models.order_last_attempt import OrderLastAttempt
 from ha_sdk_python.models.order_warning import OrderWarning
+from ha_sdk_python.models.password_encryption_info import PasswordEncryptionInfo
 from ha_sdk_python.models.payment_error import PaymentError
 from ha_sdk_python.models.payment_status import PaymentStatus
 from ha_sdk_python.models.power_task import PowerTask
@@ -285,6 +289,7 @@ from ha_sdk_python.models.vps_cpu_info import VpsCpuInfo
 from ha_sdk_python.models.vps_credentials import VpsCredentials
 from ha_sdk_python.models.vps_details_response import VpsDetailsResponse
 from ha_sdk_python.models.vps_disk_info import VpsDiskInfo
+from ha_sdk_python.models.vps_ip_address_detail import VpsIpAddressDetail
 from ha_sdk_python.models.vps_memory_info import VpsMemoryInfo
 from ha_sdk_python.models.vps_network_rate import VpsNetworkRate
 from ha_sdk_python.models.vps_os_info import VpsOsInfo

@@ -7,7 +7,7 @@ VPS credentials
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **str** | Username for VPS access | 
-**password** | **str** | Password for VPS access | 
+**password** | **str** | Password for VPS access. Always returned as \&quot;&lt;redacted&gt;\&quot; from get-details; plaintext passwords are never included in API responses. | 
 
 ## Example
 

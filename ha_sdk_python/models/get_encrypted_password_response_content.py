@@ -17,25 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List
+from ha_sdk_python.models.encrypted_password_response_data import EncryptedPasswordResponseData
+from ha_sdk_python.models.operation_status import OperationStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VpsVmInfo(BaseModel):
+class GetEncryptedPasswordResponseContent(BaseModel):
     """
-    VM information
+    GetEncryptedPasswordResponseContent
     """ # noqa: E501
-    status: StrictStr = Field(description="VM status (e.g., running, stopped)")
-    uptime: Optional[StrictStr] = Field(default=None, description="Uptime in human-readable format")
-    uptime_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Uptime in seconds")
-    hostname: Optional[StrictStr] = Field(default=None, description="Hostname of the VM")
-    boot_devices: Optional[List[StrictStr]] = Field(default=None, description="Boot devices configuration (e.g., scsi0, scsi1)")
-    vmid: StrictStr = Field(description="Proxmox VM ID")
-    node: StrictStr = Field(description="Proxmox node name")
-    virtualization: StrictStr = Field(description="Virtualization type (qemu or lxc)")
-    __properties: ClassVar[List[str]] = ["status", "uptime", "uptime_seconds", "hostname", "boot_devices", "vmid", "node", "virtualization"]
+    status: OperationStatus
+    data: EncryptedPasswordResponseData
+    __properties: ClassVar[List[str]] = ["status", "data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +50,7 @@ class VpsVmInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VpsVmInfo from a JSON string"""
+        """Create an instance of GetEncryptedPasswordResponseContent from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,11 +71,14 @@ class VpsVmInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VpsVmInfo from a dict"""
+        """Create an instance of GetEncryptedPasswordResponseContent from a dict"""
         if obj is None:
             return None
 
@@ -89,13 +87,7 @@ class VpsVmInfo(BaseModel):
 
         _obj = cls.model_validate({
             "status": obj.get("status"),
-            "uptime": obj.get("uptime"),
-            "uptime_seconds": obj.get("uptime_seconds"),
-            "hostname": obj.get("hostname"),
-            "boot_devices": obj.get("boot_devices"),
-            "vmid": obj.get("vmid"),
-            "node": obj.get("node"),
-            "virtualization": obj.get("virtualization")
+            "data": EncryptedPasswordResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

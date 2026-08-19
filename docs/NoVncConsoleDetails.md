@@ -6,7 +6,10 @@ noVNC console connection details
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**novnc_redirect_url** | **str** | Redirect URL for the noVNC console | 
+**novnc_redirect_url** | **str** | Redirect URL for the noVNC console | [optional] 
+**mode** | **str** | Console connection mode | [optional] 
+**websocket_url** | **str** | WebSocket URL for proxied console access | [optional] 
+**password** | **str** | Password for proxied console access | [optional] 
 
 ## Example
 

@@ -27,7 +27,7 @@ class VpsCredentials(BaseModel):
     VPS credentials
     """ # noqa: E501
     username: StrictStr = Field(description="Username for VPS access")
-    password: StrictStr = Field(description="Password for VPS access")
+    password: StrictStr = Field(description="Password for VPS access. Always returned as \"<redacted>\" from get-details; plaintext passwords are never included in API responses.")
     __properties: ClassVar[List[str]] = ["username", "password"]
 
     model_config = ConfigDict(

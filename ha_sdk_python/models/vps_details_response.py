@@ -23,6 +23,7 @@ from ha_sdk_python.models.vps_available_features import VpsAvailableFeatures
 from ha_sdk_python.models.vps_cpu_info import VpsCpuInfo
 from ha_sdk_python.models.vps_credentials import VpsCredentials
 from ha_sdk_python.models.vps_disk_info import VpsDiskInfo
+from ha_sdk_python.models.vps_ip_address_detail import VpsIpAddressDetail
 from ha_sdk_python.models.vps_memory_info import VpsMemoryInfo
 from ha_sdk_python.models.vps_network_rate import VpsNetworkRate
 from ha_sdk_python.models.vps_os_info import VpsOsInfo
@@ -40,7 +41,7 @@ class VpsDetailsResponse(BaseModel):
     memory: VpsMemoryInfo
     disk: VpsDiskInfo
     network_rate: Optional[VpsNetworkRate] = None
-    ip_addresses: List[StrictStr] = Field(description="List of IP addresses assigned to the VPS")
+    ip_addresses: List[VpsIpAddressDetail] = Field(description="List of IP addresses assigned to the VPS, including subnet, gateway, and MAC")
     credentials: VpsCredentials
     available_features: VpsAvailableFeatures
     os_info: Optional[VpsOsInfo] = None
@@ -100,6 +101,13 @@ class VpsDetailsResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of network_rate
         if self.network_rate:
             _dict['network_rate'] = self.network_rate.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in ip_addresses (list)
+        _items = []
+        if self.ip_addresses:
+            for _item_ip_addresses in self.ip_addresses:
+                if _item_ip_addresses:
+                    _items.append(_item_ip_addresses.to_dict())
+            _dict['ip_addresses'] = _items
         # override the default output from pydantic by calling `to_dict()` of credentials
         if self.credentials:
             _dict['credentials'] = self.credentials.to_dict()
@@ -127,7 +135,7 @@ class VpsDetailsResponse(BaseModel):
             "memory": VpsMemoryInfo.from_dict(obj["memory"]) if obj.get("memory") is not None else None,
             "disk": VpsDiskInfo.from_dict(obj["disk"]) if obj.get("disk") is not None else None,
             "network_rate": VpsNetworkRate.from_dict(obj["network_rate"]) if obj.get("network_rate") is not None else None,
-            "ip_addresses": obj.get("ip_addresses"),
+            "ip_addresses": [VpsIpAddressDetail.from_dict(_item) for _item in obj["ip_addresses"]] if obj.get("ip_addresses") is not None else None,
             "credentials": VpsCredentials.from_dict(obj["credentials"]) if obj.get("credentials") is not None else None,
             "available_features": VpsAvailableFeatures.from_dict(obj["available_features"]) if obj.get("available_features") is not None else None,
             "os_info": VpsOsInfo.from_dict(obj["os_info"]) if obj.get("os_info") is not None else None

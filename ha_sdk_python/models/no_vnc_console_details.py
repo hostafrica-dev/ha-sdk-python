@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +26,11 @@ class NoVncConsoleDetails(BaseModel):
     """
     noVNC console connection details
     """ # noqa: E501
-    novnc_redirect_url: StrictStr = Field(description="Redirect URL for the noVNC console")
-    __properties: ClassVar[List[str]] = ["novnc_redirect_url"]
+    novnc_redirect_url: Optional[StrictStr] = Field(default=None, description="Redirect URL for the noVNC console")
+    mode: Optional[StrictStr] = Field(default=None, description="Console connection mode")
+    websocket_url: Optional[StrictStr] = Field(default=None, description="WebSocket URL for proxied console access")
+    password: Optional[StrictStr] = Field(default=None, description="Password for proxied console access")
+    __properties: ClassVar[List[str]] = ["novnc_redirect_url", "mode", "websocket_url", "password"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +83,10 @@ class NoVncConsoleDetails(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "novnc_redirect_url": obj.get("novnc_redirect_url")
+            "novnc_redirect_url": obj.get("novnc_redirect_url"),
+            "mode": obj.get("mode"),
+            "websocket_url": obj.get("websocket_url"),
+            "password": obj.get("password")
         })
         return _obj
 
