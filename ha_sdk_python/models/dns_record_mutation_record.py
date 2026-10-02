@@ -24,9 +24,9 @@ from typing_extensions import Self
 
 class DnsRecordMutationRecord(BaseModel):
     """
-    DNS record fields for add, edit, or delete via DNSManager.  See `DnsRecordInfo` for how `content` and structured fields map to upstream record data. Delete requires only `id`, `name`, and `type`.
+    DNS record fields for add, edit, or delete via DNSManager.  See `DnsRecordInfo` for how `content` and structured fields map to upstream record data. Delete requires only `id`, `name`, and `type`. For edit and delete, `id` must be the numeric zone line from get-dns-zone-details (a positive integer string).
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Record line/id from get-dns-zone-details; required for edit and delete")
+    id: Optional[StrictStr] = Field(default=None, description="Record line from get-dns-zone-details (positive integer string); required for edit and delete")
     name: Optional[StrictStr] = Field(default=None, description="Record host/name (e.g. @, www, mail); required for add")
     type: Optional[StrictStr] = Field(default=None, description="Record type (e.g. A, AAAA, CNAME, MX, TXT, NS, SRV); required for add")
     content: Optional[StrictStr] = Field(default=None, description="Primary record value; required for add and edit. Meaning depends on type — see DnsRecordInfo")

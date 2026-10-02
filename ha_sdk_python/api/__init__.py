@@ -2,6 +2,7 @@
 
 # import apis into api package
 from ha_sdk_python.api.backups_api import BackupsApi
+from ha_sdk_python.api.billing_api import BillingApi
 from ha_sdk_python.api.console_access_api import ConsoleAccessApi
 from ha_sdk_python.api.dns_api import DNSApi
 from ha_sdk_python.api.domains_api import DomainsApi

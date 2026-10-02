@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **domain_id** | **str** | Domain service id - must be sent as a string | 
+**backend** | [**DnsBackend**](DnsBackend.md) |  | [optional] 
 
 ## Example
 

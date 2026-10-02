@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from ha_sdk_python.models.dns_backend import DnsBackend
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,8 @@ class GetDnsZoneDetailsRequestContent(BaseModel):
     GetDnsZoneDetailsRequestContent
     """ # noqa: E501
     domain_id: StrictStr = Field(description="Domain service id - must be sent as a string")
-    __properties: ClassVar[List[str]] = ["domain_id"]
+    backend: Optional[DnsBackend] = None
+    __properties: ClassVar[List[str]] = ["domain_id", "backend"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +82,8 @@ class GetDnsZoneDetailsRequestContent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "domain_id": obj.get("domain_id")
+            "domain_id": obj.get("domain_id"),
+            "backend": obj.get("backend")
         })
         return _obj
 

@@ -22,6 +22,8 @@ RETRYABLE_PATHS: FrozenSet[str] = frozenset({
     "/vps/get-catalogue",
     "/vps/validate-pricing",
     "/vps/list-orders",
+    "/billing/list-invoices",
+    "/billing/get-invoice-details",
     "/dns/list-rdns-records",
     "/domain/check-availability",
     "/domain/suggest",

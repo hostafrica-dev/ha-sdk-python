@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from ha_sdk_python.models.dns_backend import DnsBackend
 from ha_sdk_python.models.domain_hosting_link import DomainHostingLink
 from typing import Optional, Set
 from typing_extensions import Self
@@ -36,7 +37,8 @@ class DnsZoneInfo(BaseModel):
     package_name: Optional[StrictStr] = Field(default=None, description="Product or package name for the zone")
     has_hosting: Optional[DomainHostingLink] = None
     has_dns_manager_zone: StrictBool = Field(description="Whether a DNS Manager zone exists for this domain name")
-    __properties: ClassVar[List[str]] = ["zone_id", "domain_id", "domain_name", "hosting_id", "type", "type_key", "package_name", "has_hosting", "has_dns_manager_zone"]
+    backend: Optional[DnsBackend] = None
+    __properties: ClassVar[List[str]] = ["zone_id", "domain_id", "domain_name", "hosting_id", "type", "type_key", "package_name", "has_hosting", "has_dns_manager_zone", "backend"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,7 +102,8 @@ class DnsZoneInfo(BaseModel):
             "type_key": obj.get("type_key"),
             "package_name": obj.get("package_name"),
             "has_hosting": DomainHostingLink.from_dict(obj["has_hosting"]) if obj.get("has_hosting") is not None else None,
-            "has_dns_manager_zone": obj.get("has_dns_manager_zone")
+            "has_dns_manager_zone": obj.get("has_dns_manager_zone"),
+            "backend": obj.get("backend")
         })
         return _obj
 

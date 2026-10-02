@@ -68,7 +68,7 @@ class DNSApi:
     ) -> AddDnsRecordResponseContent:
         """add_dns_record
 
-        Adds a DNS record to a zone via DNSManager.
+        Adds a DNS record to a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param add_dns_record_request_content: (required)
         :type add_dns_record_request_content: AddDnsRecordRequestContent
@@ -143,7 +143,7 @@ class DNSApi:
     ) -> ApiResponse[AddDnsRecordResponseContent]:
         """add_dns_record
 
-        Adds a DNS record to a zone via DNSManager.
+        Adds a DNS record to a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param add_dns_record_request_content: (required)
         :type add_dns_record_request_content: AddDnsRecordRequestContent
@@ -218,7 +218,7 @@ class DNSApi:
     ) -> RESTResponseType:
         """add_dns_record
 
-        Adds a DNS record to a zone via DNSManager.
+        Adds a DNS record to a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param add_dns_record_request_content: (required)
         :type add_dns_record_request_content: AddDnsRecordRequestContent
@@ -664,7 +664,7 @@ class DNSApi:
     ) -> DeleteDnsRecordResponseContent:
         """delete_dns_record
 
-        Deletes a DNS record from a zone via DNSManager.
+        Deletes a DNS record from a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param delete_dns_record_request_content: (required)
         :type delete_dns_record_request_content: DeleteDnsRecordRequestContent
@@ -739,7 +739,7 @@ class DNSApi:
     ) -> ApiResponse[DeleteDnsRecordResponseContent]:
         """delete_dns_record
 
-        Deletes a DNS record from a zone via DNSManager.
+        Deletes a DNS record from a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param delete_dns_record_request_content: (required)
         :type delete_dns_record_request_content: DeleteDnsRecordRequestContent
@@ -814,7 +814,7 @@ class DNSApi:
     ) -> RESTResponseType:
         """delete_dns_record
 
-        Deletes a DNS record from a zone via DNSManager.
+        Deletes a DNS record from a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param delete_dns_record_request_content: (required)
         :type delete_dns_record_request_content: DeleteDnsRecordRequestContent
@@ -1260,7 +1260,7 @@ class DNSApi:
     ) -> EditDnsRecordResponseContent:
         """edit_dns_record
 
-        Edits a DNS record in a zone via DNSManager.
+        Edits a DNS record in a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param edit_dns_record_request_content: (required)
         :type edit_dns_record_request_content: EditDnsRecordRequestContent
@@ -1335,7 +1335,7 @@ class DNSApi:
     ) -> ApiResponse[EditDnsRecordResponseContent]:
         """edit_dns_record
 
-        Edits a DNS record in a zone via DNSManager.
+        Edits a DNS record in a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param edit_dns_record_request_content: (required)
         :type edit_dns_record_request_content: EditDnsRecordRequestContent
@@ -1410,7 +1410,7 @@ class DNSApi:
     ) -> RESTResponseType:
         """edit_dns_record
 
-        Edits a DNS record in a zone via DNSManager.
+        Edits a DNS record in a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
         :param edit_dns_record_request_content: (required)
         :type edit_dns_record_request_content: EditDnsRecordRequestContent
@@ -1558,7 +1558,7 @@ class DNSApi:
     ) -> GetDnsZoneDetailsResponseContent:
         """get_dns_zone_details
 
-        Retrieves DNS zone details and records for an owned domain.
+        Retrieves DNS zone details and records for an owned domain. Omit backend for the legacy DNS Manager (v1) path; set backend from list-dns-zones to route DirectAdmin zones to v2.
 
         :param get_dns_zone_details_request_content: (required)
         :type get_dns_zone_details_request_content: GetDnsZoneDetailsRequestContent
@@ -1633,7 +1633,7 @@ class DNSApi:
     ) -> ApiResponse[GetDnsZoneDetailsResponseContent]:
         """get_dns_zone_details
 
-        Retrieves DNS zone details and records for an owned domain.
+        Retrieves DNS zone details and records for an owned domain. Omit backend for the legacy DNS Manager (v1) path; set backend from list-dns-zones to route DirectAdmin zones to v2.
 
         :param get_dns_zone_details_request_content: (required)
         :type get_dns_zone_details_request_content: GetDnsZoneDetailsRequestContent
@@ -1708,7 +1708,7 @@ class DNSApi:
     ) -> RESTResponseType:
         """get_dns_zone_details
 
-        Retrieves DNS zone details and records for an owned domain.
+        Retrieves DNS zone details and records for an owned domain. Omit backend for the legacy DNS Manager (v1) path; set backend from list-dns-zones to route DirectAdmin zones to v2.
 
         :param get_dns_zone_details_request_content: (required)
         :type get_dns_zone_details_request_content: GetDnsZoneDetailsRequestContent

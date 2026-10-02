@@ -18,7 +18,7 @@ Method | HTTP request | Description
 # **add_dns_record**
 > AddDnsRecordResponseContent add_dns_record(add_dns_record_request_content)
 
-Adds a DNS record to a zone via DNSManager.
+Adds a DNS record to a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
 ### Example
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 # **delete_dns_record**
 > DeleteDnsRecordResponseContent delete_dns_record(delete_dns_record_request_content)
 
-Deletes a DNS record from a zone via DNSManager.
+Deletes a DNS record from a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
 ### Example
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 # **edit_dns_record**
 > EditDnsRecordResponseContent edit_dns_record(edit_dns_record_request_content)
 
-Edits a DNS record in a zone via DNSManager.
+Edits a DNS record in a zone. Legacy callers pass zone_id only (DNS Manager v1). For DirectAdmin, pass backend=directadmin with domain_id; upstream v2 receives domain_id and record only.
 
 ### Example
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 # **get_dns_zone_details**
 > GetDnsZoneDetailsResponseContent get_dns_zone_details(get_dns_zone_details_request_content)
 
-Retrieves DNS zone details and records for an owned domain.
+Retrieves DNS zone details and records for an owned domain. Omit backend for the legacy DNS Manager (v1) path; set backend from list-dns-zones to route DirectAdmin zones to v2.
 
 ### Example
 

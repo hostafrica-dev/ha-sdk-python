@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **package_name** | **str** | Product or package name for the zone | [optional] 
 **has_hosting** | [**DomainHostingLink**](DomainHostingLink.md) |  | [optional] 
 **has_dns_manager_zone** | **bool** | Whether a DNS Manager zone exists for this domain name | 
+**backend** | [**DnsBackend**](DnsBackend.md) |  | [optional] 
 
 ## Example
 

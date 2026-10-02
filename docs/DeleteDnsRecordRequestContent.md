@@ -5,8 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**domain_name** | **str** | DNS zone domain name (FQDN); optional when zone_id is provided | [optional] 
-**zone_id** | **str** | DNS zone identifier from list-dns-zones or get-dns-zone-details | 
+**domain_name** | **str** | DNS zone domain name (FQDN); optional for dns_manager when zone_id is provided. Not forwarded on DirectAdmin mutations. | [optional] 
+**zone_id** | **str** | DNS zone identifier from list-dns-zones or get-dns-zone-details; required for dns_manager / legacy callers | [optional] 
+**domain_id** | **str** | WHMCS domain id from list-dns-zones; required when backend is directadmin | [optional] 
+**service_id** | **int** | Optional WHMCS hosting service id from list-dns-zones hosting_id. Not forwarded on DirectAdmin mutations. | [optional] 
+**backend** | [**DnsBackend**](DnsBackend.md) |  | [optional] 
 **record** | [**DnsRecordMutationRecord**](DnsRecordMutationRecord.md) |  | 
 
 ## Example

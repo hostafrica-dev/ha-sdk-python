@@ -18,23 +18,20 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from ha_sdk_python.models.dns_backend import DnsBackend
-from ha_sdk_python.models.dns_record_mutation_record import DnsRecordMutationRecord
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DeleteDnsRecordRequestContent(BaseModel):
+class InvoiceItem(BaseModel):
     """
-    DeleteDnsRecordRequestContent
+    A single invoice line item
     """ # noqa: E501
-    domain_name: Optional[StrictStr] = Field(default=None, description="DNS zone domain name (FQDN); optional for dns_manager when zone_id is provided. Not forwarded on DirectAdmin mutations.")
-    zone_id: Optional[StrictStr] = Field(default=None, description="DNS zone identifier from list-dns-zones or get-dns-zone-details; required for dns_manager / legacy callers")
-    domain_id: Optional[StrictStr] = Field(default=None, description="WHMCS domain id from list-dns-zones; required when backend is directadmin")
-    service_id: Optional[StrictInt] = Field(default=None, description="Optional WHMCS hosting service id from list-dns-zones hosting_id. Not forwarded on DirectAdmin mutations.")
-    backend: Optional[DnsBackend] = None
-    record: DnsRecordMutationRecord
-    __properties: ClassVar[List[str]] = ["domain_name", "zone_id", "domain_id", "service_id", "backend", "record"]
+    id: StrictInt = Field(description="Line item identifier")
+    type: StrictStr = Field(description="Line item type (e.g. Hosting)")
+    description: StrictStr = Field(description="Line item description")
+    amount: StrictStr = Field(description="Line item amount as a decimal string")
+    taxed: StrictInt = Field(description="Whether the line item is taxed (1 = taxed, 0 = not taxed)")
+    __properties: ClassVar[List[str]] = ["id", "type", "description", "amount", "taxed"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +51,7 @@ class DeleteDnsRecordRequestContent(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DeleteDnsRecordRequestContent from a JSON string"""
+        """Create an instance of InvoiceItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,14 +72,11 @@ class DeleteDnsRecordRequestContent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of record
-        if self.record:
-            _dict['record'] = self.record.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DeleteDnsRecordRequestContent from a dict"""
+        """Create an instance of InvoiceItem from a dict"""
         if obj is None:
             return None
 
@@ -90,12 +84,11 @@ class DeleteDnsRecordRequestContent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "domain_name": obj.get("domain_name"),
-            "zone_id": obj.get("zone_id"),
-            "domain_id": obj.get("domain_id"),
-            "service_id": obj.get("service_id"),
-            "backend": obj.get("backend"),
-            "record": DnsRecordMutationRecord.from_dict(obj["record"]) if obj.get("record") is not None else None
+            "id": obj.get("id"),
+            "type": obj.get("type"),
+            "description": obj.get("description"),
+            "amount": obj.get("amount"),
+            "taxed": obj.get("taxed")
         })
         return _obj
 
