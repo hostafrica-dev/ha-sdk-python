@@ -17,14 +17,20 @@ from typing_extensions import Annotated
 
 from ha_sdk_python.models.add_dns_record_request_content import AddDnsRecordRequestContent
 from ha_sdk_python.models.add_dns_record_response_content import AddDnsRecordResponseContent
+from ha_sdk_python.models.create_dns_zone_request_content import CreateDnsZoneRequestContent
+from ha_sdk_python.models.create_dns_zone_response_content import CreateDnsZoneResponseContent
 from ha_sdk_python.models.create_rdns_record_request_content import CreateRdnsRecordRequestContent
 from ha_sdk_python.models.create_rdns_record_response_content import CreateRdnsRecordResponseContent
 from ha_sdk_python.models.delete_dns_record_request_content import DeleteDnsRecordRequestContent
 from ha_sdk_python.models.delete_dns_record_response_content import DeleteDnsRecordResponseContent
+from ha_sdk_python.models.delete_dns_zone_request_content import DeleteDnsZoneRequestContent
+from ha_sdk_python.models.delete_dns_zone_response_content import DeleteDnsZoneResponseContent
 from ha_sdk_python.models.delete_rdns_record_request_content import DeleteRdnsRecordRequestContent
 from ha_sdk_python.models.delete_rdns_record_response_content import DeleteRdnsRecordResponseContent
 from ha_sdk_python.models.edit_dns_record_request_content import EditDnsRecordRequestContent
 from ha_sdk_python.models.edit_dns_record_response_content import EditDnsRecordResponseContent
+from ha_sdk_python.models.edit_rdns_record_request_content import EditRdnsRecordRequestContent
+from ha_sdk_python.models.edit_rdns_record_response_content import EditRdnsRecordResponseContent
 from ha_sdk_python.models.get_dns_zone_details_request_content import GetDnsZoneDetailsRequestContent
 from ha_sdk_python.models.get_dns_zone_details_response_content import GetDnsZoneDetailsResponseContent
 from ha_sdk_python.models.list_dns_create_candidates_response_content import ListDnsCreateCandidatesResponseContent
@@ -332,6 +338,304 @@ class DNSApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/dns/add-record',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def create_dns_zone(
+        self,
+        create_dns_zone_request_content: CreateDnsZoneRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateDnsZoneResponseContent:
+        """create_dns_zone
+
+        Creates a DNS zone for an owned domain. Prefer list-dns-create-candidates first. domain_id and zone_ip are required. Also send service_id from hosting_id when the domain has linked hosting or backend will be directadmin. Optional type/relid select the DNS package (relid from create-candidates); otherwise upstream picks the first eligible package. Do not send zone_id — the zone does not exist yet.
+
+        :param create_dns_zone_request_content: (required)
+        :type create_dns_zone_request_content: CreateDnsZoneRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_dns_zone_serialize(
+            create_dns_zone_request_content=create_dns_zone_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDnsZoneResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def create_dns_zone_with_http_info(
+        self,
+        create_dns_zone_request_content: CreateDnsZoneRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateDnsZoneResponseContent]:
+        """create_dns_zone
+
+        Creates a DNS zone for an owned domain. Prefer list-dns-create-candidates first. domain_id and zone_ip are required. Also send service_id from hosting_id when the domain has linked hosting or backend will be directadmin. Optional type/relid select the DNS package (relid from create-candidates); otherwise upstream picks the first eligible package. Do not send zone_id — the zone does not exist yet.
+
+        :param create_dns_zone_request_content: (required)
+        :type create_dns_zone_request_content: CreateDnsZoneRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_dns_zone_serialize(
+            create_dns_zone_request_content=create_dns_zone_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDnsZoneResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_dns_zone_without_preload_content(
+        self,
+        create_dns_zone_request_content: CreateDnsZoneRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """create_dns_zone
+
+        Creates a DNS zone for an owned domain. Prefer list-dns-create-candidates first. domain_id and zone_ip are required. Also send service_id from hosting_id when the domain has linked hosting or backend will be directadmin. Optional type/relid select the DNS package (relid from create-candidates); otherwise upstream picks the first eligible package. Do not send zone_id — the zone does not exist yet.
+
+        :param create_dns_zone_request_content: (required)
+        :type create_dns_zone_request_content: CreateDnsZoneRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_dns_zone_serialize(
+            create_dns_zone_request_content=create_dns_zone_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateDnsZoneResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_dns_zone_serialize(
+        self,
+        create_dns_zone_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if create_dns_zone_request_content is not None:
+            _body_params = create_dns_zone_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/dns/create-zone',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -944,6 +1248,304 @@ class DNSApi:
 
 
     @validate_call
+    def delete_dns_zone(
+        self,
+        delete_dns_zone_request_content: DeleteDnsZoneRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> DeleteDnsZoneResponseContent:
+        """delete_dns_zone
+
+        Deletes a live DNS Manager zone (all records). zone_id from list-dns-zones is required. Optional domain_id/service_id are forwarded when present. DirectAdmin rows with null zone_id are not supported by upstream deletezone.
+
+        :param delete_dns_zone_request_content: (required)
+        :type delete_dns_zone_request_content: DeleteDnsZoneRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_dns_zone_serialize(
+            delete_dns_zone_request_content=delete_dns_zone_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDnsZoneResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_dns_zone_with_http_info(
+        self,
+        delete_dns_zone_request_content: DeleteDnsZoneRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteDnsZoneResponseContent]:
+        """delete_dns_zone
+
+        Deletes a live DNS Manager zone (all records). zone_id from list-dns-zones is required. Optional domain_id/service_id are forwarded when present. DirectAdmin rows with null zone_id are not supported by upstream deletezone.
+
+        :param delete_dns_zone_request_content: (required)
+        :type delete_dns_zone_request_content: DeleteDnsZoneRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_dns_zone_serialize(
+            delete_dns_zone_request_content=delete_dns_zone_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDnsZoneResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_dns_zone_without_preload_content(
+        self,
+        delete_dns_zone_request_content: DeleteDnsZoneRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_dns_zone
+
+        Deletes a live DNS Manager zone (all records). zone_id from list-dns-zones is required. Optional domain_id/service_id are forwarded when present. DirectAdmin rows with null zone_id are not supported by upstream deletezone.
+
+        :param delete_dns_zone_request_content: (required)
+        :type delete_dns_zone_request_content: DeleteDnsZoneRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_dns_zone_serialize(
+            delete_dns_zone_request_content=delete_dns_zone_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDnsZoneResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_dns_zone_serialize(
+        self,
+        delete_dns_zone_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if delete_dns_zone_request_content is not None:
+            _body_params = delete_dns_zone_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/dns/delete-zone',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def delete_rdns_record(
         self,
         delete_rdns_record_request_content: DeleteRdnsRecordRequestContent,
@@ -1524,6 +2126,304 @@ class DNSApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/dns/edit-record',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def edit_rdns_record(
+        self,
+        edit_rdns_record_request_content: EditRdnsRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EditRdnsRecordResponseContent:
+        """edit_rdns_record
+
+        Updates the hostname and optional TTL of a PTR (rDNS) record owned by the authenticated client. The record_id remains valid after the call.
+
+        :param edit_rdns_record_request_content: (required)
+        :type edit_rdns_record_request_content: EditRdnsRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_rdns_record_serialize(
+            edit_rdns_record_request_content=edit_rdns_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EditRdnsRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def edit_rdns_record_with_http_info(
+        self,
+        edit_rdns_record_request_content: EditRdnsRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EditRdnsRecordResponseContent]:
+        """edit_rdns_record
+
+        Updates the hostname and optional TTL of a PTR (rDNS) record owned by the authenticated client. The record_id remains valid after the call.
+
+        :param edit_rdns_record_request_content: (required)
+        :type edit_rdns_record_request_content: EditRdnsRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_rdns_record_serialize(
+            edit_rdns_record_request_content=edit_rdns_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EditRdnsRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def edit_rdns_record_without_preload_content(
+        self,
+        edit_rdns_record_request_content: EditRdnsRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """edit_rdns_record
+
+        Updates the hostname and optional TTL of a PTR (rDNS) record owned by the authenticated client. The record_id remains valid after the call.
+
+        :param edit_rdns_record_request_content: (required)
+        :type edit_rdns_record_request_content: EditRdnsRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._edit_rdns_record_serialize(
+            edit_rdns_record_request_content=edit_rdns_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EditRdnsRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _edit_rdns_record_serialize(
+        self,
+        edit_rdns_record_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if edit_rdns_record_request_content is not None:
+            _body_params = edit_rdns_record_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/dns/edit-rdns-record',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2122,7 +3022,7 @@ class DNSApi:
     ) -> ListDnsZonesResponseContent:
         """list_dns_zones
 
-        Lists DNS zones belonging to the authenticated client.
+        Lists DNS zones belonging to the authenticated client. Use each row's ids on later calls: domain_id preferred; zone_id for dns_manager record/zone mutations; hosting_id as service_id when domain_id is null (hosting-only zone).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2192,7 +3092,7 @@ class DNSApi:
     ) -> ApiResponse[ListDnsZonesResponseContent]:
         """list_dns_zones
 
-        Lists DNS zones belonging to the authenticated client.
+        Lists DNS zones belonging to the authenticated client. Use each row's ids on later calls: domain_id preferred; zone_id for dns_manager record/zone mutations; hosting_id as service_id when domain_id is null (hosting-only zone).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2262,7 +3162,7 @@ class DNSApi:
     ) -> RESTResponseType:
         """list_dns_zones
 
-        Lists DNS zones belonging to the authenticated client.
+        Lists DNS zones belonging to the authenticated client. Use each row's ids on later calls: domain_id preferred; zone_id for dns_manager record/zone mutations; hosting_id as service_id when domain_id is null (hosting-only zone).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

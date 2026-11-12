@@ -5,10 +5,13 @@ All URIs are relative to *https://api.hostafrica.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_dns_record**](DNSApi.md#add_dns_record) | **POST** /dns/add-record | 
+[**create_dns_zone**](DNSApi.md#create_dns_zone) | **POST** /dns/create-zone | 
 [**create_rdns_record**](DNSApi.md#create_rdns_record) | **POST** /dns/create-rdns-record | 
 [**delete_dns_record**](DNSApi.md#delete_dns_record) | **POST** /dns/delete-record | 
+[**delete_dns_zone**](DNSApi.md#delete_dns_zone) | **POST** /dns/delete-zone | 
 [**delete_rdns_record**](DNSApi.md#delete_rdns_record) | **POST** /dns/delete-rdns-record | 
 [**edit_dns_record**](DNSApi.md#edit_dns_record) | **POST** /dns/edit-record | 
+[**edit_rdns_record**](DNSApi.md#edit_rdns_record) | **POST** /dns/edit-rdns-record | 
 [**get_dns_zone_details**](DNSApi.md#get_dns_zone_details) | **POST** /dns/get-zone | 
 [**list_dns_create_candidates**](DNSApi.md#list_dns_create_candidates) | **POST** /dns/list-create-candidates | 
 [**list_dns_zones**](DNSApi.md#list_dns_zones) | **POST** /dns/list-zones | 
@@ -88,6 +91,90 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | AddDnsRecord 200 response |  -  |
+**400** | BadRequestError 400 response |  -  |
+**401** | UnauthorizedError 401 response |  -  |
+**403** | ForbiddenError 403 response |  -  |
+**404** | ResourceNotFoundError 404 response |  -  |
+**422** | ValidationError 422 response |  -  |
+**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+**500** | InternalServiceError 500 response |  -  |
+**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_dns_zone**
+> CreateDnsZoneResponseContent create_dns_zone(create_dns_zone_request_content)
+
+Creates a DNS zone for an owned domain. Prefer list-dns-create-candidates first. domain_id and zone_ip are required. Also send service_id from hosting_id when the domain has linked hosting or backend will be directadmin. Optional type/relid select the DNS package (relid from create-candidates); otherwise upstream picks the first eligible package. Do not send zone_id — the zone does not exist yet.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import ha_sdk_python
+from ha_sdk_python.models.create_dns_zone_request_content import CreateDnsZoneRequestContent
+from ha_sdk_python.models.create_dns_zone_response_content import CreateDnsZoneResponseContent
+from ha_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.hostafrica.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ha_sdk_python.Configuration(
+    host = "https://api.hostafrica.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with ha_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ha_sdk_python.DNSApi(api_client)
+    create_dns_zone_request_content = ha_sdk_python.CreateDnsZoneRequestContent() # CreateDnsZoneRequestContent | 
+
+    try:
+        api_response = api_instance.create_dns_zone(create_dns_zone_request_content)
+        print("The response of DNSApi->create_dns_zone:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DNSApi->create_dns_zone: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_dns_zone_request_content** | [**CreateDnsZoneRequestContent**](CreateDnsZoneRequestContent.md)|  | 
+
+### Return type
+
+[**CreateDnsZoneResponseContent**](CreateDnsZoneResponseContent.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | CreateDnsZone 200 response |  -  |
 **400** | BadRequestError 400 response |  -  |
 **401** | UnauthorizedError 401 response |  -  |
 **403** | ForbiddenError 403 response |  -  |
@@ -267,6 +354,90 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_dns_zone**
+> DeleteDnsZoneResponseContent delete_dns_zone(delete_dns_zone_request_content)
+
+Deletes a live DNS Manager zone (all records). zone_id from list-dns-zones is required. Optional domain_id/service_id are forwarded when present. DirectAdmin rows with null zone_id are not supported by upstream deletezone.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import ha_sdk_python
+from ha_sdk_python.models.delete_dns_zone_request_content import DeleteDnsZoneRequestContent
+from ha_sdk_python.models.delete_dns_zone_response_content import DeleteDnsZoneResponseContent
+from ha_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.hostafrica.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ha_sdk_python.Configuration(
+    host = "https://api.hostafrica.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with ha_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ha_sdk_python.DNSApi(api_client)
+    delete_dns_zone_request_content = ha_sdk_python.DeleteDnsZoneRequestContent() # DeleteDnsZoneRequestContent | 
+
+    try:
+        api_response = api_instance.delete_dns_zone(delete_dns_zone_request_content)
+        print("The response of DNSApi->delete_dns_zone:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DNSApi->delete_dns_zone: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **delete_dns_zone_request_content** | [**DeleteDnsZoneRequestContent**](DeleteDnsZoneRequestContent.md)|  | 
+
+### Return type
+
+[**DeleteDnsZoneResponseContent**](DeleteDnsZoneResponseContent.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | DeleteDnsZone 200 response |  -  |
+**400** | BadRequestError 400 response |  -  |
+**401** | UnauthorizedError 401 response |  -  |
+**403** | ForbiddenError 403 response |  -  |
+**404** | ResourceNotFoundError 404 response |  -  |
+**422** | ValidationError 422 response |  -  |
+**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+**500** | InternalServiceError 500 response |  -  |
+**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_rdns_record**
 > DeleteRdnsRecordResponseContent delete_rdns_record(delete_rdns_record_request_content)
 
@@ -424,6 +595,90 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | EditDnsRecord 200 response |  -  |
+**400** | BadRequestError 400 response |  -  |
+**401** | UnauthorizedError 401 response |  -  |
+**403** | ForbiddenError 403 response |  -  |
+**404** | ResourceNotFoundError 404 response |  -  |
+**422** | ValidationError 422 response |  -  |
+**429** | TooManyRequestsError 429 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+**500** | InternalServiceError 500 response |  -  |
+**503** | ServiceUnavailableError 503 response |  * Retry-After - Number of seconds to wait before retrying <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **edit_rdns_record**
+> EditRdnsRecordResponseContent edit_rdns_record(edit_rdns_record_request_content)
+
+Updates the hostname and optional TTL of a PTR (rDNS) record owned by the authenticated client. The record_id remains valid after the call.
+
+### Example
+
+* Bearer Authentication (BearerAuth):
+
+```python
+import ha_sdk_python
+from ha_sdk_python.models.edit_rdns_record_request_content import EditRdnsRecordRequestContent
+from ha_sdk_python.models.edit_rdns_record_response_content import EditRdnsRecordResponseContent
+from ha_sdk_python.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.hostafrica.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ha_sdk_python.Configuration(
+    host = "https://api.hostafrica.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = ha_sdk_python.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with ha_sdk_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ha_sdk_python.DNSApi(api_client)
+    edit_rdns_record_request_content = ha_sdk_python.EditRdnsRecordRequestContent() # EditRdnsRecordRequestContent | 
+
+    try:
+        api_response = api_instance.edit_rdns_record(edit_rdns_record_request_content)
+        print("The response of DNSApi->edit_rdns_record:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DNSApi->edit_rdns_record: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **edit_rdns_record_request_content** | [**EditRdnsRecordRequestContent**](EditRdnsRecordRequestContent.md)|  | 
+
+### Return type
+
+[**EditRdnsRecordResponseContent**](EditRdnsRecordResponseContent.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | EditRdnsRecord 200 response |  -  |
 **400** | BadRequestError 400 response |  -  |
 **401** | UnauthorizedError 401 response |  -  |
 **403** | ForbiddenError 403 response |  -  |
@@ -600,7 +855,7 @@ This endpoint does not need any parameter.
 # **list_dns_zones**
 > ListDnsZonesResponseContent list_dns_zones()
 
-Lists DNS zones belonging to the authenticated client.
+Lists DNS zones belonging to the authenticated client. Use each row's ids on later calls: domain_id preferred; zone_id for dns_manager record/zone mutations; hosting_id as service_id when domain_id is null (hosting-only zone).
 
 ### Example
 

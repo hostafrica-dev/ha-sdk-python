@@ -31,7 +31,7 @@ class EditDnsRecordRequestContent(BaseModel):
     domain_name: Optional[StrictStr] = Field(default=None, description="DNS zone domain name (FQDN); optional for dns_manager when zone_id is provided. Not forwarded on DirectAdmin mutations.")
     zone_id: Optional[StrictStr] = Field(default=None, description="DNS zone identifier from list-dns-zones or get-dns-zone-details; required for dns_manager / legacy callers")
     domain_id: Optional[StrictStr] = Field(default=None, description="WHMCS domain id from list-dns-zones; required when backend is directadmin")
-    service_id: Optional[StrictInt] = Field(default=None, description="Optional WHMCS hosting service id from list-dns-zones hosting_id. Not forwarded on DirectAdmin mutations.")
+    service_id: Optional[StrictInt] = Field(default=None, description="WHMCS hosting service id — pass list-dns-zones hosting_id. Use when domain_id is null (hosting-only). Not forwarded on DirectAdmin record mutations.")
     backend: Optional[DnsBackend] = None
     record: DnsRecordMutationRecord
     __properties: ClassVar[List[str]] = ["domain_name", "zone_id", "domain_id", "service_id", "backend", "record"]

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **prompt** | **str** | Natural-language description of the business or idea, e.g. \&quot;my coffee shop\&quot; | 
-**currency** | **str** | Currency for pricing. Accepts ISO code, symbol, country name, or numeric ID. Defaults to ZAR. | [optional] 
+**currency** | **str** | Optional; default ZAR. Preferred: ZAR, USD, NGN, KES, GHS, EUR, EGP. | [optional] 
 
 ## Example
 

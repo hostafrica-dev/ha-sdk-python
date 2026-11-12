@@ -40,6 +40,11 @@ __all__ = [
     "ApiException",
     "AddDnsRecordRequestContent",
     "AddDnsRecordResponseContent",
+    "AddDnssecRecordRequestContent",
+    "AddDnssecRecordResponseContent",
+    "AddDomainRedirectData",
+    "AddDomainRedirectRequestContent",
+    "AddDomainRedirectResponseContent",
     "BackupCreateResponseData",
     "BackupCreationInfo",
     "BackupItem",
@@ -66,6 +71,8 @@ __all__ = [
     "CreateBackupResponseContent",
     "CreateBackupScheduleRequestContent",
     "CreateBackupScheduleResponseContent",
+    "CreateDnsZoneRequestContent",
+    "CreateDnsZoneResponseContent",
     "CreateFirewallRuleRequestContent",
     "CreateFirewallRuleResponseContent",
     "CreateNotificationRequestContent",
@@ -94,12 +101,21 @@ __all__ = [
     "DeleteBackupScheduleResponseContent",
     "DeleteDnsRecordRequestContent",
     "DeleteDnsRecordResponseContent",
+    "DeleteDnsZoneRequestContent",
+    "DeleteDnsZoneResponseContent",
+    "DeleteDnssecRecordRequestContent",
+    "DeleteDnssecRecordResponseContent",
+    "DeleteDomainRedirectData",
+    "DeleteDomainRedirectRequestContent",
+    "DeleteDomainRedirectResponseContent",
     "DeleteFirewallRuleRequestContent",
     "DeleteFirewallRuleResponseContent",
     "DeleteNotificationRequestContent",
     "DeleteNotificationResponseContent",
     "DeletePowerTaskRequestContent",
     "DeletePowerTaskResponseContent",
+    "DeletePrivateNameserverRequestContent",
+    "DeletePrivateNameserverResponseContent",
     "DeleteRdnsRecordRequestContent",
     "DeleteRdnsRecordResponseContent",
     "DeleteSnapshotJobRequestContent",
@@ -112,6 +128,8 @@ __all__ = [
     "DnsRecordMutationData",
     "DnsRecordMutationRecord",
     "DnsZoneInfo",
+    "DnsZoneMutationData",
+    "DnssecMutationData",
     "DnssecRecordInfo",
     "DomainAddonFeature",
     "DomainAddons",
@@ -128,6 +146,9 @@ __all__ = [
     "DomainNameservers",
     "DomainPricing",
     "DomainPricingEntry",
+    "DomainRedirectConflictingRecord",
+    "DomainRedirectDnsStatus",
+    "DomainRedirectInfo",
     "DomainRequiringDataAdditionalField",
     "DomainRequiringDataInfo",
     "DomainSearchResponseData",
@@ -136,6 +157,9 @@ __all__ = [
     "EditBackupScheduleResponseContent",
     "EditDnsRecordRequestContent",
     "EditDnsRecordResponseContent",
+    "EditRdnsRecordRequestContent",
+    "EditRdnsRecordResponseContent",
+    "EditRdnsRecordResponseData",
     "EncryptedPasswordResponseData",
     "FirewallListResponseData",
     "FirewallMoveDirection",
@@ -154,6 +178,9 @@ __all__ = [
     "GetDomainContactsRequestContent",
     "GetDomainContactsResponseContent",
     "GetDomainData",
+    "GetDomainRedirectDetailsData",
+    "GetDomainRedirectDetailsRequestContent",
+    "GetDomainRedirectDetailsResponseContent",
     "GetDomainRequestContent",
     "GetDomainResponseContent",
     "GetEncryptedPasswordRequestContent",
@@ -186,6 +213,8 @@ __all__ = [
     "ListDnssecRecordsData",
     "ListDnssecRecordsRequestContent",
     "ListDnssecRecordsResponseContent",
+    "ListDomainRedirectsData",
+    "ListDomainRedirectsResponseContent",
     "ListDomainsData",
     "ListDomainsRequiringDataData",
     "ListDomainsRequiringDataResponseContent",
@@ -214,6 +243,9 @@ __all__ = [
     "ListSnapshotsResponseContent",
     "ListVpsServicesData",
     "ListVpsServicesResponseContent",
+    "ModifyPrivateNameserverData",
+    "ModifyPrivateNameserverRequestContent",
+    "ModifyPrivateNameserverResponseContent",
     "MountIsoRequestContent",
     "MountIsoResponseContent",
     "MoveFirewallRuleRequestContent",
@@ -238,11 +270,14 @@ __all__ = [
     "PowerTaskDialogRules",
     "PowerTaskJobType",
     "PowerTaskListResponseData",
+    "PrivateNameserverMutationData",
     "RdnsAvailableItem",
     "RdnsPool",
     "RdnsRecord",
     "RebootVpsRequestContent",
     "RebootVpsResponseContent",
+    "RegisterPrivateNameserverRequestContent",
+    "RegisterPrivateNameserverResponseContent",
     "ResourceNotFoundErrorResponseContent",
     "RestoreBackupRequestContent",
     "RestoreBackupResponseContent",
@@ -284,6 +319,9 @@ __all__ = [
     "UpdateDomainContactsData",
     "UpdateDomainContactsRequestContent",
     "UpdateDomainContactsResponseContent",
+    "UpdateDomainLockStatusData",
+    "UpdateDomainLockStatusRequestContent",
+    "UpdateDomainLockStatusResponseContent",
     "UpdateDomainNameserversData",
     "UpdateDomainNameserversRequestContent",
     "UpdateDomainNameserversResponseContent",
@@ -363,6 +401,11 @@ from ha_sdk_python.exceptions import ApiException as ApiException
 # import models into sdk package
 from ha_sdk_python.models.add_dns_record_request_content import AddDnsRecordRequestContent as AddDnsRecordRequestContent
 from ha_sdk_python.models.add_dns_record_response_content import AddDnsRecordResponseContent as AddDnsRecordResponseContent
+from ha_sdk_python.models.add_dnssec_record_request_content import AddDnssecRecordRequestContent as AddDnssecRecordRequestContent
+from ha_sdk_python.models.add_dnssec_record_response_content import AddDnssecRecordResponseContent as AddDnssecRecordResponseContent
+from ha_sdk_python.models.add_domain_redirect_data import AddDomainRedirectData as AddDomainRedirectData
+from ha_sdk_python.models.add_domain_redirect_request_content import AddDomainRedirectRequestContent as AddDomainRedirectRequestContent
+from ha_sdk_python.models.add_domain_redirect_response_content import AddDomainRedirectResponseContent as AddDomainRedirectResponseContent
 from ha_sdk_python.models.backup_create_response_data import BackupCreateResponseData as BackupCreateResponseData
 from ha_sdk_python.models.backup_creation_info import BackupCreationInfo as BackupCreationInfo
 from ha_sdk_python.models.backup_item import BackupItem as BackupItem
@@ -389,6 +432,8 @@ from ha_sdk_python.models.create_backup_request_content import CreateBackupReque
 from ha_sdk_python.models.create_backup_response_content import CreateBackupResponseContent as CreateBackupResponseContent
 from ha_sdk_python.models.create_backup_schedule_request_content import CreateBackupScheduleRequestContent as CreateBackupScheduleRequestContent
 from ha_sdk_python.models.create_backup_schedule_response_content import CreateBackupScheduleResponseContent as CreateBackupScheduleResponseContent
+from ha_sdk_python.models.create_dns_zone_request_content import CreateDnsZoneRequestContent as CreateDnsZoneRequestContent
+from ha_sdk_python.models.create_dns_zone_response_content import CreateDnsZoneResponseContent as CreateDnsZoneResponseContent
 from ha_sdk_python.models.create_firewall_rule_request_content import CreateFirewallRuleRequestContent as CreateFirewallRuleRequestContent
 from ha_sdk_python.models.create_firewall_rule_response_content import CreateFirewallRuleResponseContent as CreateFirewallRuleResponseContent
 from ha_sdk_python.models.create_notification_request_content import CreateNotificationRequestContent as CreateNotificationRequestContent
@@ -417,12 +462,21 @@ from ha_sdk_python.models.delete_backup_schedule_request_content import DeleteBa
 from ha_sdk_python.models.delete_backup_schedule_response_content import DeleteBackupScheduleResponseContent as DeleteBackupScheduleResponseContent
 from ha_sdk_python.models.delete_dns_record_request_content import DeleteDnsRecordRequestContent as DeleteDnsRecordRequestContent
 from ha_sdk_python.models.delete_dns_record_response_content import DeleteDnsRecordResponseContent as DeleteDnsRecordResponseContent
+from ha_sdk_python.models.delete_dns_zone_request_content import DeleteDnsZoneRequestContent as DeleteDnsZoneRequestContent
+from ha_sdk_python.models.delete_dns_zone_response_content import DeleteDnsZoneResponseContent as DeleteDnsZoneResponseContent
+from ha_sdk_python.models.delete_dnssec_record_request_content import DeleteDnssecRecordRequestContent as DeleteDnssecRecordRequestContent
+from ha_sdk_python.models.delete_dnssec_record_response_content import DeleteDnssecRecordResponseContent as DeleteDnssecRecordResponseContent
+from ha_sdk_python.models.delete_domain_redirect_data import DeleteDomainRedirectData as DeleteDomainRedirectData
+from ha_sdk_python.models.delete_domain_redirect_request_content import DeleteDomainRedirectRequestContent as DeleteDomainRedirectRequestContent
+from ha_sdk_python.models.delete_domain_redirect_response_content import DeleteDomainRedirectResponseContent as DeleteDomainRedirectResponseContent
 from ha_sdk_python.models.delete_firewall_rule_request_content import DeleteFirewallRuleRequestContent as DeleteFirewallRuleRequestContent
 from ha_sdk_python.models.delete_firewall_rule_response_content import DeleteFirewallRuleResponseContent as DeleteFirewallRuleResponseContent
 from ha_sdk_python.models.delete_notification_request_content import DeleteNotificationRequestContent as DeleteNotificationRequestContent
 from ha_sdk_python.models.delete_notification_response_content import DeleteNotificationResponseContent as DeleteNotificationResponseContent
 from ha_sdk_python.models.delete_power_task_request_content import DeletePowerTaskRequestContent as DeletePowerTaskRequestContent
 from ha_sdk_python.models.delete_power_task_response_content import DeletePowerTaskResponseContent as DeletePowerTaskResponseContent
+from ha_sdk_python.models.delete_private_nameserver_request_content import DeletePrivateNameserverRequestContent as DeletePrivateNameserverRequestContent
+from ha_sdk_python.models.delete_private_nameserver_response_content import DeletePrivateNameserverResponseContent as DeletePrivateNameserverResponseContent
 from ha_sdk_python.models.delete_rdns_record_request_content import DeleteRdnsRecordRequestContent as DeleteRdnsRecordRequestContent
 from ha_sdk_python.models.delete_rdns_record_response_content import DeleteRdnsRecordResponseContent as DeleteRdnsRecordResponseContent
 from ha_sdk_python.models.delete_snapshot_job_request_content import DeleteSnapshotJobRequestContent as DeleteSnapshotJobRequestContent
@@ -435,6 +489,8 @@ from ha_sdk_python.models.dns_record_info import DnsRecordInfo as DnsRecordInfo
 from ha_sdk_python.models.dns_record_mutation_data import DnsRecordMutationData as DnsRecordMutationData
 from ha_sdk_python.models.dns_record_mutation_record import DnsRecordMutationRecord as DnsRecordMutationRecord
 from ha_sdk_python.models.dns_zone_info import DnsZoneInfo as DnsZoneInfo
+from ha_sdk_python.models.dns_zone_mutation_data import DnsZoneMutationData as DnsZoneMutationData
+from ha_sdk_python.models.dnssec_mutation_data import DnssecMutationData as DnssecMutationData
 from ha_sdk_python.models.dnssec_record_info import DnssecRecordInfo as DnssecRecordInfo
 from ha_sdk_python.models.domain_addon_feature import DomainAddonFeature as DomainAddonFeature
 from ha_sdk_python.models.domain_addons import DomainAddons as DomainAddons
@@ -451,6 +507,9 @@ from ha_sdk_python.models.domain_info import DomainInfo as DomainInfo
 from ha_sdk_python.models.domain_nameservers import DomainNameservers as DomainNameservers
 from ha_sdk_python.models.domain_pricing import DomainPricing as DomainPricing
 from ha_sdk_python.models.domain_pricing_entry import DomainPricingEntry as DomainPricingEntry
+from ha_sdk_python.models.domain_redirect_conflicting_record import DomainRedirectConflictingRecord as DomainRedirectConflictingRecord
+from ha_sdk_python.models.domain_redirect_dns_status import DomainRedirectDnsStatus as DomainRedirectDnsStatus
+from ha_sdk_python.models.domain_redirect_info import DomainRedirectInfo as DomainRedirectInfo
 from ha_sdk_python.models.domain_requiring_data_additional_field import DomainRequiringDataAdditionalField as DomainRequiringDataAdditionalField
 from ha_sdk_python.models.domain_requiring_data_info import DomainRequiringDataInfo as DomainRequiringDataInfo
 from ha_sdk_python.models.domain_search_response_data import DomainSearchResponseData as DomainSearchResponseData
@@ -459,6 +518,9 @@ from ha_sdk_python.models.edit_backup_schedule_request_content import EditBackup
 from ha_sdk_python.models.edit_backup_schedule_response_content import EditBackupScheduleResponseContent as EditBackupScheduleResponseContent
 from ha_sdk_python.models.edit_dns_record_request_content import EditDnsRecordRequestContent as EditDnsRecordRequestContent
 from ha_sdk_python.models.edit_dns_record_response_content import EditDnsRecordResponseContent as EditDnsRecordResponseContent
+from ha_sdk_python.models.edit_rdns_record_request_content import EditRdnsRecordRequestContent as EditRdnsRecordRequestContent
+from ha_sdk_python.models.edit_rdns_record_response_content import EditRdnsRecordResponseContent as EditRdnsRecordResponseContent
+from ha_sdk_python.models.edit_rdns_record_response_data import EditRdnsRecordResponseData as EditRdnsRecordResponseData
 from ha_sdk_python.models.encrypted_password_response_data import EncryptedPasswordResponseData as EncryptedPasswordResponseData
 from ha_sdk_python.models.firewall_list_response_data import FirewallListResponseData as FirewallListResponseData
 from ha_sdk_python.models.firewall_move_direction import FirewallMoveDirection as FirewallMoveDirection
@@ -477,6 +539,9 @@ from ha_sdk_python.models.get_domain_contacts_data import GetDomainContactsData 
 from ha_sdk_python.models.get_domain_contacts_request_content import GetDomainContactsRequestContent as GetDomainContactsRequestContent
 from ha_sdk_python.models.get_domain_contacts_response_content import GetDomainContactsResponseContent as GetDomainContactsResponseContent
 from ha_sdk_python.models.get_domain_data import GetDomainData as GetDomainData
+from ha_sdk_python.models.get_domain_redirect_details_data import GetDomainRedirectDetailsData as GetDomainRedirectDetailsData
+from ha_sdk_python.models.get_domain_redirect_details_request_content import GetDomainRedirectDetailsRequestContent as GetDomainRedirectDetailsRequestContent
+from ha_sdk_python.models.get_domain_redirect_details_response_content import GetDomainRedirectDetailsResponseContent as GetDomainRedirectDetailsResponseContent
 from ha_sdk_python.models.get_domain_request_content import GetDomainRequestContent as GetDomainRequestContent
 from ha_sdk_python.models.get_domain_response_content import GetDomainResponseContent as GetDomainResponseContent
 from ha_sdk_python.models.get_encrypted_password_request_content import GetEncryptedPasswordRequestContent as GetEncryptedPasswordRequestContent
@@ -509,6 +574,8 @@ from ha_sdk_python.models.list_dns_zones_response_content import ListDnsZonesRes
 from ha_sdk_python.models.list_dnssec_records_data import ListDnssecRecordsData as ListDnssecRecordsData
 from ha_sdk_python.models.list_dnssec_records_request_content import ListDnssecRecordsRequestContent as ListDnssecRecordsRequestContent
 from ha_sdk_python.models.list_dnssec_records_response_content import ListDnssecRecordsResponseContent as ListDnssecRecordsResponseContent
+from ha_sdk_python.models.list_domain_redirects_data import ListDomainRedirectsData as ListDomainRedirectsData
+from ha_sdk_python.models.list_domain_redirects_response_content import ListDomainRedirectsResponseContent as ListDomainRedirectsResponseContent
 from ha_sdk_python.models.list_domains_data import ListDomainsData as ListDomainsData
 from ha_sdk_python.models.list_domains_requiring_data_data import ListDomainsRequiringDataData as ListDomainsRequiringDataData
 from ha_sdk_python.models.list_domains_requiring_data_response_content import ListDomainsRequiringDataResponseContent as ListDomainsRequiringDataResponseContent
@@ -537,6 +604,9 @@ from ha_sdk_python.models.list_snapshots_request_content import ListSnapshotsReq
 from ha_sdk_python.models.list_snapshots_response_content import ListSnapshotsResponseContent as ListSnapshotsResponseContent
 from ha_sdk_python.models.list_vps_services_data import ListVpsServicesData as ListVpsServicesData
 from ha_sdk_python.models.list_vps_services_response_content import ListVpsServicesResponseContent as ListVpsServicesResponseContent
+from ha_sdk_python.models.modify_private_nameserver_data import ModifyPrivateNameserverData as ModifyPrivateNameserverData
+from ha_sdk_python.models.modify_private_nameserver_request_content import ModifyPrivateNameserverRequestContent as ModifyPrivateNameserverRequestContent
+from ha_sdk_python.models.modify_private_nameserver_response_content import ModifyPrivateNameserverResponseContent as ModifyPrivateNameserverResponseContent
 from ha_sdk_python.models.mount_iso_request_content import MountIsoRequestContent as MountIsoRequestContent
 from ha_sdk_python.models.mount_iso_response_content import MountIsoResponseContent as MountIsoResponseContent
 from ha_sdk_python.models.move_firewall_rule_request_content import MoveFirewallRuleRequestContent as MoveFirewallRuleRequestContent
@@ -561,11 +631,14 @@ from ha_sdk_python.models.power_task_create_response_data import PowerTaskCreate
 from ha_sdk_python.models.power_task_dialog_rules import PowerTaskDialogRules as PowerTaskDialogRules
 from ha_sdk_python.models.power_task_job_type import PowerTaskJobType as PowerTaskJobType
 from ha_sdk_python.models.power_task_list_response_data import PowerTaskListResponseData as PowerTaskListResponseData
+from ha_sdk_python.models.private_nameserver_mutation_data import PrivateNameserverMutationData as PrivateNameserverMutationData
 from ha_sdk_python.models.rdns_available_item import RdnsAvailableItem as RdnsAvailableItem
 from ha_sdk_python.models.rdns_pool import RdnsPool as RdnsPool
 from ha_sdk_python.models.rdns_record import RdnsRecord as RdnsRecord
 from ha_sdk_python.models.reboot_vps_request_content import RebootVpsRequestContent as RebootVpsRequestContent
 from ha_sdk_python.models.reboot_vps_response_content import RebootVpsResponseContent as RebootVpsResponseContent
+from ha_sdk_python.models.register_private_nameserver_request_content import RegisterPrivateNameserverRequestContent as RegisterPrivateNameserverRequestContent
+from ha_sdk_python.models.register_private_nameserver_response_content import RegisterPrivateNameserverResponseContent as RegisterPrivateNameserverResponseContent
 from ha_sdk_python.models.resource_not_found_error_response_content import ResourceNotFoundErrorResponseContent as ResourceNotFoundErrorResponseContent
 from ha_sdk_python.models.restore_backup_request_content import RestoreBackupRequestContent as RestoreBackupRequestContent
 from ha_sdk_python.models.restore_backup_response_content import RestoreBackupResponseContent as RestoreBackupResponseContent
@@ -607,6 +680,9 @@ from ha_sdk_python.models.unauthorized_error_response_content import Unauthorize
 from ha_sdk_python.models.update_domain_contacts_data import UpdateDomainContactsData as UpdateDomainContactsData
 from ha_sdk_python.models.update_domain_contacts_request_content import UpdateDomainContactsRequestContent as UpdateDomainContactsRequestContent
 from ha_sdk_python.models.update_domain_contacts_response_content import UpdateDomainContactsResponseContent as UpdateDomainContactsResponseContent
+from ha_sdk_python.models.update_domain_lock_status_data import UpdateDomainLockStatusData as UpdateDomainLockStatusData
+from ha_sdk_python.models.update_domain_lock_status_request_content import UpdateDomainLockStatusRequestContent as UpdateDomainLockStatusRequestContent
+from ha_sdk_python.models.update_domain_lock_status_response_content import UpdateDomainLockStatusResponseContent as UpdateDomainLockStatusResponseContent
 from ha_sdk_python.models.update_domain_nameservers_data import UpdateDomainNameserversData as UpdateDomainNameserversData
 from ha_sdk_python.models.update_domain_nameservers_request_content import UpdateDomainNameserversRequestContent as UpdateDomainNameserversRequestContent
 from ha_sdk_python.models.update_domain_nameservers_response_content import UpdateDomainNameserversResponseContent as UpdateDomainNameserversResponseContent

@@ -16,22 +16,41 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from typing import Optional
+from ha_sdk_python.models.add_dnssec_record_request_content import AddDnssecRecordRequestContent
+from ha_sdk_python.models.add_dnssec_record_response_content import AddDnssecRecordResponseContent
+from ha_sdk_python.models.add_domain_redirect_request_content import AddDomainRedirectRequestContent
+from ha_sdk_python.models.add_domain_redirect_response_content import AddDomainRedirectResponseContent
 from ha_sdk_python.models.check_domain_availability_request_content import CheckDomainAvailabilityRequestContent
 from ha_sdk_python.models.check_domain_availability_response_content import CheckDomainAvailabilityResponseContent
+from ha_sdk_python.models.delete_dnssec_record_request_content import DeleteDnssecRecordRequestContent
+from ha_sdk_python.models.delete_dnssec_record_response_content import DeleteDnssecRecordResponseContent
+from ha_sdk_python.models.delete_domain_redirect_request_content import DeleteDomainRedirectRequestContent
+from ha_sdk_python.models.delete_domain_redirect_response_content import DeleteDomainRedirectResponseContent
+from ha_sdk_python.models.delete_private_nameserver_request_content import DeletePrivateNameserverRequestContent
+from ha_sdk_python.models.delete_private_nameserver_response_content import DeletePrivateNameserverResponseContent
 from ha_sdk_python.models.get_domain_contacts_request_content import GetDomainContactsRequestContent
 from ha_sdk_python.models.get_domain_contacts_response_content import GetDomainContactsResponseContent
+from ha_sdk_python.models.get_domain_redirect_details_request_content import GetDomainRedirectDetailsRequestContent
+from ha_sdk_python.models.get_domain_redirect_details_response_content import GetDomainRedirectDetailsResponseContent
 from ha_sdk_python.models.get_domain_request_content import GetDomainRequestContent
 from ha_sdk_python.models.get_domain_response_content import GetDomainResponseContent
 from ha_sdk_python.models.list_dnssec_records_request_content import ListDnssecRecordsRequestContent
 from ha_sdk_python.models.list_dnssec_records_response_content import ListDnssecRecordsResponseContent
+from ha_sdk_python.models.list_domain_redirects_response_content import ListDomainRedirectsResponseContent
 from ha_sdk_python.models.list_domains_requiring_data_response_content import ListDomainsRequiringDataResponseContent
 from ha_sdk_python.models.list_domains_response_content import ListDomainsResponseContent
+from ha_sdk_python.models.modify_private_nameserver_request_content import ModifyPrivateNameserverRequestContent
+from ha_sdk_python.models.modify_private_nameserver_response_content import ModifyPrivateNameserverResponseContent
+from ha_sdk_python.models.register_private_nameserver_request_content import RegisterPrivateNameserverRequestContent
+from ha_sdk_python.models.register_private_nameserver_response_content import RegisterPrivateNameserverResponseContent
 from ha_sdk_python.models.save_domain_required_data_request_content import SaveDomainRequiredDataRequestContent
 from ha_sdk_python.models.save_domain_required_data_response_content import SaveDomainRequiredDataResponseContent
 from ha_sdk_python.models.suggest_domains_request_content import SuggestDomainsRequestContent
 from ha_sdk_python.models.suggest_domains_response_content import SuggestDomainsResponseContent
 from ha_sdk_python.models.update_domain_contacts_request_content import UpdateDomainContactsRequestContent
 from ha_sdk_python.models.update_domain_contacts_response_content import UpdateDomainContactsResponseContent
+from ha_sdk_python.models.update_domain_lock_status_request_content import UpdateDomainLockStatusRequestContent
+from ha_sdk_python.models.update_domain_lock_status_response_content import UpdateDomainLockStatusResponseContent
 from ha_sdk_python.models.update_domain_nameservers_request_content import UpdateDomainNameserversRequestContent
 from ha_sdk_python.models.update_domain_nameservers_response_content import UpdateDomainNameserversResponseContent
 from ha_sdk_python.models.update_domain_settings_request_content import UpdateDomainSettingsRequestContent
@@ -56,6 +75,605 @@ class DomainsApi:
 
 
     @validate_call
+    def add_dnssec_record(
+        self,
+        add_dnssec_record_request_content: AddDnssecRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AddDnssecRecordResponseContent:
+        """add_dnssec_record
+
+        Adds a DNSSEC DS record for an owned domain on supported registrars.
+
+        :param add_dnssec_record_request_content: (required)
+        :type add_dnssec_record_request_content: AddDnssecRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_dnssec_record_serialize(
+            add_dnssec_record_request_content=add_dnssec_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AddDnssecRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def add_dnssec_record_with_http_info(
+        self,
+        add_dnssec_record_request_content: AddDnssecRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AddDnssecRecordResponseContent]:
+        """add_dnssec_record
+
+        Adds a DNSSEC DS record for an owned domain on supported registrars.
+
+        :param add_dnssec_record_request_content: (required)
+        :type add_dnssec_record_request_content: AddDnssecRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_dnssec_record_serialize(
+            add_dnssec_record_request_content=add_dnssec_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AddDnssecRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def add_dnssec_record_without_preload_content(
+        self,
+        add_dnssec_record_request_content: AddDnssecRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """add_dnssec_record
+
+        Adds a DNSSEC DS record for an owned domain on supported registrars.
+
+        :param add_dnssec_record_request_content: (required)
+        :type add_dnssec_record_request_content: AddDnssecRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_dnssec_record_serialize(
+            add_dnssec_record_request_content=add_dnssec_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AddDnssecRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _add_dnssec_record_serialize(
+        self,
+        add_dnssec_record_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if add_dnssec_record_request_content is not None:
+            _body_params = add_dnssec_record_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/add-dnssec-record',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def add_domain_redirect(
+        self,
+        add_domain_redirect_request_content: AddDomainRedirectRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AddDomainRedirectResponseContent:
+        """add_domain_redirect
+
+        Creates or updates HTTP redirect configuration for an owned domain. Upstream may create a DNS zone and point @/www A records at the redirector. If conflicting A records exist, retry with override=true after confirming via get-redirect-details.
+
+        :param add_domain_redirect_request_content: (required)
+        :type add_domain_redirect_request_content: AddDomainRedirectRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_domain_redirect_serialize(
+            add_domain_redirect_request_content=add_domain_redirect_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AddDomainRedirectResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '409': "InvalidStateErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def add_domain_redirect_with_http_info(
+        self,
+        add_domain_redirect_request_content: AddDomainRedirectRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AddDomainRedirectResponseContent]:
+        """add_domain_redirect
+
+        Creates or updates HTTP redirect configuration for an owned domain. Upstream may create a DNS zone and point @/www A records at the redirector. If conflicting A records exist, retry with override=true after confirming via get-redirect-details.
+
+        :param add_domain_redirect_request_content: (required)
+        :type add_domain_redirect_request_content: AddDomainRedirectRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_domain_redirect_serialize(
+            add_domain_redirect_request_content=add_domain_redirect_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AddDomainRedirectResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '409': "InvalidStateErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def add_domain_redirect_without_preload_content(
+        self,
+        add_domain_redirect_request_content: AddDomainRedirectRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """add_domain_redirect
+
+        Creates or updates HTTP redirect configuration for an owned domain. Upstream may create a DNS zone and point @/www A records at the redirector. If conflicting A records exist, retry with override=true after confirming via get-redirect-details.
+
+        :param add_domain_redirect_request_content: (required)
+        :type add_domain_redirect_request_content: AddDomainRedirectRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_domain_redirect_serialize(
+            add_domain_redirect_request_content=add_domain_redirect_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AddDomainRedirectResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '409': "InvalidStateErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _add_domain_redirect_serialize(
+        self,
+        add_domain_redirect_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if add_domain_redirect_request_content is not None:
+            _body_params = add_domain_redirect_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/add-redirect',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def check_domain_availability(
         self,
         check_domain_availability_request_content: Optional[CheckDomainAvailabilityRequestContent] = None,
@@ -74,7 +692,7 @@ class DomainsApi:
     ) -> CheckDomainAvailabilityResponseContent:
         """check_domain_availability
 
-        Checks domain name availability for a single domain or a comma-separated batch. Exactly one of domain or domains must be provided. Returns pricing, suggestions, and register_url scoped to the requested currency.
+        Use to check availability/pricing for known domain names. Pass exactly one of domain or domains (comma-separated, max 20); API rejects both omitted or both set. Optional currency (default ZAR). Returns availability, prices, and an external register_url. Prefer suggest_domains for name ideas.
 
         :param check_domain_availability_request_content:
         :type check_domain_availability_request_content: CheckDomainAvailabilityRequestContent
@@ -148,7 +766,7 @@ class DomainsApi:
     ) -> ApiResponse[CheckDomainAvailabilityResponseContent]:
         """check_domain_availability
 
-        Checks domain name availability for a single domain or a comma-separated batch. Exactly one of domain or domains must be provided. Returns pricing, suggestions, and register_url scoped to the requested currency.
+        Use to check availability/pricing for known domain names. Pass exactly one of domain or domains (comma-separated, max 20); API rejects both omitted or both set. Optional currency (default ZAR). Returns availability, prices, and an external register_url. Prefer suggest_domains for name ideas.
 
         :param check_domain_availability_request_content:
         :type check_domain_availability_request_content: CheckDomainAvailabilityRequestContent
@@ -222,7 +840,7 @@ class DomainsApi:
     ) -> RESTResponseType:
         """check_domain_availability
 
-        Checks domain name availability for a single domain or a comma-separated batch. Exactly one of domain or domains must be provided. Returns pricing, suggestions, and register_url scoped to the requested currency.
+        Use to check availability/pricing for known domain names. Pass exactly one of domain or domains (comma-separated, max 20); API rejects both omitted or both set. Optional currency (default ZAR). Returns availability, prices, and an external register_url. Prefer suggest_domains for name ideas.
 
         :param check_domain_availability_request_content:
         :type check_domain_availability_request_content: CheckDomainAvailabilityRequestContent
@@ -335,6 +953,900 @@ class DomainsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/domain/check-availability',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_dnssec_record(
+        self,
+        delete_dnssec_record_request_content: DeleteDnssecRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> DeleteDnssecRecordResponseContent:
+        """delete_dnssec_record
+
+        Removes a DNSSEC DS record from an owned domain on supported registrars.
+
+        :param delete_dnssec_record_request_content: (required)
+        :type delete_dnssec_record_request_content: DeleteDnssecRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_dnssec_record_serialize(
+            delete_dnssec_record_request_content=delete_dnssec_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDnssecRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_dnssec_record_with_http_info(
+        self,
+        delete_dnssec_record_request_content: DeleteDnssecRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteDnssecRecordResponseContent]:
+        """delete_dnssec_record
+
+        Removes a DNSSEC DS record from an owned domain on supported registrars.
+
+        :param delete_dnssec_record_request_content: (required)
+        :type delete_dnssec_record_request_content: DeleteDnssecRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_dnssec_record_serialize(
+            delete_dnssec_record_request_content=delete_dnssec_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDnssecRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_dnssec_record_without_preload_content(
+        self,
+        delete_dnssec_record_request_content: DeleteDnssecRecordRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_dnssec_record
+
+        Removes a DNSSEC DS record from an owned domain on supported registrars.
+
+        :param delete_dnssec_record_request_content: (required)
+        :type delete_dnssec_record_request_content: DeleteDnssecRecordRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_dnssec_record_serialize(
+            delete_dnssec_record_request_content=delete_dnssec_record_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDnssecRecordResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_dnssec_record_serialize(
+        self,
+        delete_dnssec_record_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if delete_dnssec_record_request_content is not None:
+            _body_params = delete_dnssec_record_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/delete-dnssec-record',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_domain_redirect(
+        self,
+        delete_domain_redirect_request_content: DeleteDomainRedirectRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> DeleteDomainRedirectResponseContent:
+        """delete_domain_redirect
+
+        Removes redirect configuration for an owned domain from the redirector service. DNS records and zones are not modified.
+
+        :param delete_domain_redirect_request_content: (required)
+        :type delete_domain_redirect_request_content: DeleteDomainRedirectRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_domain_redirect_serialize(
+            delete_domain_redirect_request_content=delete_domain_redirect_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDomainRedirectResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_domain_redirect_with_http_info(
+        self,
+        delete_domain_redirect_request_content: DeleteDomainRedirectRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeleteDomainRedirectResponseContent]:
+        """delete_domain_redirect
+
+        Removes redirect configuration for an owned domain from the redirector service. DNS records and zones are not modified.
+
+        :param delete_domain_redirect_request_content: (required)
+        :type delete_domain_redirect_request_content: DeleteDomainRedirectRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_domain_redirect_serialize(
+            delete_domain_redirect_request_content=delete_domain_redirect_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDomainRedirectResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_domain_redirect_without_preload_content(
+        self,
+        delete_domain_redirect_request_content: DeleteDomainRedirectRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_domain_redirect
+
+        Removes redirect configuration for an owned domain from the redirector service. DNS records and zones are not modified.
+
+        :param delete_domain_redirect_request_content: (required)
+        :type delete_domain_redirect_request_content: DeleteDomainRedirectRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_domain_redirect_serialize(
+            delete_domain_redirect_request_content=delete_domain_redirect_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteDomainRedirectResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_domain_redirect_serialize(
+        self,
+        delete_domain_redirect_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if delete_domain_redirect_request_content is not None:
+            _body_params = delete_domain_redirect_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/delete-redirect',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_private_nameserver(
+        self,
+        delete_private_nameserver_request_content: DeletePrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> DeletePrivateNameserverResponseContent:
+        """delete_private_nameserver
+
+        Deletes a private/child nameserver glue host for an owned domain.
+
+        :param delete_private_nameserver_request_content: (required)
+        :type delete_private_nameserver_request_content: DeletePrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_private_nameserver_serialize(
+            delete_private_nameserver_request_content=delete_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeletePrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_private_nameserver_with_http_info(
+        self,
+        delete_private_nameserver_request_content: DeletePrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[DeletePrivateNameserverResponseContent]:
+        """delete_private_nameserver
+
+        Deletes a private/child nameserver glue host for an owned domain.
+
+        :param delete_private_nameserver_request_content: (required)
+        :type delete_private_nameserver_request_content: DeletePrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_private_nameserver_serialize(
+            delete_private_nameserver_request_content=delete_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeletePrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_private_nameserver_without_preload_content(
+        self,
+        delete_private_nameserver_request_content: DeletePrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_private_nameserver
+
+        Deletes a private/child nameserver glue host for an owned domain.
+
+        :param delete_private_nameserver_request_content: (required)
+        :type delete_private_nameserver_request_content: DeletePrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_private_nameserver_serialize(
+            delete_private_nameserver_request_content=delete_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeletePrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_private_nameserver_serialize(
+        self,
+        delete_private_nameserver_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if delete_private_nameserver_request_content is not None:
+            _body_params = delete_private_nameserver_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/delete-private-nameserver',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -947,6 +2459,304 @@ class DomainsApi:
 
 
     @validate_call
+    def get_domain_redirect_details(
+        self,
+        get_domain_redirect_details_request_content: GetDomainRedirectDetailsRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetDomainRedirectDetailsResponseContent:
+        """get_domain_redirect_details
+
+        Retrieves redirect configuration and DNS readiness flags for an owned domain.
+
+        :param get_domain_redirect_details_request_content: (required)
+        :type get_domain_redirect_details_request_content: GetDomainRedirectDetailsRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_domain_redirect_details_serialize(
+            get_domain_redirect_details_request_content=get_domain_redirect_details_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetDomainRedirectDetailsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_domain_redirect_details_with_http_info(
+        self,
+        get_domain_redirect_details_request_content: GetDomainRedirectDetailsRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetDomainRedirectDetailsResponseContent]:
+        """get_domain_redirect_details
+
+        Retrieves redirect configuration and DNS readiness flags for an owned domain.
+
+        :param get_domain_redirect_details_request_content: (required)
+        :type get_domain_redirect_details_request_content: GetDomainRedirectDetailsRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_domain_redirect_details_serialize(
+            get_domain_redirect_details_request_content=get_domain_redirect_details_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetDomainRedirectDetailsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_domain_redirect_details_without_preload_content(
+        self,
+        get_domain_redirect_details_request_content: GetDomainRedirectDetailsRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_domain_redirect_details
+
+        Retrieves redirect configuration and DNS readiness flags for an owned domain.
+
+        :param get_domain_redirect_details_request_content: (required)
+        :type get_domain_redirect_details_request_content: GetDomainRedirectDetailsRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_domain_redirect_details_serialize(
+            get_domain_redirect_details_request_content=get_domain_redirect_details_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetDomainRedirectDetailsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_domain_redirect_details_serialize(
+        self,
+        get_domain_redirect_details_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if get_domain_redirect_details_request_content is not None:
+            _body_params = get_domain_redirect_details_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/get-redirect-details',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def list_dnssec_records(
         self,
         list_dnssec_records_request_content: ListDnssecRecordsRequestContent,
@@ -1229,6 +3039,273 @@ class DomainsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/domain/list-dnssec-records',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def list_domain_redirects(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ListDomainRedirectsResponseContent:
+        """list_domain_redirects
+
+        Lists configured domain redirects for the authenticated client.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_domain_redirects_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListDomainRedirectsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_domain_redirects_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ListDomainRedirectsResponseContent]:
+        """list_domain_redirects
+
+        Lists configured domain redirects for the authenticated client.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_domain_redirects_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListDomainRedirectsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_domain_redirects_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """list_domain_redirects
+
+        Lists configured domain redirects for the authenticated client.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_domain_redirects_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListDomainRedirectsResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _list_domain_redirects_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/list-redirects',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1779,6 +3856,602 @@ class DomainsApi:
 
 
     @validate_call
+    def modify_private_nameserver(
+        self,
+        modify_private_nameserver_request_content: ModifyPrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ModifyPrivateNameserverResponseContent:
+        """modify_private_nameserver
+
+        Modifies a private/child nameserver. Provide at least one of new_nameserver or new_ip_address. Some registrars (COZA/COCCA) require new_ip_address and reject hostname changes.
+
+        :param modify_private_nameserver_request_content: (required)
+        :type modify_private_nameserver_request_content: ModifyPrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._modify_private_nameserver_serialize(
+            modify_private_nameserver_request_content=modify_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ModifyPrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def modify_private_nameserver_with_http_info(
+        self,
+        modify_private_nameserver_request_content: ModifyPrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ModifyPrivateNameserverResponseContent]:
+        """modify_private_nameserver
+
+        Modifies a private/child nameserver. Provide at least one of new_nameserver or new_ip_address. Some registrars (COZA/COCCA) require new_ip_address and reject hostname changes.
+
+        :param modify_private_nameserver_request_content: (required)
+        :type modify_private_nameserver_request_content: ModifyPrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._modify_private_nameserver_serialize(
+            modify_private_nameserver_request_content=modify_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ModifyPrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def modify_private_nameserver_without_preload_content(
+        self,
+        modify_private_nameserver_request_content: ModifyPrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """modify_private_nameserver
+
+        Modifies a private/child nameserver. Provide at least one of new_nameserver or new_ip_address. Some registrars (COZA/COCCA) require new_ip_address and reject hostname changes.
+
+        :param modify_private_nameserver_request_content: (required)
+        :type modify_private_nameserver_request_content: ModifyPrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._modify_private_nameserver_serialize(
+            modify_private_nameserver_request_content=modify_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ModifyPrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _modify_private_nameserver_serialize(
+        self,
+        modify_private_nameserver_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if modify_private_nameserver_request_content is not None:
+            _body_params = modify_private_nameserver_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/modify-private-nameserver',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def register_private_nameserver(
+        self,
+        register_private_nameserver_request_content: RegisterPrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RegisterPrivateNameserverResponseContent:
+        """register_private_nameserver
+
+        Registers a private/child nameserver (glue host) under an owned domain. Requires available_features.private_nameservers on get-domain. Distinct from update-nameservers.
+
+        :param register_private_nameserver_request_content: (required)
+        :type register_private_nameserver_request_content: RegisterPrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._register_private_nameserver_serialize(
+            register_private_nameserver_request_content=register_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "RegisterPrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def register_private_nameserver_with_http_info(
+        self,
+        register_private_nameserver_request_content: RegisterPrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[RegisterPrivateNameserverResponseContent]:
+        """register_private_nameserver
+
+        Registers a private/child nameserver (glue host) under an owned domain. Requires available_features.private_nameservers on get-domain. Distinct from update-nameservers.
+
+        :param register_private_nameserver_request_content: (required)
+        :type register_private_nameserver_request_content: RegisterPrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._register_private_nameserver_serialize(
+            register_private_nameserver_request_content=register_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "RegisterPrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def register_private_nameserver_without_preload_content(
+        self,
+        register_private_nameserver_request_content: RegisterPrivateNameserverRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """register_private_nameserver
+
+        Registers a private/child nameserver (glue host) under an owned domain. Requires available_features.private_nameservers on get-domain. Distinct from update-nameservers.
+
+        :param register_private_nameserver_request_content: (required)
+        :type register_private_nameserver_request_content: RegisterPrivateNameserverRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._register_private_nameserver_serialize(
+            register_private_nameserver_request_content=register_private_nameserver_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "RegisterPrivateNameserverResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _register_private_nameserver_serialize(
+        self,
+        register_private_nameserver_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if register_private_nameserver_request_content is not None:
+            _body_params = register_private_nameserver_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/register-private-nameserver',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def save_domain_required_data(
         self,
         save_domain_required_data_request_content: SaveDomainRequiredDataRequestContent,
@@ -2095,7 +4768,7 @@ class DomainsApi:
     ) -> SuggestDomainsResponseContent:
         """suggest_domains
 
-        Generates AI-powered domain name suggestions from a natural-language description. Returns suggested domains with availability status and pricing.
+        Use for domain name ideas from a description. For specific domains, use check_domain_availability.
 
         :param suggest_domains_request_content: (required)
         :type suggest_domains_request_content: SuggestDomainsRequestContent
@@ -2169,7 +4842,7 @@ class DomainsApi:
     ) -> ApiResponse[SuggestDomainsResponseContent]:
         """suggest_domains
 
-        Generates AI-powered domain name suggestions from a natural-language description. Returns suggested domains with availability status and pricing.
+        Use for domain name ideas from a description. For specific domains, use check_domain_availability.
 
         :param suggest_domains_request_content: (required)
         :type suggest_domains_request_content: SuggestDomainsRequestContent
@@ -2243,7 +4916,7 @@ class DomainsApi:
     ) -> RESTResponseType:
         """suggest_domains
 
-        Generates AI-powered domain name suggestions from a natural-language description. Returns suggested domains with availability status and pricing.
+        Use for domain name ideas from a description. For specific domains, use check_domain_availability.
 
         :param suggest_domains_request_content: (required)
         :type suggest_domains_request_content: SuggestDomainsRequestContent
@@ -2654,6 +5327,304 @@ class DomainsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/domain/update-domain-contacts',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_domain_lock_status(
+        self,
+        update_domain_lock_status_request_content: UpdateDomainLockStatusRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateDomainLockStatusResponseContent:
+        """update_domain_lock_status
+
+        Sets the registrar transfer lock for an owned domain. When the account has 2FA enabled, upstream may return 403 until two_fa_code (or two_fa_backup) is supplied.
+
+        :param update_domain_lock_status_request_content: (required)
+        :type update_domain_lock_status_request_content: UpdateDomainLockStatusRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_domain_lock_status_serialize(
+            update_domain_lock_status_request_content=update_domain_lock_status_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateDomainLockStatusResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def update_domain_lock_status_with_http_info(
+        self,
+        update_domain_lock_status_request_content: UpdateDomainLockStatusRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UpdateDomainLockStatusResponseContent]:
+        """update_domain_lock_status
+
+        Sets the registrar transfer lock for an owned domain. When the account has 2FA enabled, upstream may return 403 until two_fa_code (or two_fa_backup) is supplied.
+
+        :param update_domain_lock_status_request_content: (required)
+        :type update_domain_lock_status_request_content: UpdateDomainLockStatusRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_domain_lock_status_serialize(
+            update_domain_lock_status_request_content=update_domain_lock_status_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateDomainLockStatusResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_domain_lock_status_without_preload_content(
+        self,
+        update_domain_lock_status_request_content: UpdateDomainLockStatusRequestContent,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """update_domain_lock_status
+
+        Sets the registrar transfer lock for an owned domain. When the account has 2FA enabled, upstream may return 403 until two_fa_code (or two_fa_backup) is supplied.
+
+        :param update_domain_lock_status_request_content: (required)
+        :type update_domain_lock_status_request_content: UpdateDomainLockStatusRequestContent
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_domain_lock_status_serialize(
+            update_domain_lock_status_request_content=update_domain_lock_status_request_content,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UpdateDomainLockStatusResponseContent",
+            '400': "BadRequestErrorResponseContent",
+            '401': "UnauthorizedErrorResponseContent",
+            '403': "ForbiddenErrorResponseContent",
+            '404': "ResourceNotFoundErrorResponseContent",
+            '422': "ValidationErrorResponseContent",
+            '429': "TooManyRequestsErrorResponseContent",
+            '500': "InternalServiceErrorResponseContent",
+            '503': "ServiceUnavailableErrorResponseContent",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _update_domain_lock_status_serialize(
+        self,
+        update_domain_lock_status_request_content,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if update_domain_lock_status_request_content is not None:
+            _body_params = update_domain_lock_status_request_content
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/domain/update-lock-status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -28,12 +28,12 @@ class DnsZoneInfo(BaseModel):
     """
     A DNS zone owned by the authenticated client
     """ # noqa: E501
-    zone_id: Optional[StrictStr] = Field(default=None, description="DNS zone identifier")
-    domain_id: Optional[StrictStr] = Field(default=None, description="Domain service id when the zone is tied to a domain")
-    domain_name: Optional[StrictStr] = Field(default=None, description="Zone domain name (FQDN)")
-    hosting_id: Optional[StrictInt] = Field(default=None, description="Linked hosting service id; omitted when no hosting is linked")
+    zone_id: Optional[StrictStr] = Field(default=None, description="DNS Manager zone id (or DirectAdmin index id). Required for dns_manager record mutations and delete-zone. Often null on DirectAdmin — use domain_id (+ service_id from hosting_id) instead.")
+    domain_id: Optional[StrictStr] = Field(default=None, description="Domain id. Preferred identity when present; required for DirectAdmin get-zone/record/delete-zone when the row is a registered domain.")
+    domain_name: Optional[StrictStr] = Field(default=None, description="Zone domain name (FQDN). Send as domain_name on manage POSTs.")
+    hosting_id: Optional[StrictInt] = Field(default=None, description="Hosting service id. Pass as service_id on create-zone/delete-zone (and record mutations when needed) when domain_id is null, or to help DirectAdmin routing.")
     type: Optional[StrictInt] = Field(default=None, description="Zone type: 0=OTHER, 1=DOMAIN, 2=HOSTING, 3=ADDON")
-    type_key: Optional[StrictStr] = Field(default=None, description="Zone type key (e.g. other, domain, hosting, addon)")
+    type_key: Optional[StrictStr] = Field(default=None, description="Zone type key (e.g. other, domain, hosting, addon). Indicates which id fields are populated; does not change URLs.")
     package_name: Optional[StrictStr] = Field(default=None, description="Product or package name for the zone")
     has_hosting: Optional[DomainHostingLink] = None
     has_dns_manager_zone: StrictBool = Field(description="Whether a DNS Manager zone exists for this domain name")

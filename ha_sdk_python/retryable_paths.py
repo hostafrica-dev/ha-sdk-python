@@ -34,5 +34,7 @@ RETRYABLE_PATHS: FrozenSet[str] = frozenset({
     "/dns/list-zones",
     "/dns/list-create-candidates",
     "/dns/get-zone",
+    "/domain/list-redirects",
+    "/domain/get-redirect-details",
     "/domain/list-dnssec-records",
 })

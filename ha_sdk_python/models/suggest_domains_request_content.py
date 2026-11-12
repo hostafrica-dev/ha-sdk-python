@@ -27,7 +27,7 @@ class SuggestDomainsRequestContent(BaseModel):
     SuggestDomainsRequestContent
     """ # noqa: E501
     prompt: StrictStr = Field(description="Natural-language description of the business or idea, e.g. \"my coffee shop\"")
-    currency: Optional[StrictStr] = Field(default=None, description="Currency for pricing. Accepts ISO code, symbol, country name, or numeric ID. Defaults to ZAR.")
+    currency: Optional[StrictStr] = Field(default=None, description="Optional; default ZAR. Preferred: ZAR, USD, NGN, KES, GHS, EUR, EGP.")
     __properties: ClassVar[List[str]] = ["prompt", "currency"]
 
     model_config = ConfigDict(

@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**domain** | **str** | A single domain name to look up, e.g. \&quot;example.co.za\&quot;. Required unless domains is provided. | [optional] 
-**domains** | **str** | Comma-separated list of domain names for a batch check. Required unless domain is provided. | [optional] 
-**currency** | **str** | Currency for pricing. Accepts ISO code, symbol, country name, or numeric ID. Defaults to ZAR. | [optional] 
+**domain** | **str** | Optional single FQDN. Use instead of domains. | [optional] 
+**domains** | **str** | Optional comma-separated FQDNs (1–20). Use instead of domain. | [optional] 
+**currency** | **str** | Optional; default ZAR. Preferred: ZAR, USD, NGN, KES, GHS, EUR, EGP. | [optional] 
 
 ## Example
 
